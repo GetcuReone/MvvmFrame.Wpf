@@ -10,4 +10,7 @@ steps:
 
     cp '$(snk_file.secureFilePath)' '$(Build.Repository.LocalPath)/MvvmFrame.Wpf/MvvmFrame.Wpf'
     echo copied '$(snk_file.secureFilePath)' to '$(Build.Repository.LocalPath)\MvvmFrame.Wpf\MvvmFrame.Wpf'
+
+    cp '$(snk_file.secureFilePath)' '$(Build.Repository.LocalPath)/MvvmFrame.Wpf/MvvmFrame.Wpf.UnitTests'
+    echo copied '$(snk_file.secureFilePath)' to '$(Build.Repository.LocalPath)\MvvmFrame.Wpf\MvvmFrame.Wpf.UnitTests'
   displayName: 'Сopy file snk to projects'

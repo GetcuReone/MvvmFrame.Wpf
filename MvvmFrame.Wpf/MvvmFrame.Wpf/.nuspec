@@ -54,6 +54,7 @@
 
     <!-- A readme.txt to display when the package is installed -->
      <files>
-       <file src="bin\Release\MvvmFrame*" target="lib\net472" />
+       <file src="bin\Release\MvvmFrame.Wpf.dll" target="lib\net472" />
+       <file src="bin\Release\MvvmFrame.Wpf.xml" target="lib\net472" />
     </files> 
 </package>
