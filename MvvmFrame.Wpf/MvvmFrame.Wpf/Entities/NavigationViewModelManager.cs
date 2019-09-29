@@ -138,13 +138,54 @@ namespace MvvmFrame.Wpf.Entities
         public void Refresh() => _navigationService.Refresh();
 
         /// <summary>
-        /// 1 hour waiting for leaving of the view-model
+        /// 10 minutes wait for navigation view-model
+        /// </summary>
+        /// <typeparam name="TViewModel">Type view-model</typeparam>
+        /// <param name="viewModel">await view-model</param>
+        /// <returns></returns>
+        public ValueTask<bool> WaitNavigation<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
+            => WaitNavigation(viewModel, new TimeSpan(0, 10, 0));
+
+        /// <summary>
+        /// wait for navigation
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <param name="timeSpan">waiting time</param>
+        /// <returns></returns>
+        public async ValueTask<bool> WaitNavigation<TViewModel>(TViewModel viewModel, TimeSpan timeSpan) where TViewModel: ViewModelBase
+        {
+            bool isNavigated = false;
+            DateTime oparationDate = DateTime.Now;
+            NavigatedEventHandler hendleNavigated = (sender, e) =>
+            {
+                if (_navigationService.Content is Page page)
+                    if (page != null && page.DataContext is TViewModel viewModelCompare)
+                        isNavigated = viewModelCompare == viewModel;
+            };
+
+            _navigationService.Navigated += hendleNavigated;
+
+            while (DateTime.Now - oparationDate < timeSpan)
+            {
+                if (isNavigated)
+                    break;
+                await Task.Delay(100);
+            }
+
+            _navigationService.Navigated -= hendleNavigated;
+
+            return isNavigated;
+        }
+
+        /// <summary>
+        /// 10 minutes waiting for leaving of the view-model
         /// </summary>
         /// <typeparam name="TViewModel">Type view-model</typeparam>
         /// <param name="viewModel">await view-model</param>
         /// <returns></returns>
         public ValueTask<bool> WaitLeaveViewModelAsync<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
-            => WaitLeaveViewModelAsync(viewModel, new TimeSpan(1, 0, 0));
+            => WaitLeaveViewModelAsync(viewModel, new TimeSpan(0, 10, 0));
 
         /// <summary>
         /// Wait for leaving view-model. Will return the false if the model does not wait for the allotted time <paramref name="timeSpan"/>
@@ -176,6 +217,8 @@ namespace MvvmFrame.Wpf.Entities
                     break;
                 await Task.Delay(100);
             }
+
+            _navigationService.Navigating -= hendleLeave;
 
             return isLeave;
         }

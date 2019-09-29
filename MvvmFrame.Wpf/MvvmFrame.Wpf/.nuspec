@@ -26,7 +26,7 @@
         <!-- Any details about this particular release -->
         <releaseNotes>
           Changes:
-          - separated projects
+          - added waiting for page navigation
         </releaseNotes>
         <!-- 
             The description can be used in package manager UI. Note that the
