@@ -8,5 +8,7 @@
     public sealed class GivenAsync<TInput, TOutput> : AsyncBlockBase<TInput, TOutput>
     {
         internal GivenAsync() { }
+
+        internal override string NameBlock => "Given";
     }
 }

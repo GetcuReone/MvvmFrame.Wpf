@@ -1,4 +1,5 @@
 ﻿using MvvmFrame.Wpf.TestAdapter.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace MvvmFrame.Wpf.TestAdapter.Helpers
@@ -37,9 +38,13 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
                 {
                     BlockBase currentBlock = blocksStack.Pop();
 
+                    Console.WriteLine($"[{DateTime.Now}][{currentBlock.NameBlock}] start '{currentBlock.Discription}'");
+
                     param = currentBlock.IsAsync
                         ? await currentBlock.ExecuteAsync(param)
                         : currentBlock.Execute(param);
+
+                    Console.WriteLine($"[{DateTime.Now}][{currentBlock.NameBlock}] end '{currentBlock.Discription}'\n");
                 }
 
                 window.Close();

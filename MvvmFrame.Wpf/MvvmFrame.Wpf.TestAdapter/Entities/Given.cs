@@ -9,5 +9,7 @@
     public class Given<TInput, TOutput> : BlockBase<TInput, TOutput>
     {
         internal Given() { }
+
+        internal override string NameBlock => "Given";
     }
 }

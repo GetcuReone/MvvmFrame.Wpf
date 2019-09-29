@@ -7,6 +7,7 @@
     /// <typeparam name="TOutput"></typeparam>
     public class ThenAsync<TInput, TOutput> : AsyncBlockBase<TInput, TOutput>
     {
+        internal override string NameBlock => "Then";
         internal ThenAsync() { }
     }
 }

@@ -8,6 +8,7 @@ namespace MvvmFrame.Wpf.TestAdapter.Entities
     /// </summary>
     public abstract class BlockBase
     {
+        internal abstract string NameBlock { get; }
         internal BlockBase PreviousBlock { get; set; }
 
         /// <summary>

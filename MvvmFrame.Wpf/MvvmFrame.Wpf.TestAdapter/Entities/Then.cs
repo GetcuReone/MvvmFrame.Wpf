@@ -7,6 +7,8 @@
     /// <typeparam name="TOutput"></typeparam>
     public class Then<TInput, TOutput> : BlockBase<TInput, TOutput>
     {
+        internal override string NameBlock => "Then";
+
         internal Then() { }
     }
 }
