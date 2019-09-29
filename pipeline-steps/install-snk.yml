@@ -1,0 +1,13 @@
+steps:
+- task: DownloadSecureFile@1
+  displayName: 'Installing secure file'
+  name: 'snk_file'
+  inputs:
+    secureFile: 'GetcuReone.snk'
+
+- script: |
+    echo Install file $(snk_file.secureFilePath)
+
+    cp '$(snk_file.secureFilePath)' '$(Build.Repository.LocalPath)/MvvmFrame.Wpf/MvvmFrame.Wpf'
+    echo copied '$(snk_file.secureFilePath)' to '$(Build.Repository.LocalPath)\MvvmFrame.Wpf\MvvmFrame.Wpf'
+  displayName: 'Сopy file snk to projects'
