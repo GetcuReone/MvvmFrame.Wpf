@@ -51,7 +51,7 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: '8f2ada46-a80c-44b6-ab21-45b5fbae5c6d'
+    publishVstsFeed: 'd5079c70-9bc4-4da1-b3c9-feb9869dfc91'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push nuget.org'
