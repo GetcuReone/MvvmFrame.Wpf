@@ -27,6 +27,7 @@
         <releaseNotes>
           Changes:
           - added waiting for page navigation
+          - added method HasCurrentPageType
         </releaseNotes>
         <!-- 
             The description can be used in package manager UI. Note that the

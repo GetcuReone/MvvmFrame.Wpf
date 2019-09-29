@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
+using MvvmFrame.Wpf.UnitTests.Common;
 
 namespace MvvmFrame.Wpf.UnitTests.PageTests
 {
@@ -10,19 +9,18 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
     public class PageTests: FrameTestBase
     {
         [TestMethod]
-        [Description("[ui] Check navigation")]
-        public void TestMethod1()
+        [Description("[UI] Check navigation")]
+        [Timeout(Timeuot.Second.Ten)]
+        public void CheckNavigationTestCase()
         {
             Given("Initialize view-model", frame => ViewModelBase.CreateViewModel<PageViewModel>(frame))
-                .When("Navigating", viewModel =>
+                .WhenAsync("Navigating", async viewModel =>
                 {
                     ViewModelBase.Navigate<Page>(viewModel);
-                    return viewModel;
+                    await viewModel.NavigationManager.WaitNavigation(viewModel);
+                    return viewModel.NavigationManager;
                 })
-                .ThenAsync("Check navigation", async viewModel =>
-                {
-                    await Task.Delay(10_000);
-                })
+                .Then("Check navigation", nManager => Assert.IsTrue(nManager.HasCurrentPageType<Page>(), "type does not match"))
                 .Run();
         }
     }
