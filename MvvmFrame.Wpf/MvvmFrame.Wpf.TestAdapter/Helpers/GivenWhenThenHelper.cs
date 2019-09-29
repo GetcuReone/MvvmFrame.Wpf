@@ -47,7 +47,7 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
                     Console.WriteLine($"[{DateTime.Now}][{currentBlock.NameBlock}] end '{currentBlock.Discription}'\n");
                 }
 
-                window.Close();
+                window.Dispatcher.Invoke(window.Close);
             };
 
             window.ShowDialog();

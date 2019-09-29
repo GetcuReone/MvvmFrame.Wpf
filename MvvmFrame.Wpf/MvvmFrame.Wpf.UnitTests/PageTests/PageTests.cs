@@ -11,7 +11,7 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
         [TestMethod]
         [Description("[UI] Check navigation")]
         [Timeout(Timeuot.Second.Ten)]
-        public void CheckNavigationTestCase()
+        public void PageTests_CheckNavigationTestCase()
         {
             Given("Initialize view-model", frame => ViewModelBase.CreateViewModel<PageViewModel>(frame))
                 .WhenAsync("Navigating", async viewModel =>
