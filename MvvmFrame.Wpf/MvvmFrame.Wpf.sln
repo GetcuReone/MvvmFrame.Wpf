@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.UnitTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.TestWpf", "MvvmFrame.Wpf.TestWpf\MvvmFrame.Wpf.TestWpf.csproj", "{75B0337B-15A9-4139-AAC3-F8B09561107C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.TestAdapter", "MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj", "{29B7A4DB-786C-4BEF-8EE5-6ADD008C6846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{75B0337B-15A9-4139-AAC3-F8B09561107C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75B0337B-15A9-4139-AAC3-F8B09561107C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75B0337B-15A9-4139-AAC3-F8B09561107C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B7A4DB-786C-4BEF-8EE5-6ADD008C6846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B7A4DB-786C-4BEF-8EE5-6ADD008C6846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B7A4DB-786C-4BEF-8EE5-6ADD008C6846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B7A4DB-786C-4BEF-8EE5-6ADD008C6846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

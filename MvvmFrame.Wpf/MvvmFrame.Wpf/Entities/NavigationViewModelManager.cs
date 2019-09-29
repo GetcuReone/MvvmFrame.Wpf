@@ -146,7 +146,6 @@ namespace MvvmFrame.Wpf.Entities
         public ValueTask<bool> WaitLeaveViewModelAsync<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
             => WaitLeaveViewModelAsync(viewModel, new TimeSpan(1, 0, 0));
 
-
         /// <summary>
         /// Wait for leaving view-model. Will return the false if the model does not wait for the allotted time <paramref name="timeSpan"/>
         /// </summary>
