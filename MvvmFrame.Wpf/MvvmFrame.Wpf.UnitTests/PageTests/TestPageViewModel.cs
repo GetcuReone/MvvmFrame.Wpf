@@ -2,7 +2,7 @@
 
 namespace MvvmFrame.Wpf.UnitTests.PageTests
 {
-    public sealed class PageViewModel: ViewModelBase
+    public sealed class TestPageViewModel: ViewModelBase
     {
         public ButtonModel ButtonModel { get; set; }
     }

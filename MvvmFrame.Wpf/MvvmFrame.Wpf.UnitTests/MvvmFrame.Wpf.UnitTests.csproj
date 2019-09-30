@@ -64,10 +64,10 @@
     <Compile Include="Model\Entities\Facade.cs" />
     <Compile Include="Model\Entities\Model.cs" />
     <Compile Include="Model\ModelTests.cs" />
-    <Compile Include="PageTests\Page.xaml.cs">
-      <DependentUpon>Page.xaml</DependentUpon>
+    <Compile Include="PageTests\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageTests\PageViewModel.cs" />
+    <Compile Include="PageTests\TestPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PageTests\PageTests.cs" />
     <Compile Include="ViewModel\Entities\ViewModel.cs" />
@@ -102,7 +102,7 @@
     <None Include="GetcuReone.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PageTests\Page.xaml">
+    <Page Include="PageTests\TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

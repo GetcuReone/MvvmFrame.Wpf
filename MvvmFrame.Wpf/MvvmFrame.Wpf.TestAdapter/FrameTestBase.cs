@@ -12,6 +12,27 @@ namespace MvvmFrame.Wpf.TestAdapter
     [TestClass]
     public abstract class FrameTestBase
     {
+        private Frame _frame;
+
+        /// <summary>
+        /// Check the type of the current page and return
+        /// </summary>
+        /// <typeparam name="TPage"></typeparam>
+        /// <returns></returns>
+        protected TPage CheckTypeAndGetPage<TPage>() where TPage: Page
+        {
+            if (_frame?.NavigationService == null)
+                Assert.Fail("frame or frame.NavigationService should not be (maybe you did not use the block given)");
+            else if (!(_frame.NavigationService.Content is Page))
+                Assert.Fail("frame.NavigationService.Content not contains Page");
+            else if (_frame.NavigationService.Content is TPage page)
+                return page;
+
+            Assert.Fail("_frame.NavigationService.Content contains other page");
+            return null;
+
+        }
+
         /// <summary>
         /// Block given
         /// </summary>
@@ -23,7 +44,11 @@ namespace MvvmFrame.Wpf.TestAdapter
             return new Given<Frame, TResult>
             {
                 Discription = discription,
-                CodeBlock = givenBlock,
+                CodeBlock = frame => 
+                {
+                    _frame = frame;
+                    return givenBlock(frame);
+                },
             };
         }
 
@@ -40,6 +65,7 @@ namespace MvvmFrame.Wpf.TestAdapter
                 Discription = discription,
                 CodeBlock = frame => 
                 {
+                    _frame = frame;
                     givenBlock(frame);
                     return null;
                 },
@@ -57,7 +83,11 @@ namespace MvvmFrame.Wpf.TestAdapter
             return new GivenAsync<Frame, TResult>
             {
                 Discription = discription,
-                CodeBlock = givenBlock,
+                CodeBlock = frame => 
+                {
+                    _frame = frame;
+                    return givenBlock(frame);
+                },
             };
         }
 
@@ -74,6 +104,7 @@ namespace MvvmFrame.Wpf.TestAdapter
                 Discription = discription,
                 CodeBlock = async frame => 
                 {
+                    _frame = frame;
                     await givenBlock(frame);
                     return null;
                 },

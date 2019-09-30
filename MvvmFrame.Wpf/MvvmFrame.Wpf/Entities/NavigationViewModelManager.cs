@@ -138,14 +138,6 @@ namespace MvvmFrame.Wpf.Entities
         public void Refresh() => _navigationService.Refresh();
 
         /// <summary>
-        /// Does the current page type
-        /// </summary>
-        /// <typeparam name="TPage"></typeparam>
-        /// <returns></returns>
-        public bool HasCurrentPageType<TPage>() where TPage : Page, IPage
-            => _navigationService.Content is TPage;
-
-        /// <summary>
         /// 10 minutes wait for navigation view-model
         /// </summary>
         /// <typeparam name="TViewModel">Type view-model</typeparam>

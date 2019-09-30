@@ -13,14 +13,13 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
         [Timeout(Timeuot.Second.Ten)]
         public void PageTests_CheckNavigationTestCase()
         {
-            Given("Initialize view-model", frame => ViewModelBase.CreateViewModel<PageViewModel>(frame))
+            Given("Initialize view-model", frame => ViewModelBase.CreateViewModel<TestPageViewModel>(frame))
                 .WhenAsync("Navigating", async viewModel =>
                 {
-                    ViewModelBase.Navigate<Page>(viewModel);
+                    ViewModelBase.Navigate<TestPage>(viewModel);
                     await viewModel.NavigationManager.WaitNavigation(viewModel);
-                    return viewModel.NavigationManager;
                 })
-                .Then("Check navigation", nManager => Assert.IsTrue(nManager.HasCurrentPageType<Page>(), "type does not match"))
+                .Then("Check navigation", CheckTypeAndGetPage<TestPage>)
                 .Run();
         }
 

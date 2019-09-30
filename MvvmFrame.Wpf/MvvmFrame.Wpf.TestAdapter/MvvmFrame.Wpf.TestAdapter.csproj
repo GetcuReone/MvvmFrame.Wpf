@@ -61,6 +61,7 @@
     <Compile Include="Entities\ThenAsync.cs" />
     <Compile Include="Entities\WhenAsync.cs" />
     <Compile Include="FrameTestBase.cs" />
+    <Compile Include="Helpers\FrameworkElementHelper.cs" />
     <Compile Include="Helpers\GivenHelper.cs" />
     <Compile Include="Helpers\GivenWhenThenHelper.cs" />
     <Compile Include="Helpers\ThenHelper.cs" />
