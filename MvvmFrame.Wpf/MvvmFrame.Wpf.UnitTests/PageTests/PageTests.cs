@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Attributes;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.Common;
 
@@ -8,7 +9,7 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
     [TestClass]
     public class PageTests: FrameTestBase
     {
-        [TestMethod]
+        [CustomTestMethod]
         [Description("[UI] Check navigation")]
         [Timeout(Timeuot.Second.Ten)]
         public void PageTests_CheckNavigationTestCase()
@@ -22,6 +23,20 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
                 })
                 .Then("Check navigation", nManager => Assert.IsTrue(nManager.HasCurrentPageType<Page>(), "type does not match"))
                 .Run();
+        }
+
+        [TestMethod]
+        public void TestMethod()
+        {
+            TestWindow window = new TestWindow();
+
+            window.Loaded += async (sender, e) =>
+            {
+                await System.Threading.Tasks.Task.Delay(200);
+                window.Close();
+            };
+
+            window.ShowDialog();
         }
     }
 }
