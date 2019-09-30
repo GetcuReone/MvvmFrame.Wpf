@@ -1,15 +1,12 @@
 ﻿using System.Windows;
 
-namespace MvvmFrame.Wpf.TestAdapter
+namespace MvvmFrame.Wpf.UnitTests
 {
     /// <summary>
-    /// for internal use
+    /// Interaction logic for TestWindow.xaml
     /// </summary>
     public partial class TestWindow : Window
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public TestWindow()
         {
             InitializeComponent();

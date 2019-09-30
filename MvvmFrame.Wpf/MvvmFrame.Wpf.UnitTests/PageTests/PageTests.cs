@@ -20,21 +20,21 @@ namespace MvvmFrame.Wpf.UnitTests.PageTests
                     await viewModel.NavigationManager.WaitNavigation(viewModel);
                 })
                 .Then("Check navigation", CheckTypeAndGetPage<TestPage>)
-                .Run();
+                .Run<TestWindow>(window => window.mainFrame);
         }
 
-        [TestMethod]
-        public void PageTests_TestMethod()
-        {
-            TestWindow window = new TestWindow();
+        //[TestMethod]
+        //public void PageTests_TestMethod()
+        //{
+        //    TestWindow window = new TestWindow();
 
-            window.Loaded += async (sender, e) =>
-            {
-                await System.Threading.Tasks.Task.Delay(200);
-                window.Close();
-            };
+        //    window.Loaded += async (sender, e) =>
+        //    {
+        //        await System.Threading.Tasks.Task.Delay(200);
+        //        window.Close();
+        //    };
 
-            window.ShowDialog();
-        }
+        //    window.ShowDialog();
+        //}
     }
 }

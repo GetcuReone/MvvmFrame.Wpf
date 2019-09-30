@@ -1,9 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.TestAdapter.Entities;
+﻿using MvvmFrame.Wpf.TestAdapter.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.TestAdapter.Helpers
 {
@@ -12,9 +13,10 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
     /// </summary>
     public static class GivenWhenThenHelper
     {
-        private static async ValueTask RunCodeBlockAndCloseWindow(Stack<BlockBase> blocksStack, TestWindow window)
+        private static async ValueTask RunCodeBlockAndCloseWindow<TWindow>(Stack<BlockBase> blocksStack, TWindow window, Func<TWindow, Frame> getFrame)
+            where TWindow : Window, new()
         {
-            object param = window.mainFrame;
+            object param = getFrame(window);
 
             while (blocksStack.Count > 0)
             {
@@ -40,7 +42,9 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
         /// run given-block-then
         /// </summary>
         /// <param name="then"></param>
-        public static void Run(this BlockBase then)
+        /// <param name="getFrame"></param>
+        public static void Run<TWindow>(this BlockBase then, Func<TWindow, Frame> getFrame)
+            where TWindow: Window, new()
         {
             Stack<BlockBase> blocksStack = new Stack<BlockBase>();
             BlockBase block = then;
@@ -55,9 +59,9 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
                     block = block.PreviousBlock;
             }
 
-            TestWindow window = new TestWindow();
+            TWindow window = new TWindow();
 
-            window.Loaded += async (sender, e) => await RunCodeBlockAndCloseWindow(blocksStack, window);
+            window.Loaded += async (sender, e) => await RunCodeBlockAndCloseWindow(blocksStack, window, getFrame);
 
             window.ShowDialog();
         }
