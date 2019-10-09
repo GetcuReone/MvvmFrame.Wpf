@@ -68,7 +68,12 @@
       <DependentUpon>NavigationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation\NavigationTests.cs" />
+    <Compile Include="Navigation\NavigationTestsHelper.cs" />
     <Compile Include="Navigation\NavigationViewModel.cs" />
+    <Compile Include="Navigation\SecondPage.xaml.cs">
+      <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\SecondViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
@@ -105,6 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Navigation\NavigationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Navigation\SecondPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
