@@ -97,5 +97,37 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 .ThenAsync("Check load NavigationPage", async () => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(navigationViewModel))
                 .Run<TestWindow>(window => window.mainFrame);
         }
+
+        [Timeout(Timeuots.Second.Five)]
+        [Description("[ui][navigation] check method GoForward")]
+        [TestMethod]
+        public void GoForwardTestCase()
+        {
+            NavigationViewModel firstViewModel = null;
+            SecondViewModel secondViewModel = null;
+
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .And("Navigate NavigationPage", viewModel =>
+                {
+                    firstViewModel = viewModel;
+                    return ViewModelBase.Navigate<NavigationPage>(viewModel);
+                })
+                .And("Check success Navigate method for NavigationPage", nResult => nResult.HasSuccessAndGetViewModel())
+                .AndAsync("Check load NavigationPage", async viewModel => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, ViewModelBase>(viewModel))
+                .And("Navigate SecondPage", viewModel => viewModel.Navigate<SecondPage, SecondViewModel>())
+                .And("Check success Navigate method for SecondPage", nResult => nResult.HasSuccessAndGetViewModel())
+                .AndAsync("Check load SecondPage", async viewModel => 
+                {
+                    await WaitLoadPageAndCheckViewModelAsync<SecondPage, SecondViewModel>(viewModel);
+                    secondViewModel = viewModel;
+                })
+                .And("Check CanGoBack", () => Assert.IsTrue(secondViewModel.NavigationManager.CanGoBack, "CanGoBack must be true"))
+                .And("Execute GoBack", () => secondViewModel.NavigationManager.GoBack())
+                .AndAsync("Check load NavigationPage", async () => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(firstViewModel))
+                .And("Check CanGoForward", () => Assert.IsTrue(firstViewModel.NavigationManager.CanGoForward, "CanGoForward must be true"))
+                .When("Execute GoForward", () => secondViewModel.NavigationManager.GoForward())
+                .ThenAsync("Check load NavigationPage", async () => await WaitLoadPageAndCheckViewModelAsync<SecondPage, SecondViewModel>(secondViewModel))
+                .Run<TestWindow>(window => window.mainFrame);
+        }
     }
 }
