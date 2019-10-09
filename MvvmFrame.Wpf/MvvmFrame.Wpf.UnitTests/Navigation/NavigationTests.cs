@@ -98,7 +98,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 .Run<TestWindow>(window => window.mainFrame);
         }
 
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][navigation] check method GoForward")]
         [TestMethod]
         public void GoForwardTestCase()
