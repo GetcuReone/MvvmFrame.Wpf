@@ -1,12 +1,12 @@
 ﻿using MvvmFrame.Interfaces;
 using System.Windows.Controls;
 
-namespace MvvmFrame.Wpf.UnitTests.PageTests
+namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
     /// <summary>
-    /// Interaction logic for Page.xaml
+    /// Interaction logic for NavigationPage.xaml
     /// </summary>
-    public partial class TestPage : Page, IPage
+    public partial class NavigationPage : Page, IPage
     {
         public void InitializePageComponent<TViewModel>(TViewModel viewModel) where TViewModel : IViewModel
         {

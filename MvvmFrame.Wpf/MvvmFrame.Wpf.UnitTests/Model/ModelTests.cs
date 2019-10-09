@@ -16,7 +16,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
     {
         [TestMethod]
         [Description("[model] Check call method OnVerifyPropertyChange")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void OnVerifyPropertyChangeTestCase()
         {
             Model.OnVerifyPropertyChange();
@@ -26,7 +26,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] Check call method OnPropertyChanged")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void OnPropertyChangedTestCase()
         {
             Model.OnPropertyChanged();
@@ -36,7 +36,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] Check method GetModel")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetModelTestCase()
         {
             var result = Model.GetModel<Entities.Model>();
@@ -49,7 +49,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] Get model same type")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetModelSameTypeTestCase()
         {
             var result = Model.GetModel<ModelTest>();
@@ -65,7 +65,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property value")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueTestCase()
         {
             string prop = "Stone";
@@ -78,7 +78,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] check call method verification when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallVerificationTestCase()
         {
             string prop = "Stone";
@@ -90,7 +90,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] check call method PropertyChanged when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallOnPropertyChangedTestCase()
         {
             string prop = "Stone";
@@ -108,7 +108,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] check call method OnVerifyPropertyChange when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallOnVerifyPropertyChangeTestCase()
         {
             string prop = "Stone";
@@ -126,7 +126,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property invalid value for verificatio method")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueVerificationInvalidTestCase()
         {
             Model.Name = ViewModelTest.VerificationInvalid;
@@ -138,7 +138,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property invalid value for event")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueInvalidTestCase()
         {
             string prop = "Stone";
@@ -164,7 +164,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property without VerifyPropertyChange")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseVerifyPropertyChangeTestCase()
         {
             string prop = "Stone";
@@ -183,7 +183,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property without Verification")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseVerificationTestCase()
         {
             string prop = "Stone";
@@ -202,7 +202,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] set property use only OnPropertyChanged")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseOnlyOnPropertyChangedTestCase()
         {
             string prop = "Stone";
@@ -221,7 +221,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] check method BindModel")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void BindModelTestCase()
         {
             var result = new ModelTest();
@@ -239,7 +239,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[model] check method GetFacade")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetFacadeTestCase()
         {
             var result = Model.GetFacade2<Entities.Facade>();
@@ -252,7 +252,7 @@ namespace MvvmFrame.Wpf.UnitTests.Model
 
         [TestMethod]
         [Description("[negative][model] check method GetFacade")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetFacadeNegativeTestCase()
         {
             string errorMessage = $"the model should be tied to factory type {nameof(ViewModelBase)}";

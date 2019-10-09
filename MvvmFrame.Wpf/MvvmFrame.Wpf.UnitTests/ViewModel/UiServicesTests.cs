@@ -12,7 +12,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
     {
         [TestMethod]
         [Description("[view-model][service] Get view-model")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetViewModelTestCase()
         {
             var result = ViewModel.GetViewModel<ViewModelTest>();
@@ -25,7 +25,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] Create view-model")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_CreateViewModelTestCase()
         {
             var result1 = ViewModelBase.CreateViewModel<ViewModelTest>(new Frame());
@@ -39,7 +39,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] check method AddTransient")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_ContainsTestCase()
         {
             var frame = new Frame();
@@ -51,7 +51,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] check method AddTransient")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientTestCase()
         {
             var frame = new Frame();
@@ -65,7 +65,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] check method AddTransient tow services")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientTowServicesTestCase()
         {
             var frame = new Frame();
@@ -81,7 +81,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model][service] check method AddTransient. Add service already added previously")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientNegativeTestCase()
         {
             var frame = new Frame();
@@ -95,7 +95,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model][service] check method GetUiService. Return service does not exist")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetUiServiceNegativeTestCase()
         {
             var frame = new Frame();
@@ -107,7 +107,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] check method AddSingleton")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTestCase()
         {
             var frame = new Frame();
@@ -121,7 +121,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model][service] check method AddSingleton tow services")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTowServicesTestCase()
         {
             var frame = new Frame();
@@ -137,7 +137,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model][service] check method AddSingleton. Add service already added previously")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonNegativeTestCase()
         {
             var frame = new Frame();
@@ -151,7 +151,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model][service] check method AddTransient. Add service already added previously with AddSingleton")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
         {
             var frame = new Frame();
@@ -165,7 +165,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model][service] check method AddSingleton. Add service already added previously with AddTransient")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
         {
             var frame = new Frame();

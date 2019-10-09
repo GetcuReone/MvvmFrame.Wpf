@@ -1,6 +1,6 @@
 ﻿namespace MvvmFrame.Wpf.UnitTests.Common
 {
-    public static class Timeuot
+    public static class Timeuots
     {
         public static class Millisecond
         {
@@ -19,6 +19,7 @@
         {
             public const int One = 1_000;
             public const int Two = 2_000;
+            public const int Five = 5_000;
             public const int Ten = 10_000;
         }
     }

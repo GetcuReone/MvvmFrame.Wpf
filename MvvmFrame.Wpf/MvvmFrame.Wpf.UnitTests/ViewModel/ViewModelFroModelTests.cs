@@ -16,7 +16,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
     {
         [TestMethod]
         [Description("[view-model] Check call method OnVerifyPropertyChange")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void OnVerifyPropertyChangeTestCase()
         {
             ViewModel.OnVerifyPropertyChange();
@@ -26,7 +26,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] Check call method OnPropertyChanged")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void OnPropertyChangedTestCase()
         {
             ViewModel.OnPropertyChanged();
@@ -36,7 +36,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] Check method GetModel")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetModelTestCase()
         {
             var result = ViewModel.GetModel<ModelTest>();
@@ -49,7 +49,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] Check method GetViewModel")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetViewModelTestCase()
         {
             Entities.ViewModel result = ViewModel.GetViewModel<Entities.ViewModel>();
@@ -61,7 +61,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] Get view-model same type")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void GetViewModelSameTypeTestCase()
         {
             var result = ViewModel.GetViewModel<ViewModelTest>();
@@ -76,7 +76,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[negative][view-model] get exception when return view-model")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void ViewModelFroModelTests_GetViewModelNegative()
         {
             var expectedException = new ArgumentNullException("frame", "frame should not be null");
@@ -88,7 +88,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property value")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueTestCase()
         {
             string prop = "Stone";
@@ -101,7 +101,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] check call method verification when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallVerificationTestCase()
         {
             string prop = "Stone";
@@ -113,7 +113,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] check call method PropertyChanged when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallOnPropertyChangedTestCase()
         {
             string prop = "Stone";
@@ -131,7 +131,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] check call method OnVerifyPropertyChange when changing a property")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void CheckCallOnVerifyPropertyChangeTestCase()
         {
             string prop = "Stone";
@@ -149,7 +149,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property invalid value for verificatio method")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueVerificationInvalidTestCase()
         {
             ViewModel.Name = ViewModelTest.VerificationInvalid;
@@ -161,7 +161,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property invalid value for event")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueInvalidTestCase()
         {
             string prop = "Stone";
@@ -187,7 +187,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property without VerifyPropertyChange")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseVerifyPropertyChangeTestCase()
         {
             string prop = "Stone";
@@ -206,7 +206,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property without Verification")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseVerificationTestCase()
         {
             string prop = "Stone";
@@ -225,7 +225,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] set property use only OnPropertyChanged")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void SetPropertyValueUseOnlyOnPropertyChangedTestCase()
         {
             string prop = "Stone";
@@ -244,7 +244,7 @@ namespace MvvmFrame.Wpf.UnitTests.ViewModel
 
         [TestMethod]
         [Description("[view-model] check method BindModel")]
-        [Timeout(Timeuot.Second.Two)]
+        [Timeout(Timeuots.Second.Two)]
         public void BindModelTestCase()
         {
             var result = new ModelTest();
