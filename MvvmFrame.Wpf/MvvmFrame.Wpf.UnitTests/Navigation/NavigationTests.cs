@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Interfaces;
+using MvvmFrame.Wpf.Entities;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.Common;
@@ -22,23 +23,39 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             return viewModel;
         }
 
+        private ValueTask<TViewModel> WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>(NavigateResult<ViewModelBase> navigateResult)
+            where TPage : Page, IPage
+            where TViewModel : ViewModelBase
+        {
+            return WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>((TViewModel)navigateResult.HasSuccessAndGetViewModel());
+        }
+
         [Timeout(Timeuots.Second.Five)]
         [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
         public void NavigationStaticTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
-                .When("Navigate page", viewModel => ViewModelBase.Navigate<NavigationPage>(viewModel))
-                .Then("Navigate method worked", result => result.HasSuccessAndGetViewModel())
-                .AndAsync("Wait one secode", async viewModel =>
+                .And("Check navigation properties before navigate", viewModel => 
                 {
-                    await Task.Delay(Timeuots.Second.One);
+                    Assert.IsFalse(viewModel.IsNavigated, "IsNavigated must be false");
+                    Assert.IsFalse(viewModel.IsLoaded, "IsNavigated must be false");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(0, viewModel.MethodCallLog.Count, "call log must be is empty");
                     return viewModel;
                 })
-                .And("Chekc page and view-model", viewModel =>
+                .When("Navigate page", viewModel => ViewModelBase.Navigate<NavigationPage>(viewModel))
+                .Then("Navigate method worked", result => result.HasSuccessAndGetViewModel())
+                .AndAsync("Wait one secode", async viewModel => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>((NavigationViewModel)viewModel))
+                .And("Check navigation properties after navigate", viewModel => 
                 {
-                    var page = CheckTypeAndGetPage<NavigationPage>();
-                    Assert.AreEqual(viewModel, page.DataContext, "view-model must be DataContext");
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+
+                    Assert.AreEqual(2, viewModel.MethodCallLog.Count, "long call log should be 2");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
                 .Run<TestWindow>(window => window.mainFrame);
         }
@@ -50,22 +67,90 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
         {
             NavigationViewModel firstViewModel = null;
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .And("Check navigation properties before navigate", viewModel =>
+                {
+                    Assert.IsFalse(viewModel.IsNavigated, "IsNavigated must be false");
+                    Assert.IsFalse(viewModel.IsLoaded, "IsNavigated must be false");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(0, viewModel.MethodCallLog.Count, "call log must be is empty");
+                    return viewModel;
+                })
                 .When("Navigate page", viewModel => 
                 {
                     firstViewModel = viewModel;
                     return viewModel.Navigate<NavigationPage, NavigationViewModel>();
                 })
                 .Then("Navigate method worked", result => result.HasSuccessAndGetViewModel())
-                .AndAsync("Wait one secode", async viewModel =>
+                .AndAsync("Wait one secode", async viewModel => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>((NavigationViewModel)viewModel))
+                .And("Check navigation properties after navigate", viewModel =>
                 {
-                    await Task.Delay(Timeuots.Second.One);
-                    return viewModel;
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+
+                    Assert.AreEqual(2, viewModel.MethodCallLog.Count, "long call log should be 2");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
-                .And("Chekc page and view-model", viewModel =>
+                .Run<TestWindow>(window => window.mainFrame);
+        }
+
+        //[Timeout(Timeuots.Second.Five)]
+        [Description("[ui][navigation] navigate next page")]
+        [TestMethod]
+        public void LeaveTestCase()
+        {
+            NavigationViewModel firstViewModel = null;
+
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .And("First navigate", viewModel =>
                 {
-                    var page = CheckTypeAndGetPage<NavigationPage>();
-                    Assert.AreEqual(viewModel, page.DataContext, "view-model must be DataContext");
-                    Assert.AreNotEqual(firstViewModel, viewModel, "view-models must differ");
+                    firstViewModel = viewModel;
+                    return ViewModelBase.Navigate<NavigationPage>(viewModel);
+                })
+                .AndAsync("Wait load page", async nResult => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult))
+                .And("Init second view-model and check properties", viewModel => 
+                {
+                    var secondViewModel = viewModel.GetViewModel<NavigationViewModel>();
+
+                    // check first properties
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(2, viewModel.MethodCallLog.Count, "long call log should be 2");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
+
+                    // check second properties
+                    Assert.IsFalse(secondViewModel.IsNavigated, "second IsNavigated must be false");
+                    Assert.IsFalse(secondViewModel.IsLoaded, "second IsNavigated must be false");
+                    Assert.IsFalse(secondViewModel.IsLeaved, "second IsNavigated must be false");
+                    Assert.AreEqual(0, secondViewModel.MethodCallLog.Count, "second call log must be is empty");
+                    return secondViewModel;
+                })
+                .WhenAsync("Second navigate and wait load page", async viewModel => 
+                {
+                    NavigateResult<ViewModelBase> nResult = ViewModelBase.Navigate<NavigationPage>(viewModel);
+                    return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult);
+                })
+                .Then("Check properties after second navigate", viewModel => 
+                {
+                    // check first properties
+                    Assert.IsFalse(firstViewModel.IsNavigated, "IsNavigated must be false");
+                    Assert.IsFalse(firstViewModel.IsLoaded, "IsNavigated must be false");
+                    Assert.IsTrue(firstViewModel.IsLeaved, "IsNavigated must be true");
+                    Assert.AreEqual(3, firstViewModel.MethodCallLog.Count, "long call log should be 3");
+                    Assert.AreEqual("OnGoPageAsync", firstViewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", firstViewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnLeavePageAsync", firstViewModel.MethodCallLog[2], "3st must be called OnLeavePageAsync");
+
+                    // check second properties
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(2, viewModel.MethodCallLog.Count, "long call log should be 2");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
                 .Run<TestWindow>(window => window.mainFrame);
         }
