@@ -95,7 +95,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 .Run<TestWindow>(window => window.mainFrame);
         }
 
-        //[Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[ui][navigation] navigate next page")]
         [TestMethod]
         public void LeaveTestCase()
@@ -180,6 +180,18 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 })
                 .When("Execute GoBack", viewModel => viewModel.NavigationManager.GoBack())
                 .ThenAsync("Check load NavigationPage", async () => await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(navigationViewModel))
+                .And("Check properties", viewModel => 
+                {
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(5, viewModel.MethodCallLog.Count, "long call log should be 5");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnLeavePageAsync", viewModel.MethodCallLog[2], "3st must be called OnLeavePageAsync");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[3], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[4], "2st must be called OnLoadPageAsync");
+                })
                 .Run<TestWindow>(window => window.mainFrame);
         }
 
