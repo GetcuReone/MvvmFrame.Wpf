@@ -51,6 +51,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandPage.xaml.cs">
+      <DependentUpon>CommandPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\CommandViewModel.cs" />
+    <Compile Include="Commands\CommandTests.cs" />
     <Compile Include="Common\Asserts\AssertModel.cs" />
     <Compile Include="Common\Asserts\AssertUiService.cs" />
     <Compile Include="Common\Asserts\AssertViewModel.cs" />
@@ -60,6 +65,7 @@
     <Compile Include="Common\ModelTestBase.cs" />
     <Compile Include="Common\TestHelper.cs" />
     <Compile Include="Common\Timeuots.cs" />
+    <Compile Include="Common\UiTestBase.cs" />
     <Compile Include="Common\ViewModelTestBase.cs" />
     <Compile Include="Model\Entities\Facade.cs" />
     <Compile Include="Model\Entities\Model.cs" />
@@ -109,6 +115,10 @@
     <None Include="GetcuReone.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Commands\CommandPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Navigation\NavigationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
