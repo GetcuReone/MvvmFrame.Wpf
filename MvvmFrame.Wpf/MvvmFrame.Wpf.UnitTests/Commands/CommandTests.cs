@@ -29,5 +29,27 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
                 .RunWindow();
         }
+
+        [Timeout(Timeuots.Second.Five)]
+        [Description("[ui][command] run command")]
+        [TestMethod]
+        public void Command_RunFinishOperationTestCase()
+        {
+            bool finishComlited = false;
+
+            GivenInitViewModel()
+                .And("Init command", viewModel =>
+                {
+                    viewModel.Command = new Command(e =>
+                    {
+                        e.AddFinalOperation(() => finishComlited = true);
+                    });
+                    return viewModel;
+                })
+                .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
+                .When("Click button", page => page.btnCommand.OnClick())
+                .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
+                .RunWindow();
+        }
     }
 }
