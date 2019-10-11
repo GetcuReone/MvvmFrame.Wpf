@@ -270,6 +270,20 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 .Run<TestWindow>(window => window.mainFrame);
         }
 
-
+        [Timeout(Timeuots.Second.Five)]
+        [Description("[ui][navigation] check method WaitNavigation")]
+        [TestMethod]
+        public void WaitNavigationTestCase()
+        {
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .And("Navigate", viewModel => ViewModelBase.Navigate<NavigationPage>(viewModel).HasSuccessAndGetViewModel())
+                .WhenAsync("Wait navigation", async viewModel => await viewModel.NavigationManager.WaitNavigation(viewModel))
+                .Then("Check navigate", waitResult =>
+                {
+                    Assert.IsTrue(waitResult, "did not wait for navigation");
+                    CheckTypeAndGetPage<NavigationPage>();
+                })
+                .Run<TestWindow>(window => window.mainFrame);
+        }
     }
 }
