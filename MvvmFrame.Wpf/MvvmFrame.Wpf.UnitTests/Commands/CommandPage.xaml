@@ -18,6 +18,13 @@
                 HorizontalAlignment="Left"
                 Command="{Binding Command}"
                 Content="Command" />
+            <Button
+                x:Name="btnCommandParam"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding CommandWithParam}"
+                CommandParameter="{Binding}"
+                Content="Command with param" />
         </StackPanel>
     </Grid>
 </Page>
