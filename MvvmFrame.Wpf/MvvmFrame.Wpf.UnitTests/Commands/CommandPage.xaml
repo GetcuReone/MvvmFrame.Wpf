@@ -25,6 +25,19 @@
                 Command="{Binding CommandWithParam}"
                 CommandParameter="{Binding}"
                 Content="Command with param" />
+            <Button
+                x:Name="btnAsyncCommand"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding AsyncCommand}"
+                Content="Command" />
+            <Button
+                x:Name="btnAsyncCommandParam"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Command="{Binding AsyncCommandWithParam}"
+                CommandParameter="{Binding}"
+                Content="Command with param" />
         </StackPanel>
     </Grid>
 </Page>

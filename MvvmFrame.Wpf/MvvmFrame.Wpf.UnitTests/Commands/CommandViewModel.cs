@@ -7,5 +7,9 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         public Command Command { get; set; }
 
         public Command<CommandViewModel> CommandWithParam { get; set; }
+
+        public AsyncCommand AsyncCommand { get; set; }
+
+        public AsyncCommand<CommandViewModel> AsyncCommandWithParam { get; set; }
     }
 }

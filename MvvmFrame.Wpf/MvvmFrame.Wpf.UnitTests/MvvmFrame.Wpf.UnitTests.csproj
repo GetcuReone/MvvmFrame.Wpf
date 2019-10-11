@@ -54,6 +54,7 @@
     <Compile Include="Commands\CommandPage.xaml.cs">
       <DependentUpon>CommandPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\AsyncCommandTests.cs" />
     <Compile Include="Commands\CommandViewModel.cs" />
     <Compile Include="Commands\CommandTests.cs" />
     <Compile Include="Commands\FirstCanCommandTests.cs" />
