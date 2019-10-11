@@ -47,7 +47,7 @@
             <dependency id="System.Threading.Tasks.Extensions" version="4.5.3" />
             <dependency id="ComboPatterns" version="2.3.0" />
             <dependency id="PresentationFramework" version="4.6.0" />
-            <dependency id="MvvmFrame.root" version="4.0.0" />
+            <dependency id="MvvmFrame.root" version="4.1.0" />
         </dependencies>
     </metadata>
 

@@ -55,12 +55,6 @@ namespace MvvmFrame.Wpf
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// Whether the page is currently active on the frame
-        /// </summary>
-        public bool IsActive { get => _isActive; internal set => SetPropertyValue(ref _isActive, value); }
-        private bool _isActive;
-
         #region Inner methods
 
         internal ValueTask InnerOnLeavePageAsync(NavigatingEventArgs args) => OnLeavePageAsync(args);
@@ -105,12 +99,6 @@ namespace MvvmFrame.Wpf
         /// <param name="propertyName">property name</param>
         public virtual bool OnVerifyPropertyChange([CallerMemberName] string propertyName = "")
             => MvvmElementHelper.OnVerifyPropertyChange(this, (args) => VerifyPropertyChange?.Invoke(this, args), propertyName);
-
-        /// <summary>
-        /// Handler warnings
-        /// </summary>
-        /// <param name="getWarningMessageList"></param>
-        public void OnWarnings(List<Func<string>> getWarningMessageList) { }
 
         /// <summary>
         /// Hendler errors
