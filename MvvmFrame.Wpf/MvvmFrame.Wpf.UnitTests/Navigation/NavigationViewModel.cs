@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MvvmFrame.Wpf.EventArgs;
+using MvvmFrame.Wpf.Models;
 
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {

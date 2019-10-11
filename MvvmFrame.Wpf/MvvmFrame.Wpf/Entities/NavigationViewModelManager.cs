@@ -143,8 +143,8 @@ namespace MvvmFrame.Wpf.Entities
         /// <typeparam name="TViewModel">Type view-model</typeparam>
         /// <param name="viewModel">await view-model</param>
         /// <returns></returns>
-        public ValueTask<bool> WaitNavigation<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
-            => WaitNavigation(viewModel, new TimeSpan(0, 10, 0));
+        public ValueTask<bool> WaitNavigationAsync<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
+            => WaitNavigationAsync(viewModel, new TimeSpan(0, 10, 0));
 
         /// <summary>
         /// wait for navigation
@@ -153,7 +153,7 @@ namespace MvvmFrame.Wpf.Entities
         /// <param name="viewModel"></param>
         /// <param name="timeSpan">waiting time</param>
         /// <returns></returns>
-        public async ValueTask<bool> WaitNavigation<TViewModel>(TViewModel viewModel, TimeSpan timeSpan) where TViewModel: ViewModelBase
+        public async ValueTask<bool> WaitNavigationAsync<TViewModel>(TViewModel viewModel, TimeSpan timeSpan) where TViewModel: ViewModelBase
         {
             bool isNavigated = false;
             DateTime oparationDate = DateTime.Now;
@@ -241,6 +241,7 @@ namespace MvvmFrame.Wpf.Entities
         /// Handler changed proprty
         /// </summary>
         /// <param name="propertyName">property name</param>
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") 
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

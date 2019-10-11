@@ -273,15 +273,53 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
         [Timeout(Timeuots.Second.Five)]
         [Description("[ui][navigation] check method WaitNavigation")]
         [TestMethod]
-        public void WaitNavigationTestCase()
+        public void WaitNavigationAsyncTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
                 .And("Navigate", viewModel => ViewModelBase.Navigate<NavigationPage>(viewModel).HasSuccessAndGetViewModel())
-                .WhenAsync("Wait navigation", async viewModel => await viewModel.NavigationManager.WaitNavigation(viewModel))
+                .WhenAsync("Wait navigation", async viewModel => await viewModel.NavigationManager.WaitNavigationAsync(viewModel))
                 .Then("Check navigate", waitResult =>
                 {
                     Assert.IsTrue(waitResult, "did not wait for navigation");
                     CheckTypeAndGetPage<NavigationPage>();
+                })
+                .Run<TestWindow>(window => window.mainFrame);
+        }
+
+        [Timeout(Timeuots.Second.Ten)]
+        [Description("[ui][navigation] check method WaitNavigation")]
+        [TestMethod]
+        public void WaitLeaveViewModelAsyncTestCase()
+        {
+            NavigationViewModel navigationViewModel = null;
+
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .AndAsync("Navigate NavigationPage", async viewModel =>
+                {
+                    navigationViewModel = viewModel;
+                    var nResult = ViewModelBase.Navigate<NavigationPage>(viewModel);
+                    return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult);
+                })
+                .WhenAsync("Wait leave", async viewModel =>
+                {
+                    ValueTask<bool> task = viewModel.NavigationManager.WaitLeaveViewModelAsync(viewModel);
+
+                    var nResult = viewModel.Navigate<SecondPage, SecondViewModel>();
+                    nResult.HasSuccessAndGetViewModel();
+
+                    return await task;
+                })
+                .Then("Check properties", waitResult =>
+                {
+                    Assert.IsTrue(waitResult, "did not wait for leaving");
+
+                    Assert.IsFalse(navigationViewModel.IsNavigated, "IsNavigated must be false");
+                    Assert.IsFalse(navigationViewModel.IsLoaded, "IsNavigated must be false");
+                    Assert.IsTrue(navigationViewModel.IsLeaved, "IsNavigated must be true");
+                    Assert.AreEqual(3, navigationViewModel.MethodCallLog.Count, "long call log should be 3");
+                    Assert.AreEqual("OnGoPageAsync", navigationViewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", navigationViewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnLeavePageAsync", navigationViewModel.MethodCallLog[2], "3st must be called OnLeavePageAsync");
                 })
                 .Run<TestWindow>(window => window.mainFrame);
         }
