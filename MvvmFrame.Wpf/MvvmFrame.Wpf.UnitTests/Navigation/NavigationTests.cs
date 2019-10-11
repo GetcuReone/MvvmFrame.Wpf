@@ -30,7 +30,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             return WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>((TViewModel)navigateResult.HasSuccessAndGetViewModel());
         }
 
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
         public void NavigationStaticTestCase()
