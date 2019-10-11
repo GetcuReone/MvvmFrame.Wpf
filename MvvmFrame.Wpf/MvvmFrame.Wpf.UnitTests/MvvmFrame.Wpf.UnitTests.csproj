@@ -57,6 +57,7 @@
     <Compile Include="Commands\AsyncCommandTests.cs" />
     <Compile Include="Commands\CommandViewModel.cs" />
     <Compile Include="Commands\CommandTests.cs" />
+    <Compile Include="Commands\FirstCanAsyncCommandTests.cs" />
     <Compile Include="Commands\FirstCanCommandTests.cs" />
     <Compile Include="Common\Asserts\AssertModel.cs" />
     <Compile Include="Common\Asserts\AssertUiService.cs" />
