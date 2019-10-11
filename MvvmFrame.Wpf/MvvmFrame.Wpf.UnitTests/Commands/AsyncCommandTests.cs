@@ -174,7 +174,6 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     viewModel.AsyncCommandWithParam = new AsyncCommand<CommandViewModel>(async e =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
                         e.AddCompensation(() => 
                         {
