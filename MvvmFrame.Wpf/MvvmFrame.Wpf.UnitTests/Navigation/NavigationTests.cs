@@ -155,7 +155,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 .Run<TestWindow>(window => window.mainFrame);
         }
 
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][navigation] check method GoBack")]
         [TestMethod]
         public void GoBackTestCase()
@@ -239,5 +239,37 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 })
                 .Run<TestWindow>(window => window.mainFrame);
         }
+
+        [Timeout(Timeuots.Second.Ten)]
+        [Description("[ui][navigation] check method Refresh")]
+        [TestMethod]
+        public void RefreshTestCase()
+        {
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .AndAsync("Navigate", async viewModel =>
+                {
+                    var nResult = ViewModelBase.Navigate<NavigationPage>(viewModel);
+                    return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult);
+                })
+                .WhenAsync("Execute refresh", async viewModel =>
+                {
+                    viewModel.NavigationManager.Refresh();
+                    return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(viewModel);
+                })
+                .Then("Check properties", viewModel =>
+                {
+                    Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
+                    Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
+                    Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
+                    Assert.AreEqual(4, viewModel.MethodCallLog.Count, "long call log should be 4");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[2], "3st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[3], "4st must be called OnLoadPageAsync");
+                })
+                .Run<TestWindow>(window => window.mainFrame);
+        }
+
+
     }
 }
