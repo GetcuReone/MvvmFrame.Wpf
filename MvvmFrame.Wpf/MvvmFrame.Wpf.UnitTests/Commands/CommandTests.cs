@@ -51,5 +51,38 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
                 .RunWindow();
         }
+
+        [Timeout(Timeuots.Second.Five)]
+        [Description("[ui][command] run command")]
+        [TestMethod]
+        public void Command_RunCompensationOperationTestCase()
+        {
+            bool compensationComlited = false;
+            bool finishCommand = false;
+
+            GivenInitViewModel()
+                .And("Init command", viewModel =>
+                {
+                    viewModel.Command = new Command(e =>
+                    {
+                        e.AddCompensation(() => compensationComlited = true);
+                        e.Cancel();
+
+                        if (e.IsCancel)
+                            return;
+
+                        finishCommand = true;
+                    });
+                    return viewModel;
+                })
+                .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
+                .When("Click button", page => page.btnCommand.OnClick())
+                .Then("Check run command", () => 
+                {
+                    Assert.IsTrue(compensationComlited, "compensation operation not runed");
+                    Assert.IsFalse(finishCommand, "finishCommand is false");
+                })
+                .RunWindow();
+        }
     }
 }
