@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Example_MvvmFrame.Wpf.Pages;
+using Example_MvvmFrame.Wpf.ViewModels;
+using MvvmFrame.Wpf;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Example_MvvmFrame.Wpf
 {
@@ -23,6 +13,12 @@ namespace Example_MvvmFrame.Wpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            HomeViewModel homeViewModel = ViewModelBase.CreateViewModel<HomeViewModel>(mainFrame);
+            ViewModelBase.Navigate<HomePage>(homeViewModel);
         }
     }
 }

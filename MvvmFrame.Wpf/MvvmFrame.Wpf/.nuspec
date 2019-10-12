@@ -14,7 +14,7 @@
         <owners>GetcuReone</owners>
 
          <!-- Project URL provides a link for the gallery -->
-        <!--<projectUrl>https://github.com/GetcuReone/MvvmFrame.git</projectUrl>-->
+        <projectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</projectUrl>
 
          <!-- License information is displayed on the gallery -->
         <license type="expression">Apache-2.0</license>
@@ -47,7 +47,7 @@
             <dependency id="System.Threading.Tasks.Extensions" version="4.5.3" />
             <dependency id="ComboPatterns" version="2.3.0" />
             <dependency id="PresentationFramework" version="4.6.0" />
-            <dependency id="MvvmFrame.root" version="4.1.0" />
+            <dependency id="MvvmFrame.root" version="4.2.0" />
         </dependencies>
     </metadata>
 
