@@ -55,5 +55,10 @@ namespace MvvmFrame.Wpf.UnitTests.Common
             Assert.Fail($"object has a different type. expect '{typeof(TObj).FullName}'; fact '{obj.GetType().FullName}'");
             return default;
         }
+
+        public static void CheckBindViewModel(ViewModelBase first, ViewModelBase second)
+        {
+            Assert.AreEqual(first.NavigationManager, second.NavigationManager, "view-model tied to different navigation managers");
+        }
     }
 }
