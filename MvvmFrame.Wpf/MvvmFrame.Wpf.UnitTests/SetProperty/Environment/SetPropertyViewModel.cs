@@ -1,19 +1,14 @@
 ﻿using MvvmFrame.Entities;
 using MvvmFrame.EventArgs;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {
     public sealed class SetPropertyViewModel: ViewModelBase
     {
+        public ReadOnlyCollection<MvvmFrameErrorDetail> Details { get; private set; }
         public int OnVerificationCallCounter { get; set; } = 0;
         public int OnErrorsCallCounter { get; set; } = 0;
-        public int CreateObjectCallCounter { get; set; } = 0;
 
         public SetPropertyModel Model { get; private set; }
 
@@ -30,17 +25,24 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
         public override void OnVerification(MvvmElementPropertyVerifyChangeEventArgs e)
         {
             OnVerificationCallCounter++;
+
+            switch (e.PropertyName)
+            {
+                case nameof(TextTest):
+                    if (TextTest == "error")
+                        e.AddError(new MvvmFrameErrorDetail
+                        {
+                            Code = "InvalidData",
+                            Message = $"Property '{nameof(TextTest)}' dont have value '{TextTest}'",
+                        });
+                    break;
+            }
         }
 
         public override void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details)
         {
             OnErrorsCallCounter++;
-        }
-
-        public override TObj CreateObject<TParameters, TObj>(Func<TParameters, TObj> factoryFunc, TParameters parameters)
-        {
-            CreateObjectCallCounter++;
-            return base.CreateObject(factoryFunc, parameters);
+            Details = details;
         }
     }
 }

@@ -19,7 +19,7 @@
             </StackPanel>
             <StackPanel Margin="20" Orientation="Horizontal">
                 <TextBlock Text="view-model text: " />
-                <TextBox Text="{Binding TextTest}" />
+                <TextBox Name="tbViewModel" Text="{Binding TextTest, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </StackPanel>
     </Grid>
