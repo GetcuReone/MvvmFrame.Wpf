@@ -11,7 +11,7 @@ namespace MvvmFrame.Wpf.Helpers
     {
         public static bool OnVerifyPropertyChange(IModel element, Action<MvvmElementPropertyVerifyChangeEventArgs> onVerifyPropertyChange, string propertyName)
         {
-            var options = element.Options ?? ModelOptions.Default;
+            var options = element.ModelOptions ?? ModelOptions.Default;
             if (!options.UseVerifyPropertyChange)
                 return false;
 
@@ -19,7 +19,7 @@ namespace MvvmFrame.Wpf.Helpers
             onVerifyPropertyChange(args);
 
             if (!args.IsValid)
-                element.OnErrors(args._errorFuncs);
+                element.OnErrors(args.GetErrors());
 
             return args.IsValid;
         }
@@ -36,7 +36,7 @@ namespace MvvmFrame.Wpf.Helpers
             TProperty value,
             string propertyName)
         {
-            IModelOptions options = model.Options ?? ModelOptions.Default;
+            IModelOptions options = model.ModelOptions ?? ModelOptions.Default;
 
             if (options.UseOnlyOnPropertyChanged)
             {
@@ -53,13 +53,14 @@ namespace MvvmFrame.Wpf.Helpers
             TProperty oldValue = property;
             property = value;
 
-            if (options.UseVerification)
+            if (options.UseOnVerification)
             {
-                string errorMessage = model.Verification(propertyName);
-                if (!(string.IsNullOrEmpty(errorMessage) || string.IsNullOrWhiteSpace(errorMessage)))
+                var args = new MvvmElementPropertyVerifyChangeEventArgs(propertyName);
+                model.OnVerification(args);
+                if (!args.IsValid)
                 {
                     property = oldValue;
-                    model.OnErrors(new List<Func<string>> { () => errorMessage });
+                    model.OnErrors(args.GetErrors());
                     return false;
                 }
             }

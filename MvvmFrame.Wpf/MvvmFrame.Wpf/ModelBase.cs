@@ -1,11 +1,14 @@
 ﻿using ComboPatterns.AFAP;
 using ComboPatterns.Interfaces;
+using MvvmFrame.Entities;
+using MvvmFrame.EventArgs;
 using MvvmFrame.EventHandlers;
 using MvvmFrame.Interfaces;
 using MvvmFrame.Wpf.Helpers;
 using MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -25,7 +28,7 @@ namespace MvvmFrame.Wpf
         /// <summary>
         /// Model options
         /// </summary>
-        public IModelOptions Options { get; set; }
+        public IModelOptions ModelOptions { get; set; }
 
         /// <summary>
         /// Event virification <see cref="IModel"/>
@@ -73,13 +76,13 @@ namespace MvvmFrame.Wpf
         /// </summary>
         /// <typeparam name="TFacade">type of facade created</typeparam>
         /// <returns>facade <typeparamref name="TFacade"/></returns>
-        protected virtual TFacade GetFacade<TFacade>() where TFacade: FacadeBase, new()
-        {
-            if (_factory is ViewModelBase viewModel)
-                return viewModel.InnderGetFacade<TFacade>();
+        //protected virtual TFacade GetFacade<TFacade>() where TFacade: FacadeBase, new()
+        //{
+        //    if (_factory is ViewModelBase viewModel)
+        //        return viewModel.InnderGetFacade<TFacade>();
 
-            throw new ArgumentException($"the model should be tied to factory type {nameof(ViewModelBase)}");
-        }
+        //    throw new ArgumentException($"the model should be tied to factory type {nameof(ViewModelBase)}");
+        //}
 
         /// <summary>
         /// Set property value
@@ -104,7 +107,7 @@ namespace MvvmFrame.Wpf
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => GetModelStatic<TModel>(_factory, Options);
+        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => GetModelStatic<TModel>(_factory, ModelOptions);
 
         /// <summary>
         /// Bind model to the same factory and options
@@ -113,7 +116,7 @@ namespace MvvmFrame.Wpf
         /// <param name="model"></param>
         /// <returns></returns>
         public virtual void BindModel<TModel>(TModel model) where TModel : ModelBase
-            => BindModelStatic(model, _factory, Options, UiServices);
+            => BindModelStatic(model, _factory, ModelOptions, UiServices);
 
         /// <summary>
         /// Initialize model
@@ -126,7 +129,7 @@ namespace MvvmFrame.Wpf
             where TModel: ModelBase
         {
             model._factory = factory;
-            model.Options = options;
+            model.ModelOptions = options;
             model.UiServices = uiServices;
         }
 
@@ -148,7 +151,7 @@ namespace MvvmFrame.Wpf
 
                     if (model is ModelBase dest)
                     {
-                        dest.Options = options;
+                        dest.ModelOptions = options;
                         dest._factory = factory;
                         if (factory is ViewModelBase source)
                         {
@@ -162,5 +165,9 @@ namespace MvvmFrame.Wpf
                 }
                 , null);
         }
+
+        public virtual void OnVerification(MvvmElementPropertyVerifyChangeEventArgs e) { }
+
+        public virtual void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details) { }
     }
 }

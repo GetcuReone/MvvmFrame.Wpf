@@ -1,5 +1,7 @@
 ﻿using ComboPatterns.AFAP;
 using ComboPatterns.Interfaces;
+using MvvmFrame.Entities;
+using MvvmFrame.EventArgs;
 using MvvmFrame.EventHandlers;
 using MvvmFrame.Interfaces;
 using MvvmFrame.Wpf.Entities;
@@ -8,6 +10,7 @@ using MvvmFrame.Wpf.Helpers;
 using MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -19,7 +22,7 @@ namespace MvvmFrame.Wpf
     /// <summary>
     /// Base class for view-models
     /// </summary>
-    public abstract class ViewModelBase : FactoryBase, IViewModel, IDisposable
+    public abstract class ViewModelBase : IAbstractFactory, IViewModel, IDisposable
     {
         private  Frame _frame;
         private NavigationViewModelManager _navigationManager;
@@ -41,10 +44,11 @@ namespace MvvmFrame.Wpf
         /// UI services
         /// </summary>
         public IConfigUiServices UiServices { get; private set; }
+
         /// <summary>
         /// Model options
         /// </summary>
-        public IModelOptions Options { get; set; }
+        public IModelOptions ModelOptions { get; set; }
 
         /// <summary>
         /// Event virification <see cref="IModel"/>
@@ -61,6 +65,8 @@ namespace MvvmFrame.Wpf
         internal ValueTask InnerOnGoPageAsync(object navigateParam) => OnGoPageAsync(navigateParam);
         internal void InnerInitialaze() => Initialize();
         internal async void OnLoadPage(object sender, RoutedEventArgs args) => await OnLoadPageAsync();
+
+        //internal virtual TFacade InnderGetFacade<TFacade>() where TFacade : FacadeBase, new() => GetFacade<TFacade>();
 
         #endregion
 
@@ -126,14 +132,12 @@ namespace MvvmFrame.Wpf
         protected virtual bool SetPropertyValue<TProperty>(ref TProperty property, TProperty value, [CallerMemberName]string propertyName = "")
             => MvvmElementHelper.SetPropertyValue(this, ref property, value, propertyName);
 
-        internal virtual TFacade InnderGetFacade<TFacade>() where TFacade : FacadeBase, new() => GetFacade<TFacade>();
-
         /// <summary>
         /// Method creation model
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => ModelBase.GetModelStatic<TModel>(this, Options);
+        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => ModelBase.GetModelStatic<TModel>(this, ModelOptions);
 
         /// <summary>
         /// Method creation view-model
@@ -141,7 +145,7 @@ namespace MvvmFrame.Wpf
         /// <typeparam name="TViewModel"></typeparam>
         /// <returns></returns>
         public virtual TViewModel GetViewModel<TViewModel>() where TViewModel : IViewModel, new()
-            => GetViewModelStatic<TViewModel>(this, Options);
+            => GetViewModelStatic<TViewModel>(this, ModelOptions);
 
         /// <summary>
         /// Bind model to the same factory and options
@@ -150,7 +154,7 @@ namespace MvvmFrame.Wpf
         /// <param name="model"></param>
         /// <returns></returns>
         public virtual void BindModel<TModel>(TModel model) where TModel : ModelBase
-            => ModelBase.BindModelStatic(model, this, Options, UiServices);
+            => ModelBase.BindModelStatic(model, this, ModelOptions, UiServices);
 
         /// <summary>
         /// Property change verification method
@@ -193,7 +197,7 @@ namespace MvvmFrame.Wpf
                 (_) =>
                 {
                     var model = new TViewModel();
-                    model.Options = options;
+                    model.ModelOptions = options;
 
                     if (model is ViewModelBase dest)
                     {
@@ -233,7 +237,7 @@ namespace MvvmFrame.Wpf
             var viewModel = new TViewModel
             {
                 _frame = frame,
-                Options = options,
+                ModelOptions = options,
             };
 
             viewModel.NavigationManager = navigationManager ?? viewModel.CreateObject(f => new NavigationViewModelManager(f.NavigationService), frame);
@@ -263,6 +267,34 @@ namespace MvvmFrame.Wpf
         {
             NavigationManager.LinkRemove(this);
             NavigationManager.Dispose();
+        }
+
+        /// <summary>
+        /// Verification hendler
+        /// </summary>
+        /// <param name="e"></param>
+        public virtual void OnVerification(MvvmElementPropertyVerifyChangeEventArgs e) { }
+
+        /// <summary>
+        /// Hendler errors
+        /// </summary>
+        /// <param name="details"></param>
+        public virtual void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details) { }
+
+        /// <summary>
+        /// Create object method
+        /// </summary>
+        /// <typeparam name="TParameters"></typeparam>
+        /// <typeparam name="TObj"></typeparam>
+        /// <param name="factoryFunc"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public virtual TObj CreateObject<TParameters, TObj>(Func<TParameters, TObj> factoryFunc, TParameters parameters)
+        {
+            if (factoryFunc == null)
+                throw new ArgumentNullException(nameof(factoryFunc), $"{nameof(factoryFunc)} should not be null");
+
+            return factoryFunc(parameters);
         }
     }
 }

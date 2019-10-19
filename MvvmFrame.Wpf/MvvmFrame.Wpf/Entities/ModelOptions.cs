@@ -12,9 +12,9 @@ namespace MvvmFrame.Wpf.Entities
         /// </summary>
         public bool UseOnlyOnPropertyChanged { get; set; }
         /// <summary>
-        /// use <see cref="IModel.Verification(string)"/>
+        /// use <see cref="IModel.OnVerification(MvvmFrame.EventArgs.MvvmElementPropertyVerifyChangeEventArgs)"/>
         /// </summary>
-        public bool UseVerification { get; set; }
+        public bool UseOnVerification { get; set; }
         /// <summary>
         /// use <see cref="IModel.VerifyPropertyChange"/>
         /// </summary>
@@ -26,7 +26,7 @@ namespace MvvmFrame.Wpf.Entities
         public static readonly ModelOptions Default = new ModelOptions
         {
             UseOnlyOnPropertyChanged = false,
-            UseVerification = true,
+            UseOnVerification = true,
             UseVerifyPropertyChange = true,
         };
     }
