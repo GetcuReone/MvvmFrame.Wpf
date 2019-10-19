@@ -42,18 +42,6 @@ namespace MvvmFrame.Wpf
         #region Henders
 
         /// <summary>
-        /// Handler warnings
-        /// </summary>
-        /// <param name="getWarningMessageList"></param>
-        public void OnWarnings(List<Func<string>> getWarningMessageList) { }
-
-        /// <summary>
-        /// Hendler errors
-        /// </summary>
-        /// <param name="getErrorMessageList"></param>
-        public virtual void OnErrors(List<Func<string>> getErrorMessageList) { }
-
-        /// <summary>
         /// Hendler <see cref="INotifyPropertyChanged.PropertyChanged"/>
         /// </summary>
         /// <param name="propertyName">property name</param>
@@ -93,14 +81,9 @@ namespace MvvmFrame.Wpf
         /// <param name="propertyName">property name</param>
         /// <returns></returns>
         protected virtual bool SetPropertyValue<TProperty>(ref TProperty property, TProperty value, [CallerMemberName]string propertyName = "")
-            => MvvmElementHelper.SetPropertyValue(this, ref property, value, propertyName);
-
-        /// <summary>
-        /// Property change verification method
-        /// </summary>
-        /// <param name="propertyName">property name</param>
-        /// <returns></returns>
-        public virtual string Verification(string propertyName) => string.Empty;
+        {
+            return MvvmElementHelper.SetPropertyValue(this, ref property, value, propertyName);
+        }
 
         /// <summary>
         /// Method creation model
@@ -166,8 +149,16 @@ namespace MvvmFrame.Wpf
                 , null);
         }
 
+        /// <summary>
+        /// Verification hendler
+        /// </summary>
+        /// <param name="e"></param>
         public virtual void OnVerification(MvvmElementPropertyVerifyChangeEventArgs e) { }
 
+        /// <summary>
+        /// Error hendler
+        /// </summary>
+        /// <param name="details"></param>
         public virtual void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details) { }
     }
 }

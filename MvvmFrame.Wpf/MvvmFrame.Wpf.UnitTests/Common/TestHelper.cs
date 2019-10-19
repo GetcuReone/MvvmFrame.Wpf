@@ -46,5 +46,14 @@ namespace MvvmFrame.Wpf.UnitTests.Common
             Assert.AreEqual(expectedMessage, exception.Message, "Error messages different");
             return exception;
         }
+
+        public static TObj HasTypeAndGetValue<TObj>(this object obj)
+        {
+            if (obj is TObj obj1)
+                return obj1;
+
+            Assert.Fail($"object has a different type. expect '{typeof(TObj).FullName}'; fact '{obj.GetType().FullName}'");
+            return default;
+        }
     }
 }
