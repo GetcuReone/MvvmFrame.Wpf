@@ -35,7 +35,7 @@ namespace MvvmFrame.Wpf.UnitTests.Common
     {
         protected Given<Frame, TViewModel> GivenInitViewModel()
         {
-            return Given("Init view-model", frame => ViewModelBase.CreateViewModel<TViewModel>(frame));
+            return Given("Init view-model", frame => ViewModelBase.CreateViewModel<TViewModel>(frame, ModelOptions.Default));
         }
     }
 

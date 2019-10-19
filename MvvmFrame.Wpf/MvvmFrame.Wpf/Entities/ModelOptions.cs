@@ -21,9 +21,9 @@ namespace MvvmFrame.Wpf.Entities
         public bool UseVerifyPropertyChange { get; set; }
 
         /// <summary>
-        /// Default options for model
+        /// Default options for model (each time a new object is generated)
         /// </summary>
-        public static readonly ModelOptions Default = new ModelOptions
+        public static ModelOptions Default => new ModelOptions
         {
             UseOnlyOnPropertyChanged = false,
             UseOnVerification = true,
