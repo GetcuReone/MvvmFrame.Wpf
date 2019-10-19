@@ -15,16 +15,6 @@ namespace MvvmFrame.Wpf.UnitTests.Model
     //public sealed class ModelTests: ModelTestBase
     //{
     //    //[TestMethod]
-    //    //[Description("[model] Check call method OnVerifyPropertyChange")]
-    //    //[Timeout(Timeuots.Second.Two)]
-    //    //public void OnVerifyPropertyChangeTestCase()
-    //    //{
-    //    //    Model.OnVerifyPropertyChange();
-
-    //    //    AssertModel.AssertCallHandlers(Model, onVerifyPropertyChangeCallNumber: 1);
-    //    //}
-
-    //    //[TestMethod]
     //    //[Description("[model] Check call method OnPropertyChanged")]
     //    //[Timeout(Timeuots.Second.Two)]
     //    //public void OnPropertyChangedTestCase()

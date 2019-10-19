@@ -1,6 +1,7 @@
 ﻿using MvvmFrame.Entities;
 using MvvmFrame.EventArgs;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {
@@ -9,6 +10,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
         public ReadOnlyCollection<MvvmFrameErrorDetail> Details { get; private set; }
         public int OnVerificationCallCounter { get; set; } = 0;
         public int OnErrorsCallCounter { get; set; } = 0;
+        public int OnPropertyChangedCallCounter { get; private set; } = 0;
 
         public SetPropertyModel Model { get; private set; }
 
@@ -43,6 +45,12 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
         {
             OnErrorsCallCounter++;
             Details = details;
+        }
+
+        public override void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            OnPropertyChangedCallCounter++;
+            base.OnPropertyChanged(propertyName);
         }
     }
 }
