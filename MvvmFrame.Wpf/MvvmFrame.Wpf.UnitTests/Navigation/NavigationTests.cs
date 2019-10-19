@@ -323,5 +323,29 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                 })
                 .Run<TestWindow>(window => window.mainFrame);
         }
+
+        #region Initialize
+
+        [Timeout(Timeuots.Second.Five)]
+        [Description("[ui][navigation][view-model] check method Initialize")]
+        [TestMethod]
+        public void ViewModel_InitializeTestCase()
+        {
+            Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
+                .And("Check init method before navigate", viewModel =>
+                {
+                    Assert.AreEqual(0, viewModel.InitializeCallCounter, "method must be not called");
+                    return viewModel;
+                })
+                .WhenAsync("Navigate NavigationPage", async viewModel =>
+                {
+                    var nResult = ViewModelBase.Navigate<NavigationPage>(viewModel);
+                    return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult);
+                })
+                .Then("Check init method after navigate", viewModel => Assert.AreEqual(1, viewModel.InitializeCallCounter, "method must be called"))
+                .Run<TestWindow>(window => window.mainFrame);
+        }
+
+        #endregion
     }
 }

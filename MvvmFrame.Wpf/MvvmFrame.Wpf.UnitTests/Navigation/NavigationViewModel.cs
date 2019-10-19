@@ -13,6 +13,8 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
         public bool IsLoaded { get; private set; } = false;
         public bool IsNavigated { get; private set; } = false;
 
+        public int InitializeCallCounter { get; private set; } = 0;
+
         protected override ValueTask OnGoPageAsync(object navigateParam)
         {
             IsNavigated = true;
@@ -35,6 +37,12 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             IsLoaded = true;
             MethodCallLog.Add(nameof(OnLoadPageAsync));
             return base.OnLoadPageAsync();
+        }
+
+        protected override void Initialize()
+        {
+            InitializeCallCounter++;
+            base.Initialize();
         }
     }
 }

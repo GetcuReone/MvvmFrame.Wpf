@@ -12,7 +12,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check SetValueProperty for model")]
+        [Description("[ui][model] check SetValueProperty for model")]
         public void Model_SetValuePropertyTestCase()
         {
             string text = "Is model text";
@@ -33,7 +33,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check SetValueProperty for view-model")]
+        [Description("[ui][view-model] check SetValueProperty for view-model")]
         public void ViewModel_SetValuePropertyTestCase()
         {
             string text = "Is model text";
@@ -58,7 +58,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check method OnVerification for model")]
+        [Description("[ui][model] check method OnVerification for model")]
         public void Model_OnVerificationTestCase()
         {
             string text = "Is model text";
@@ -80,7 +80,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check method OnVerification for model with disable option")]
+        [Description("[ui][model] check method OnVerification for model with disable option")]
         public void Model_OnVerificationDisableTestCase()
         {
             string text = "Is model text";
@@ -104,7 +104,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check method OnVerification for model with error")]
+        [Description("[ui][model] check method OnVerification for model with error")]
         public void Model_OnVerificationErrorTestCase()
         {
             string text = "error";
@@ -131,7 +131,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check method OnVerification for view-model")]
+        [Description("[ui][view-model] check method OnVerification for view-model")]
         public void ViewModel_OnVerificationTestCase()
         {
             string text = "Is model text";
@@ -153,7 +153,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check method OnVerification for view-model with disable option")]
+        [Description("[ui][view-model] check method OnVerification for view-model with disable option")]
         public void ViewModel_OnVerificationDisableTestCase()
         {
             string text = "Is model text";
@@ -177,7 +177,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check method OnVerification for view-model with error")]
+        [Description("[ui][view-model] check method OnVerification for view-model with error")]
         public void ViewModel_OnVerificationErrorTestCase()
         {
             string text = "error";
@@ -208,7 +208,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check event VerifyPropertyChange for model")]
+        [Description("[ui][model] check event VerifyPropertyChange for model")]
         public void Model_VerifyPropertyChangeTestCase()
         {
             string text = "Is model text";
@@ -237,7 +237,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check event VerifyPropertyChange for model with disable option")]
+        [Description("[ui][model] check event VerifyPropertyChange for model with disable option")]
         public void Model_VerifyPropertyChangeDisableTestCase()
         {
             string text = "Is model text";
@@ -268,7 +268,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check event VerifyPropertyChange for model with error")]
+        [Description("[ui][model] check event VerifyPropertyChange for model with error")]
         public void Model_VerifyPropertyChangeErrorTestCase()
         {
             string text = "error";
@@ -300,7 +300,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check event VerifyPropertyChange for view-model")]
+        [Description("[ui][view-model] check event VerifyPropertyChange for view-model")]
         public void ViewModel_VerifyPropertyChangeTestCase()
         {
             string text = "Is model text";
@@ -329,7 +329,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check event VerifyPropertyChange for view-model with disable option")]
+        [Description("[ui][view-model] check event VerifyPropertyChange for view-model with disable option")]
         public void ViewModel_VerifyPropertyChangeDisableTestCase()
         {
             string text = "Is model text";
@@ -360,7 +360,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check event VerifyPropertyChange for view-model with error")]
+        [Description("[ui][view-model] check event VerifyPropertyChange for view-model with error")]
         public void ViewModel_VerifyPropertyChangeErrorTestCase()
         {
             string text = "error";
@@ -396,7 +396,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check OnPropertyChanged for model")]
+        [Description("[ui][model] check OnPropertyChanged for model")]
         public void Model_OnPropertyChangedTestCase()
         {
             string text = "Is model text";
@@ -418,7 +418,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check OnPropertyChanged for model with enabled option")]
+        [Description("[ui][model] check OnPropertyChanged for model with enabled option")]
         public void Model_OnPropertyChangedEnabledTestCase()
         {
             string text = "Is model text";
@@ -446,7 +446,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] check OnPropertyChanged for view-model")]
+        [Description("[ui][view-model] check OnPropertyChanged for view-model")]
         public void ViewModel_OnPropertyChangedTestCase()
         {
             string text = "Is model text";
@@ -468,7 +468,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
 
         [TestMethod]
         [Timeout(Timeuots.Second.Five)]
-        [Description("[model] check OnPropertyChanged for model with enabled option")]
+        [Description("[ui][model] check OnPropertyChanged for model with enabled option")]
         public void ViewModel_OnPropertyChangedEnabledTestCase()
         {
             string text = "Is model text";
