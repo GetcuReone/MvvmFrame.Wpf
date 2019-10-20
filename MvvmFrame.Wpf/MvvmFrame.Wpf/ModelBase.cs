@@ -19,7 +19,10 @@ namespace MvvmFrame.Wpf
     /// </summary>
     public abstract class ModelBase : IModel
     {
-        private IAbstractFactory _factory;
+        /// <summary>
+        /// Factory about which the model was created
+        /// </summary>
+        protected IAbstractFactory Factory { get; private set; }
 
         /// <summary>
         /// UI services
@@ -90,7 +93,7 @@ namespace MvvmFrame.Wpf
         /// </summary>
         /// <typeparam name="TModel"></typeparam>
         /// <returns></returns>
-        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => GetModelStatic<TModel>(_factory, ModelOptions);
+        public virtual TModel GetModel<TModel>() where TModel : IModel, new() => GetModelStatic<TModel>(Factory, ModelOptions);
 
         /// <summary>
         /// Bind model to the same factory and options
@@ -99,7 +102,7 @@ namespace MvvmFrame.Wpf
         /// <param name="model"></param>
         /// <returns></returns>
         public virtual void BindModel<TModel>(TModel model) where TModel : ModelBase
-            => BindModelStatic(model, _factory, ModelOptions, UiServices);
+            => BindModelStatic(model, Factory, ModelOptions, UiServices);
 
         /// <summary>
         /// Initialize model
@@ -111,7 +114,7 @@ namespace MvvmFrame.Wpf
         internal static void BindModelStatic<TModel>(TModel model, IAbstractFactory factory, IModelOptions options, IConfigUiServices uiServices)
             where TModel: ModelBase
         {
-            model._factory = factory;
+            model.Factory = factory;
             model.ModelOptions = options;
             model.UiServices = uiServices;
         }
@@ -135,7 +138,7 @@ namespace MvvmFrame.Wpf
                     if (model is ModelBase dest)
                     {
                         dest.ModelOptions = options;
-                        dest._factory = factory;
+                        dest.Factory = factory;
                         if (factory is ViewModelBase source)
                         {
                             dest.UiServices = source.UiServices;

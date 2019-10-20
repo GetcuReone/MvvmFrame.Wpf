@@ -38,10 +38,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GetcuReone.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -66,9 +67,6 @@
     <Compile Include="Common\Entities\UiServiceTest.cs" />
     <Compile Include="Common\Entities\ViewModelTest.cs" />
     <Compile Include="Common\ModelTestBase.cs" />
-    <Compile Include="Common\TestHelper.cs" />
-    <Compile Include="Common\Timeuots.cs" />
-    <Compile Include="Common\UiTestBase.cs" />
     <Compile Include="Common\ViewModelTestBase.cs" />
     <Compile Include="CreateObject\CreateObjectTestsHelper.cs" />
     <Compile Include="CreateObject\Environment\CreateObjectModel.cs" />
@@ -96,15 +94,10 @@
     </Compile>
     <Compile Include="SetProperty\Environment\SetPropertyViewModel.cs" />
     <Compile Include="SetProperty\SetPropertyTests.cs" />
-    <Compile Include="TestWindow.xaml.cs">
-      <DependentUpon>TestWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UiServices\Environment\UiService.cs" />
     <Compile Include="UiServices\Environment\UiServicesViewModel.cs" />
     <Compile Include="UiServices\UiServicesTests.cs" />
     <Compile Include="UiServices\UiServicesTestsHelper.cs" />
-    <Compile Include="ViewModel\Entities\ViewModel.cs" />
-    <Compile Include="ViewModel\UiServicesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ComboPatterns">
@@ -128,9 +121,10 @@
       <Project>{bb80e7ed-8a8c-4903-8631-9564f5df6599}</Project>
       <Name>MvvmFrame.Wpf</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GetcuReone.snk" />
+    <ProjectReference Include="..\Tests\MvvmFrame.Wpf.UnitTests.Common\MvvmFrame.Wpf.UnitTests.Common.csproj">
+      <Project>{ed8ac9b9-f984-4285-badc-5ea256ee1493}</Project>
+      <Name>MvvmFrame.Wpf.UnitTests.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Commands\CommandPage.xaml">
@@ -146,10 +140,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SetProperty\Environment\SetPropertyPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
