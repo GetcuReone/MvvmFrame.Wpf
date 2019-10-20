@@ -58,6 +58,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         public void Command_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
+            bool finishOperationCoplited = false;
             bool finishCommand = false;
 
             GivenInitViewModel()
@@ -66,6 +67,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     viewModel.Command = new Command(e =>
                     {
                         e.AddCompensation(() => compensationComlited = true);
+                        e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.Cancel();
 
                         if (e.IsCancel)
@@ -81,6 +83,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     Assert.IsTrue(compensationComlited, "compensation operation not runed");
                     Assert.IsFalse(finishCommand, "finishCommand is false");
+                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
                 .RunWindow();
         }
