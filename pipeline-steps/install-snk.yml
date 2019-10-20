@@ -8,6 +8,9 @@ steps:
 - script: |
     echo Install file $(snk_file.secureFilePath)
 
+    cp '$(snk_file.secureFilePath)' '$(Build.Repository.LocalPath)/MvvmFrame.Wpf/NugetProject'
+    echo copied '$(snk_file.secureFilePath)' to '$(Build.Repository.LocalPath)\MvvmFrame.Wpf\NugetProject'
+
     cp '$(snk_file.secureFilePath)' '$(Build.Repository.LocalPath)/MvvmFrame.Wpf/MvvmFrame.Wpf'
     echo copied '$(snk_file.secureFilePath)' to '$(Build.Repository.LocalPath)\MvvmFrame.Wpf\MvvmFrame.Wpf'
 

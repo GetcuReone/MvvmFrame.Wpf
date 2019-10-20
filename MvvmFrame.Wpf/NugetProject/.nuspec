@@ -25,7 +25,9 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <!-- Any details about this particular release -->
         <releaseNotes>
-          added waiting for page navigation
+          changes:
+          - changed the way property changes are handled
+          - final command operations now always fire
         </releaseNotes>
         <!-- 
             The description can be used in package manager UI. Note that the
@@ -53,7 +55,7 @@
 
     <!-- A readme.txt to display when the package is installed -->
      <files>
-       <file src="bin\Release\MvvmFrame.Wpf.dll" target="lib\net472" />
-       <file src="bin\Release\MvvmFrame.Wpf.xml" target="lib\net472" />
+       <file src="bin\Release\MvvmFrame.Wpf*.dll" target="lib\net472" />
+       <file src="bin\Release\MvvmFrame.Wpf*.xml" target="lib\net472" />
     </files> 
 </package>

@@ -42,7 +42,7 @@ steps:
   displayName: 'NuGet pack for .net framwork'
   inputs:
     command: 'pack'
-    packagesToPack: '**/MvvmFrame.Wpf/.nuspec'
+    packagesToPack: '**/NugetProject/.nuspec'
     versioningScheme: 'off'
 
 - task: NuGetCommand@2
@@ -53,11 +53,11 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: 'd5079c70-9bc4-4da1-b3c9-feb9869dfc91'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet push nuget.org'
-  inputs:
-    command: 'push'
-    feedsToUse: 'config'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'Nuget.org'
+# - task: NuGetCommand@2
+#   displayName: 'NuGet push nuget.org'
+#   inputs:
+#     command: 'push'
+#     feedsToUse: 'config'
+#     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+#     nuGetFeedType: 'external'
+#     publishFeedCredentials: 'Nuget.org'
