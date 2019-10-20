@@ -48,7 +48,7 @@ namespace MvvmFrame.Wpf.Commands
             if (currentArgs.IsCancel)
                 currentArgs.Compensate();
 
-                currentArgs.FinishOperations();
+            currentArgs.FinishOperations();
 
             currentArgs = null;
         }
@@ -105,7 +105,7 @@ namespace MvvmFrame.Wpf.Commands
             if (currentArgs.IsCancel)
                 currentArgs.Compensate();
 
-                currentArgs.FinishOperations();
+            currentArgs.FinishOperations();
 
             currentArgs = null;
         }

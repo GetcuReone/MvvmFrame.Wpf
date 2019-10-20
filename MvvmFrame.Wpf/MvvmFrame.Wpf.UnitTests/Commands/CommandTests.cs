@@ -141,6 +141,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         {
             bool compensationComlited = false;
             bool finishCommand = false;
+            bool finishOperationCoplited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -148,6 +149,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     viewModel.CommandWithParam = new Command<CommandViewModel>(e =>
                     {
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
+                        e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.AddCompensation(() => compensationComlited = true);
                         e.Cancel();
 
@@ -164,6 +166,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     Assert.IsTrue(compensationComlited, "compensation operation not runed");
                     Assert.IsFalse(finishCommand, "finishCommand is false");
+                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
                 .RunWindow();
         }
