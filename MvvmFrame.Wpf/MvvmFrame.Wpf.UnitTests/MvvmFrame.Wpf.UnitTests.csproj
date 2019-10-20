@@ -52,6 +52,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindModel\Env\BindModelModel.cs" />
+    <Compile Include="BindModel\Env\BindModelViewModel.cs" />
+    <Compile Include="BindModel\BindModelTests.cs" />
     <Compile Include="Commands\CommandPage.xaml.cs">
       <DependentUpon>CommandPage.xaml</DependentUpon>
     </Compile>
@@ -60,23 +63,12 @@
     <Compile Include="Commands\CommandTests.cs" />
     <Compile Include="Commands\FirstCanAsyncCommandTests.cs" />
     <Compile Include="Commands\FirstCanCommandTests.cs" />
-    <Compile Include="Common\Asserts\AssertModel.cs" />
-    <Compile Include="Common\Asserts\AssertUiService.cs" />
-    <Compile Include="Common\Asserts\AssertViewModel.cs" />
-    <Compile Include="Common\Entities\ModelTest.cs" />
-    <Compile Include="Common\Entities\UiServiceTest.cs" />
-    <Compile Include="Common\Entities\ViewModelTest.cs" />
-    <Compile Include="Common\ModelTestBase.cs" />
-    <Compile Include="Common\ViewModelTestBase.cs" />
     <Compile Include="CreateObject\CreateObjectTestsHelper.cs" />
     <Compile Include="CreateObject\Environment\CreateObjectModel.cs" />
     <Compile Include="CreateObject\Environment\CreateObjectViewModel.cs" />
     <Compile Include="CreateObject\CreateObjectTests.cs" />
     <Compile Include="CreateObject\Environment\TestModel.cs" />
     <Compile Include="CreateObject\Environment\TestViewModel.cs" />
-    <Compile Include="Model\Entities\Facade.cs" />
-    <Compile Include="Model\Entities\Model.cs" />
-    <Compile Include="Model\ModelTests.cs" />
     <Compile Include="Navigation\NavigationPage.xaml.cs">
       <DependentUpon>NavigationPage.xaml</DependentUpon>
     </Compile>

@@ -1,13 +1,10 @@
-﻿using ComboPatterns.AFAP;
-using ComboPatterns.Interfaces;
+﻿using ComboPatterns.Interfaces;
 using MvvmFrame.Entities;
 using MvvmFrame.EventArgs;
 using MvvmFrame.EventHandlers;
 using MvvmFrame.Interfaces;
 using MvvmFrame.Wpf.Helpers;
 using MvvmFrame.Wpf.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -61,19 +58,6 @@ namespace MvvmFrame.Wpf
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Facade creation method
-        /// </summary>
-        /// <typeparam name="TFacade">type of facade created</typeparam>
-        /// <returns>facade <typeparamref name="TFacade"/></returns>
-        //protected virtual TFacade GetFacade<TFacade>() where TFacade: FacadeBase, new()
-        //{
-        //    if (_factory is ViewModelBase viewModel)
-        //        return viewModel.InnderGetFacade<TFacade>();
-
-        //    throw new ArgumentException($"the model should be tied to factory type {nameof(ViewModelBase)}");
-        //}
 
         /// <summary>
         /// Set property value

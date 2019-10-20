@@ -1,5 +1,4 @@
-﻿using ComboPatterns.AFAP;
-using ComboPatterns.Interfaces;
+﻿using ComboPatterns.Interfaces;
 using MvvmFrame.Entities;
 using MvvmFrame.EventArgs;
 using MvvmFrame.EventHandlers;
@@ -155,13 +154,6 @@ namespace MvvmFrame.Wpf
         /// <returns></returns>
         public virtual void BindModel<TModel>(TModel model) where TModel : ModelBase
             => ModelBase.BindModelStatic(model, this, ModelOptions, UiServices);
-
-        /// <summary>
-        /// Property change verification method
-        /// </summary>
-        /// <param name="propertyName">property name</param>
-        /// <returns></returns>
-        public virtual string Verification(string propertyName) => string.Empty;
 
         /// <summary>
         /// Method page navigation
