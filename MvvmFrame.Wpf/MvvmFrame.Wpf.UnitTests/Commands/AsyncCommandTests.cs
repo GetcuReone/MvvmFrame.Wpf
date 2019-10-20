@@ -70,6 +70,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         {
             bool compensationComlited = false;
             bool finishCommand = false;
+            bool finishOperationCoplited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -77,6 +78,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     viewModel.AsyncCommand = new AsyncCommand(async e =>
                     {
                         await Task.Delay(Timeuots.Millisecond.Hundred);
+                        e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.AddCompensation(() => 
                         {
                             compensationComlited = true;
@@ -101,6 +103,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     Assert.IsTrue(compensationComlited, "compensation operation not runed");
                     Assert.IsFalse(finishCommand, "finishCommand is false");
+                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
                 .RunWindow();
         }
@@ -168,6 +171,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         {
             bool compensationComlited = false;
             bool finishCommand = false;
+            bool finishOperationCoplited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -175,6 +179,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     viewModel.AsyncCommandWithParam = new AsyncCommand<CommandViewModel>(async e =>
                     {
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
+                        e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.AddCompensation(() => 
                         {
                             compensationComlited = true;
@@ -199,6 +204,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     Assert.IsTrue(compensationComlited, "compensation operation not runed");
                     Assert.IsFalse(finishCommand, "finishCommand is false");
+                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
                 .RunWindow();
         }
