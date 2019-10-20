@@ -4,7 +4,7 @@
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>MvvmFrameWpf</id>
         <!-- The package version number that is used when resolving dependencies -->
-        <version>4.1.0</version>
+        <version>4.2.0</version>
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Getcu Reone</authors>
         <!-- 

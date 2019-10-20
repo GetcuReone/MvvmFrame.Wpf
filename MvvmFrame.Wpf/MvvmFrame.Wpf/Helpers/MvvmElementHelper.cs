@@ -35,6 +35,7 @@ namespace MvvmFrame.Wpf.Helpers
             ref TProperty property,
             TProperty value,
             string propertyName)
+        
         {
             IModelOptions options = model.ModelOptions ?? ModelOptions.Default;
 

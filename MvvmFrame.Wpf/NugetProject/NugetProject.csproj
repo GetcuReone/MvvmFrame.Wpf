@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>GetcuReone.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".nuspec" />
+    <None Include="GetcuReone.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmFrame.Wpf.AFAP\MvvmFrame.Wpf.AFAP.csproj">
