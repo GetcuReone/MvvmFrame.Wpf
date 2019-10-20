@@ -60,5 +60,12 @@ namespace MvvmFrame.Wpf.UnitTests.Common
         {
             Assert.AreEqual(first.NavigationManager, second.NavigationManager, "view-model tied to different navigation managers");
         }
+
+        public static TViewModel NotNull<TViewModel>(this TViewModel viewModel)
+            where TViewModel: ViewModelBase
+        {
+            Assert.IsNotNull(viewModel, "view-model cannot be null");
+            return viewModel;
+        }
     }
 }
