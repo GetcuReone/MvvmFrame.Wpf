@@ -66,8 +66,8 @@ namespace MvvmFrame.Wpf.Commands
                     await execute(currentArgs);
                     if (currentArgs.IsCancel)
                         await currentArgs.Compensate();
-                    else
-                        currentArgs.FinishOperations();
+
+                    currentArgs.FinishOperations();
                 }
                 finally
                 {
@@ -141,8 +141,8 @@ namespace MvvmFrame.Wpf.Commands
                     await execute(currentArgs);
                     if (currentArgs.IsCancel)
                         await currentArgs.Compensate();
-                    else
-                        currentArgs.FinishOperations();
+
+                    currentArgs.FinishOperations();
                 }
                 finally
                 {
