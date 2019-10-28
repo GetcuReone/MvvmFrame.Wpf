@@ -11,7 +11,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
         #region SetValueProperty 
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][model] check SetValueProperty for model")]
         public void Model_SetValuePropertyTestCase()
         {
