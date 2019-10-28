@@ -1,4 +1,6 @@
-﻿using MvvmFrame.Wpf.Commands;
+﻿using System.Threading.Tasks;
+using MvvmFrame.Wpf.Commands;
+using MvvmFrame.Wpf.EventArgs;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {
@@ -11,5 +13,25 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         public AsyncCommand AsyncCommand { get; set; }
 
         public AsyncCommand<CommandViewModel> AsyncCommandWithParam { get; set; }
+
+        protected override void Initialize()
+        {
+            
+        }
+
+        protected override ValueTask OnGoPageAsync(object navigateParam)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLeavePageAsync(NavigatingEventArgs args)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLoadPageAsync()
+        {
+            return default;
+        }
     }
 }

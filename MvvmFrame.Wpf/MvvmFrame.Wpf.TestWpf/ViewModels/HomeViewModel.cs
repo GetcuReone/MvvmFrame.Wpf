@@ -24,8 +24,6 @@ namespace MvvmFrame.Wpf.TestWpf.ViewModels
 
         protected override void Initialize()
         {
-            base.Initialize();
-
             GoBack_ButtonModel = GetModel<ButtonModel>();
             GoBack_ButtonModel.Command = new Command(GoBack);
 
@@ -73,17 +71,17 @@ namespace MvvmFrame.Wpf.TestWpf.ViewModels
 
         protected override ValueTask OnGoPageAsync(object navigateParam)
         {
-            return base.OnGoPageAsync(navigateParam);
+            return default;
         }
 
         protected override ValueTask OnLeavePageAsync(NavigatingEventArgs args)
         {
-            return base.OnLeavePageAsync(args);
+            return default;
         }
 
         protected override ValueTask OnLoadPageAsync()
         {
-            return base.OnLoadPageAsync();
+            return default;
         }
     }
 }

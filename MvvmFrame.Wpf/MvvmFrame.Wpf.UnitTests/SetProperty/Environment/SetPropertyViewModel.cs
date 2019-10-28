@@ -1,7 +1,9 @@
 ﻿using MvvmFrame.Entities;
 using MvvmFrame.EventArgs;
+using MvvmFrame.Wpf.EventArgs;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {
@@ -19,9 +21,22 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 
         protected override void Initialize()
         {
-            base.Initialize();
-
             Model = GetModel<SetPropertyModel>();
+        }
+
+        protected override ValueTask OnGoPageAsync(object navigateParam)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLeavePageAsync(NavigatingEventArgs args)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLoadPageAsync()
+        {
+            return default;
         }
 
         public override void OnVerification(MvvmElementPropertyVerifyChangeEventArgs e)

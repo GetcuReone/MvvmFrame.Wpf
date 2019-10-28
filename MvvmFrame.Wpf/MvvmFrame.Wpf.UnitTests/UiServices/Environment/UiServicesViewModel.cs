@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvvmFrame.Wpf.EventArgs;
+using System;
+using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices.Environment
 {
@@ -10,6 +12,26 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices.Environment
         {
             CreateObjectCallCounter++;
             return base.CreateObject(factoryFunc, parameters);
+        }
+
+        protected override void Initialize()
+        {
+
+        }
+
+        protected override ValueTask OnGoPageAsync(object navigateParam)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLeavePageAsync(NavigatingEventArgs args)
+        {
+            return default;
+        }
+
+        protected override ValueTask OnLoadPageAsync()
+        {
+            return default;
         }
     }
 }

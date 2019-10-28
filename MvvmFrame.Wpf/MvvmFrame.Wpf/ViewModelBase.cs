@@ -23,7 +23,6 @@ namespace MvvmFrame.Wpf
     /// </summary>
     public abstract class ViewModelBase : IAbstractFactory, IViewModel, IDisposable
     {
-        private  Frame _frame;
         private NavigationViewModelManager _navigationManager;
 
         /// <summary>
@@ -75,21 +74,21 @@ namespace MvvmFrame.Wpf
         /// Сalled after asynchronous page loading
         /// </summary>
         /// <returns></returns>
-        protected virtual ValueTask OnLoadPageAsync() => default;
+        protected abstract ValueTask OnLoadPageAsync();
 
         /// <summary>
         /// Сalled after asynchronous page leaving
         /// </summary>
         /// <param name="args">navigating event args</param>
         /// <returns></returns>
-        protected virtual ValueTask OnLeavePageAsync(NavigatingEventArgs args) => default;
+        protected abstract ValueTask OnLeavePageAsync(NavigatingEventArgs args);
 
         /// <summary>
         /// Сalled after asynchronous page going
         /// </summary>
         /// <param name="navigateParam">navigation parametrs</param>
         /// <returns></returns>
-        protected virtual ValueTask OnGoPageAsync(object navigateParam) => default;
+        protected abstract ValueTask OnGoPageAsync(object navigateParam);
 
         /// <summary>
         /// Hendler <see cref="INotifyPropertyChanged.PropertyChanged"/>
@@ -118,7 +117,7 @@ namespace MvvmFrame.Wpf
         /// <summary>
         /// Initialize view-model
         /// </summary>
-        protected virtual void Initialize() { }
+        protected abstract void Initialize();
 
         /// <summary>
         /// Set property value
@@ -195,7 +194,6 @@ namespace MvvmFrame.Wpf
                     {
                         if (factory is ViewModelBase source)
                         {
-                            dest._frame = source._frame;
                             dest.NavigationManager = source.NavigationManager;
                             dest.NavigationManager.LinkAdd(dest);
                             dest.UiServices = source.UiServices;
@@ -228,7 +226,6 @@ namespace MvvmFrame.Wpf
 
             var viewModel = new TViewModel
             {
-                _frame = frame,
                 ModelOptions = options,
             };
 

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MvvmFrame.Wpf.EventArgs;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using MvvmFrame.Wpf.EventArgs;
-using MvvmFrame.Wpf.Models;
 
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
@@ -20,7 +19,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             IsNavigated = true;
             IsLeaved = false;
             MethodCallLog.Add(nameof(OnGoPageAsync));
-            return base.OnGoPageAsync(navigateParam);
+            return default;
         }
 
         protected override ValueTask OnLeavePageAsync(NavigatingEventArgs args)
@@ -29,20 +28,19 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             IsNavigated = false;
             IsLoaded = false;
             MethodCallLog.Add(nameof(OnLeavePageAsync));
-            return base.OnLeavePageAsync(args);
+            return default;
         }
 
         protected override ValueTask OnLoadPageAsync()
         {
             IsLoaded = true;
             MethodCallLog.Add(nameof(OnLoadPageAsync));
-            return base.OnLoadPageAsync();
+            return default;
         }
 
         protected override void Initialize()
         {
             InitializeCallCounter++;
-            base.Initialize();
         }
     }
 }
