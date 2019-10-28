@@ -26,7 +26,7 @@
         <!-- Any details about this particular release -->
         <releaseNotes>
           changes:
-          - fix
+          - fix GetFacade and GetAdapter
         </releaseNotes>
         <!-- 
             The description can be used in package manager UI. Note that the
