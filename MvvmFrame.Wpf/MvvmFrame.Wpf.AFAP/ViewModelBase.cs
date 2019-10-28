@@ -16,7 +16,7 @@ namespace MvvmFrame.Wpf.AFAP
         public virtual TFacade GetFacade<TFacade>()
             where TFacade : IFacade, new()
         {
-            return CreateObject<object, TFacade>(_ => FacadeBase.GetFacadeStatic<TFacade>(this), null);
+            return FacadeBase.GetFacadeStatic<TFacade>(this);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace MvvmFrame.Wpf.AFAP
         public virtual TAdapter GetAdapter<TAdapter>()
             where TAdapter : IAdapter, new()
         {
-            return CreateObject<object, TAdapter>(_ => AdapterBase.GetAdapterStatic<TAdapter>(this), null);
+            return AdapterBase.GetAdapterStatic<TAdapter>(this);
         }
     }
 }
