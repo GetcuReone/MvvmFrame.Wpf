@@ -8,7 +8,6 @@ using MvvmFrame.Wpf.EventArgs;
 using MvvmFrame.Wpf.Helpers;
 using MvvmFrame.Wpf.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -103,12 +102,6 @@ namespace MvvmFrame.Wpf
         /// <param name="propertyName">property name</param>
         public virtual bool OnVerifyPropertyChange([CallerMemberName] string propertyName = "")
             => MvvmElementHelper.OnVerifyPropertyChange(this, (args) => VerifyPropertyChange?.Invoke(this, args), propertyName);
-
-        /// <summary>
-        /// Hendler errors
-        /// </summary>
-        /// <param name="getErrorMessageList"></param>
-        public virtual void OnErrors(List<Func<string>> getErrorMessageList) { }
 
         #endregion
 
