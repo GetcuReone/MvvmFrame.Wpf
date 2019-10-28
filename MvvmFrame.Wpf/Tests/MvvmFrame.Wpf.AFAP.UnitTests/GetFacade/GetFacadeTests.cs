@@ -43,5 +43,19 @@ namespace MvvmFrame.Wpf.AFAP.UnitTests.GetFacade
             TestHelper.AssertCounter(1, model.GetFacadeCallCounter, nameof(GetFacadeModel.GetFacade));
             Assert.IsNotNull(facade, "facade cannot be null");
         }
+
+        [TestMethod]
+        [Description("check re calling 'GetFacade' for model")]
+        [Timeout(Timeuots.Second.One)]
+        public void ReGetFacadeTestCase()
+        {
+            var firstFacade = ViewModel.GetFacade<Facade>();
+            var secondFacade = firstFacade.GetFacade<Facade>();
+
+            ViewModel.CheckCreateObject(4);
+            Assert.IsNotNull(firstFacade, "firstFacade cannot be null");
+            Assert.IsNotNull(secondFacade, "secondFacade cannot be null");
+            Assert.AreNotEqual(firstFacade, secondFacade, "adapters must different");
+        }
     }
 }
