@@ -1,4 +1,5 @@
-﻿using ComboPatterns.Interfaces;
+﻿using ComboPatterns.AFAP;
+using ComboPatterns.Interfaces;
 
 namespace MvvmFrame.Wpf.AFAP
 {
@@ -15,7 +16,7 @@ namespace MvvmFrame.Wpf.AFAP
         public virtual TFacade GetFacade<TFacade>()
             where TFacade : IFacade, new()
         {
-            return Factory.CreateObject<object, TFacade>(_ => new TFacade(), null);
+            return FacadeBase.GetFacadeStatic<TFacade>(Factory);
         }
 
         /// <summary>
@@ -26,7 +27,7 @@ namespace MvvmFrame.Wpf.AFAP
         public virtual TAdapter GetAdapter<TAdapter>()
             where TAdapter : IAdapter, new()
         {
-            return Factory.CreateObject<object, TAdapter>(_ => new TAdapter(), null);
+            return AdapterBase.GetAdapterStatic<TAdapter>(Factory);
         }
     }
 }
