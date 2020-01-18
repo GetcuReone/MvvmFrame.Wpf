@@ -38,11 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\MvvmFrame.Wpf.TestAdapter.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup>
     <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
     <AssemblyOriginatorKeyFile>GetcuReone.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
