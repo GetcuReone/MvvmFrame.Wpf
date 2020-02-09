@@ -18,7 +18,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         public void Initialize()
         {
             var app = new Application();
-            app.Dispatcher.Invoke(() => _frame = new Frame());
+            Application.Current.Dispatcher.Invoke(() => _frame = new Frame());
 
             ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
                 .CheckCreateObject(2);
