@@ -14,35 +14,15 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
         /// <param name="maxWaitTime"></param>
         public static void RunActinInSTAThread(Action threadStart, int maxWaitTime)
         {
-            bool finished = false;
-
             var thread = new Thread(() =>
             {
                 threadStart();
-                finished = true;
             });
 
             thread.SetApartmentState(ApartmentState.STA);
 
-            var stopwatch = new Stopwatch();
-            maxWaitTime += 100;
-            stopwatch.Start();
             thread.Start();
-
-            while (true)
-            {
-                if (finished)
-                    break;
-                else if (maxWaitTime <= stopwatch.ElapsedMilliseconds)
-                {
-                    stopwatch.Stop();
-                    Assert.Fail("Thread timed out");
-                    break;
-                }
-                Thread.Sleep(100);
-            }
-
-            thread.Abort();
+            thread.Join(maxWaitTime);
         }
     }
 }
