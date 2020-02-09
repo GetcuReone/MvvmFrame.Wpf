@@ -11,19 +11,18 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.UiServices
 {
     [TestClass]
-    public sealed class UiServicesTests : ApplicationTestBase<Application>
+    public sealed class UiServicesTests : STAThreadTestBase
     {
-        //private Frame _frame;
-        //private UiServicesViewModel ViewModel { get; set; }
+        private Frame _frame;
+        private UiServicesViewModel ViewModel { get; set; }
 
-        //[TestInitialize]
-        //public void Initialize()
-        //{
-        //    _frame = new Frame();
+        public void Initialize()
+        {
+            _frame = new Frame();
 
-        //    ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
-        //        .CheckCreateObject(2);
-        //}
+            ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
+                .CheckCreateObject(2);
+        }
 
         [TestMethod]
         [Description("[view-model][service] Checking the transfer of services when use GetViewModel")]
@@ -32,17 +31,12 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         {
             RunActinInSTAThread(() =>
             {
-                LoggingHelper.Info("here frame");
+                Initialize();
 
-                Frame frame = new Frame();
+                var result = ViewModel.GetViewModel<UiServicesViewModel>();
 
-                var viewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(frame)
-                    .CheckCreateObject(2);
-
-                var result = viewModel.GetViewModel<UiServicesViewModel>();
-
-                Assert.AreEqual(viewModel.UiServices, result.UiServices, "UiServices must be match");
-            });
+                Assert.AreEqual(ViewModel.UiServices, result.UiServices, "UiServices must be match");
+            }, Timeuots.Second.One);
         }
 
         //[TestMethod]
