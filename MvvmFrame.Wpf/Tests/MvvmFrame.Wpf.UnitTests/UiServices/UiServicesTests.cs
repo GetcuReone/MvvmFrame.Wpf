@@ -1,6 +1,7 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 using System;
@@ -10,7 +11,7 @@ using TestHelper = MvvmFrame.Wpf.UnitTests.Common.TestHelper;
 namespace MvvmFrame.Wpf.UnitTests.UiServices
 {
     [TestClass]
-    public sealed class UiServicesTests : STAThreadTestBase
+    public sealed class UiServicesTests
     {
         private Frame _frame;
         private UiServicesViewModel ViewModel { get; set; }
@@ -28,7 +29,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetViewModelTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -43,7 +44,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_ContainsTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -59,7 +60,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientTowServicesTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -78,7 +79,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientNegativeTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -95,7 +96,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetUiServiceNegativeTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -110,7 +111,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -128,7 +129,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTowServicesTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -145,7 +146,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonNegativeTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -162,7 +163,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 
@@ -179,7 +180,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialize();
 

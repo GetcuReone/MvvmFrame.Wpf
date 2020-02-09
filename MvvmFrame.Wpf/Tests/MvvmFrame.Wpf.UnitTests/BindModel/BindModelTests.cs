@@ -1,6 +1,7 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.BindModel.Env;
 using MvvmFrame.Wpf.UnitTests.Common;
 using System.Windows.Controls;
@@ -8,7 +9,7 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.BindModel
 {
     [TestClass]
-    public class BindModelTests : STAThreadTestBase
+    public class BindModelTests
     {
         public BindModelViewModel ViewModel { get; set; }
 
@@ -22,7 +23,7 @@ namespace MvvmFrame.Wpf.UnitTests.BindModel
         [Timeout(Timeuots.Second.One)]
         public void ViewModel_BindModelTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialaze();
 
@@ -41,7 +42,7 @@ namespace MvvmFrame.Wpf.UnitTests.BindModel
         [Timeout(Timeuots.Second.One)]
         public void Model_BindModelTestCase()
         {
-            RunActinInSTAThread(() =>
+            ThreadHelper.RunActinInSTAThread(() =>
             {
                 Initialaze();
 
