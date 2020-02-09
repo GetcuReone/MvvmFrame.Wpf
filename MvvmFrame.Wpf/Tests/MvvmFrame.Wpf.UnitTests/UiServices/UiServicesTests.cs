@@ -39,16 +39,21 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
             }, Timeuots.Second.One);
         }
 
-        //[TestMethod]
-        //[Description("[view-model][service] check method AddTransient")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_ContainsTestCase()
-        //{
-        //    ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+        [TestMethod]
+        [Description("[view-model][service] check method AddTransient")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_ContainsTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
-        //    Assert.AreEqual(_frame, ViewModel.UiServices.GetUiService<UiService>().GetFrame(), "frames must match");
-        //}
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+
+                Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
+                Assert.AreEqual(_frame, ViewModel.UiServices.GetUiService<UiService>().GetFrame(), "frames must match");
+            }, Timeuots.Second.One);
+        }
 
         //[TestMethod]
         //[Description("[view-model][service] check method AddTransient tow services")]
