@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices
@@ -16,7 +17,8 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [TestInitialize]
         public void Initialize()
         {
-            _frame = new Frame();
+            var app = new Application();
+            app.Dispatcher.Invoke(() => _frame = new Frame());
 
             ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
                 .CheckCreateObject(2);
