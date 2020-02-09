@@ -109,11 +109,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
+    <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
       <Project>{bb80e7ed-8a8c-4903-8631-9564f5df6599}</Project>
       <Name>MvvmFrame.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tests\MvvmFrame.Wpf.UnitTests.Common\MvvmFrame.Wpf.UnitTests.Common.csproj">
+    <ProjectReference Include="..\MvvmFrame.Wpf.UnitTests.Common\MvvmFrame.Wpf.UnitTests.Common.csproj">
       <Project>{ed8ac9b9-f984-4285-badc-5ea256ee1493}</Project>
       <Name>MvvmFrame.Wpf.UnitTests.Common</Name>
     </ProjectReference>
