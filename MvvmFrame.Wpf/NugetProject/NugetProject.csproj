@@ -13,7 +13,7 @@
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
     <PackageReleaseNotes>Restructuring</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright © 20219GetcuReone</Copyright>
+    <Copyright>Copyright © 2019 GetcuReone</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
