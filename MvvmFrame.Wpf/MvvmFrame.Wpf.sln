@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfrastructureTests", "Infr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtTestAdapter", "Infrastructure\JwtTestAdapter\JwtTestAdapter.csproj", "{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.TestAdapter", "Infrastructure\MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj", "{EC5B9340-E954-492A-B792-FF02C9BB61CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5B9340-E954-492A-B792-FF02C9BB61CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5B9340-E954-492A-B792-FF02C9BB61CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5B9340-E954-492A-B792-FF02C9BB61CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5B9340-E954-492A-B792-FF02C9BB61CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{75B0337B-15A9-4139-AAC3-F8B09561107C} = {FC76E7E3-1E15-49F5-94D3-890BA8B88A18}
 		{11539676-F676-48F3-BD98-87189DCFF8F7} = {A87E7D2B-1486-4B2A-B1A4-B7ACC45E461B}
 		{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98} = {A87E7D2B-1486-4B2A-B1A4-B7ACC45E461B}
+		{EC5B9340-E954-492A-B792-FF02C9BB61CB} = {A87E7D2B-1486-4B2A-B1A4-B7ACC45E461B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D549B4D9-5F85-4FA5-B991-234EEB059B17}
