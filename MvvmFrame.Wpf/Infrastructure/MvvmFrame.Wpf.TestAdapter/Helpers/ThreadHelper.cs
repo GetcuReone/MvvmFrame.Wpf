@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Threading;
 
 namespace MvvmFrame.Wpf.TestAdapter.Helpers
@@ -14,15 +12,33 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
         /// <param name="maxWaitTime"></param>
         public static void RunActinInSTAThread(Action threadStart, int maxWaitTime)
         {
-            var thread = new Thread(() =>
+            Exception exception = null;
+            var thread = new Thread(() => 
             {
-                threadStart();
+                try
+                {
+                    threadStart();
+                }
+                catch(Exception ex)
+                {
+                    exception = ex;
+                }
             });
 
             thread.SetApartmentState(ApartmentState.STA);
 
             thread.Start();
             thread.Join(maxWaitTime);
+
+            switch (thread.ThreadState)
+            {
+                case ThreadState.Running:
+                    thread.Abort();
+                    break;
+            }
+
+            if (exception != null)
+                throw exception;
         }
     }
 }
