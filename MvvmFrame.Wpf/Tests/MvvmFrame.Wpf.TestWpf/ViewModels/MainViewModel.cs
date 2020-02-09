@@ -1,12 +1,13 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using GetcuReone.MvvmFrame.Wpf.Models;
-using GetcuReone.MvvmFrame.Wpf.TestWpf.Pages;
+using MvvmFrame.Wpf.TestWpf.Pages;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.TestWpf.ViewModels
 {
-    public sealed class MainViewModel: ViewModelBase
+    public sealed class MainViewModel : ViewModelBase
     {
         public ButtonModel GoBack_ButtonModel { get; private set; }
 

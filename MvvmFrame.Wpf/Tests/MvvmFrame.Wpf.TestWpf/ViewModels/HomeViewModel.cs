@@ -1,7 +1,8 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using GetcuReone.MvvmFrame.Wpf.Models;
-using GetcuReone.MvvmFrame.Wpf.TestWpf.Pages;
+using MvvmFrame.Wpf.TestWpf.Pages;
 using System;
 using System.Threading.Tasks;
 
