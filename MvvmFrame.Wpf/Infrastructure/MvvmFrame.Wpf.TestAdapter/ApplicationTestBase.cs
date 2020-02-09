@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Windows;
 
 namespace MvvmFrame.Wpf.TestAdapter
@@ -7,12 +8,19 @@ namespace MvvmFrame.Wpf.TestAdapter
     public abstract class ApplicationTestBase<TApplication>
         where TApplication : Application , new()
     {
-        protected TApplication Application { get; private set; }
-
-        [TestInitialize]
-        public virtual void Initialize()
+        protected void RunActionInApp(Action<TApplication> actionTest)
         {
-            Application = new TApplication();
+            var app = new TApplication();
+
+            StartupEventHandler handler = (sender, e) => 
+            {
+                actionTest(app);
+                app.Shutdown();
+            };
+
+            app.Startup += handler;
+            app.Run();
+            app.Startup -= handler;
         }
     }
 }
