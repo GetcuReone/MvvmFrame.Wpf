@@ -1,6 +1,6 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 
-namespace MvvmFrame.Wpf.Entities
+namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     /// <summary>
     /// options for model

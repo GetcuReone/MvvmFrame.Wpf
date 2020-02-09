@@ -1,12 +1,13 @@
-﻿using ComboPatterns.Interfaces;
-using MvvmFrame.Entities;
-using MvvmFrame.EventArgs;
-using MvvmFrame.EventHandlers;
-using MvvmFrame.Interfaces;
-using MvvmFrame.Wpf.Entities;
-using MvvmFrame.Wpf.EventArgs;
-using MvvmFrame.Wpf.Helpers;
-using MvvmFrame.Wpf.Interfaces;
+﻿using GetcuReone.ComboPatterns.Factory;
+using GetcuReone.ComboPatterns.Interfaces;
+using GetcuReone.MvvmFrame.Entities;
+using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.EventHandlers;
+using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.Entities;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
+using GetcuReone.MvvmFrame.Wpf.Helpers;
+using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,12 +16,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MvvmFrame.Wpf
+namespace GetcuReone.MvvmFrame.Wpf
 {
     /// <summary>
     /// Base class for view-models
     /// </summary>
-    public abstract class ViewModelBase : IAbstractFactory, IViewModel, IDisposable
+    public abstract class ViewModelBase : FactoryBase, IViewModel, IDisposable
     {
         private NavigationViewModelManager _navigationManager;
 
@@ -262,21 +263,5 @@ namespace MvvmFrame.Wpf
         /// </summary>
         /// <param name="details"></param>
         public virtual void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details) { }
-
-        /// <summary>
-        /// Create object method
-        /// </summary>
-        /// <typeparam name="TParameters"></typeparam>
-        /// <typeparam name="TObj"></typeparam>
-        /// <param name="factoryFunc"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public virtual TObj CreateObject<TParameters, TObj>(Func<TParameters, TObj> factoryFunc, TParameters parameters)
-        {
-            if (factoryFunc == null)
-                throw new ArgumentNullException(nameof(factoryFunc), $"{nameof(factoryFunc)} should not be null");
-
-            return factoryFunc(parameters);
-        }
     }
 }

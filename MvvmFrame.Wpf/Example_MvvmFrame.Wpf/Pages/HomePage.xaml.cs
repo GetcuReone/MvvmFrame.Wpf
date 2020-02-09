@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using MvvmFrame.Interfaces;
+﻿using MvvmFrame.Interfaces;
+using System.Windows.Controls;
 
 namespace Example_MvvmFrame.Wpf.Pages
 {

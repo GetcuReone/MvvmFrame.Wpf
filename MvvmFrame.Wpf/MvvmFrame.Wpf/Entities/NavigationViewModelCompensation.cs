@@ -1,8 +1,8 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace MvvmFrame.Wpf.Entities
+namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     internal class NavigationViewModelCompensation : ICompensationOperations
     {

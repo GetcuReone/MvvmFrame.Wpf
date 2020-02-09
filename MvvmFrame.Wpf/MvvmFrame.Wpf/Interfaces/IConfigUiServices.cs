@@ -1,7 +1,7 @@
-﻿using MvvmFrame.Wpf.Entities;
+﻿using GetcuReone.MvvmFrame.Wpf.Entities;
 using System.Windows.Controls;
 
-namespace MvvmFrame.Wpf.Interfaces
+namespace GetcuReone.MvvmFrame.Wpf.Interfaces
 {
     /// <summary>
     /// UI services manager
@@ -26,7 +26,7 @@ namespace MvvmFrame.Wpf.Interfaces
         /// Add a service that will be created every time you request
         /// </summary>
         /// <typeparam name="TUiService">interfaces services</typeparam>
-        /// <typeparam name="TUiServiceImplementation">implement services/typeparam>
+        /// <typeparam name="TUiServiceImplementation">implement services</typeparam>
         /// <param name="frame"></param>
         void AddTransient<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new();
 

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace MvvmFrame.Wpf.Models
+namespace GetcuReone.MvvmFrame.Wpf.Models
 {
     /// <summary>
     /// model button

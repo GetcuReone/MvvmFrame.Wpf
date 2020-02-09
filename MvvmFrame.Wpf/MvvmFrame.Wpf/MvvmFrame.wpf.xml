@@ -1,0 +1,947 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MvvmFrame.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand">
+            <summary>
+            Async Command
+            </summary>
+            <remarks>
+            Thanks https://johnthiriet.com/mvvm-going-async-with-async-command/#
+            </remarks>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs,System.Threading.Tasks.ValueTask},System.Func{System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+            <param name="errorHandler"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.Execute(System.Object)">
+            <summary>
+            Execute
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.ExecuteAsync">
+            <summary>
+            Async execute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.RaiseCanExecuteChanged">
+            <summary>
+            A raise can execute a modified
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1">
+            <summary>
+            Async Command
+            </summary>
+            <typeparam name="TParametr"></typeparam>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs{`0},System.Threading.Tasks.ValueTask},System.Func{`0,System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+            <param name="errorHandler"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.Execute(System.Object)">
+            <summary>
+            Execute
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.ExecuteAsync(`0)">
+            <summary>
+            Async execute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.RaiseCanExecuteChanged">
+            <summary>
+            A raise can execute a modified
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs">
+            <summary>
+            Async command args
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.IsCancel">
+            <summary>
+            True - command canceled, False - command not canceled
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.AddCompensation(System.Func{System.Threading.Tasks.ValueTask})">
+            <summary>
+            Add compensation
+            </summary>
+            <param name="compansation"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.AddFinalOperation(System.Action)">
+            <summary>
+            Add final operation
+            </summary>
+            <param name="operation">operation</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.Cancel">
+            <summary>
+            Cancel. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.Compensate"/>
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.ClearCompensation">
+            <summary>
+            Clear compensation
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.Compensate">
+            <summary>
+            Run compensation operations
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs.FinishOperations">
+            <summary>
+            Run final operations
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs`1">
+            <summary>
+            Command args
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs`1.#ctor(`0)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="commandParam"></param>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs`1.CommandParam">
+            <summary>
+            Command parameter
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.Command">
+            <summary>
+            Command
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs},System.Func{System.Boolean})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.Cancel">
+            <summary>
+            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.Command`1">
+            <summary>
+            Command
+            </summary>
+            <typeparam name="TParameter"></typeparam>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs{`0}},System.Func{`0,System.Boolean})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.Cancel">
+            <summary>
+            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs">
+            <summary>
+            Command args
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.IsCancel">
+            <summary>
+            True - command canceled, False - command not canceled
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.AddCompensation(System.Action)">
+            <summary>
+            Add compensation
+            </summary>
+            <param name="compansation"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.AddFinalOperation(System.Action)">
+            <summary>
+            Add final operation
+            </summary>
+            <param name="operation">operation</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Cancel">
+            <summary>
+            Cancel. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.ClearCompensation">
+            <summary>
+            Clear compensation
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate">
+            <summary>
+            Run compensation operations
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.FinishOperations">
+            <summary>
+            Run final operations
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs`1">
+            <summary>
+            Command args
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs`1.#ctor(`0)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="commandParam"></param>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs`1.CommandParam">
+            <summary>
+            Command parameter
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand">
+            <summary>
+            on first access, the command will allow execution
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs,System.Threading.Tasks.ValueTask},System.Func{System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+            <param name="errorHandler"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand`1">
+            <summary>
+            on first access, the command will allow execution
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand`1.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs{`0},System.Threading.Tasks.ValueTask},System.Func{`0,System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+            <param name="errorHandler"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand`1.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand">
+            <summary>
+            on first access, the command will allow execution
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs},System.Func{System.Boolean})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand`1">
+            <summary>
+            on first access, the command will allow execution
+            </summary>
+            <typeparam name="TParameter"></typeparam>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand`1.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs{`0}},System.Func{`0,System.Boolean})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="execute"></param>
+            <param name="canExecute"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand`1.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices">
+            <summary>
+            UI services manager
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.AddTransient``2(System.Windows.Controls.Frame)">
+            <summary>
+            Add a service that will be created every time you request
+            </summary>
+            <typeparam name="TUiService">interfaces services</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <param name="frame"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.GetUiService``1">
+            <summary>
+            Get UI service
+            </summary>
+            <typeparam name="TUiService">service type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.Contains``1">
+            <summary>
+            Is the service contains
+            </summary>
+            <typeparam name="TUiService"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.AddSingleton``2(System.Windows.Controls.Frame)">
+            <summary>
+            Add a service that will be created one time you request
+            </summary>
+            <typeparam name="TUiService">interfaces services</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <param name="frame"></param>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions">
+            <summary>
+            options for model
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions.UseOnlyOnPropertyChanged">
+            <summary>
+            use only <see cref="M:GetcuReone.MvvmFrame.Interfaces.IModel.OnPropertyChanged(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions.UseOnVerification">
+            <summary>
+            use <see cref="M:GetcuReone.MvvmFrame.Interfaces.IModel.OnVerification(GetcuReone.MvvmFrame.EventArgs.MvvmElementPropertyVerifyChangeEventArgs)"/>
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions.UseVerifyPropertyChange">
+            <summary>
+            use <see cref="E:GetcuReone.MvvmFrame.Interfaces.IModel.VerifyPropertyChange"/>
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions.Default">
+            <summary>
+            Default options for model (each time a new object is generated)
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.NavigateResult`1">
+            <summary>
+            Navigate result
+            </summary>
+            <typeparam name="TViewModel"></typeparam>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.NavigateResult`1.IsNavigate">
+            <summary>
+            result navigate operation
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.NavigateResult`1.ViewModel">
+            <summary>
+            View-model
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager">
+            <summary>
+            Navigation view-model manager
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.PropertyChanged">
+            <summary>
+            Occurs when a property value changes
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.CanGoBack">
+            <summary>
+            Can GoBack
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.CanGoForward">
+            <summary>
+            Can GoForward
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.Navigate``2(``1,System.Object)">
+            <summary>
+            Run navigate
+            </summary>
+            <typeparam name="TPage"></typeparam>
+            <typeparam name="TViewModel"></typeparam>
+            <param name="viewModel"></param>
+            <param name="navigateParam">navigation parametrs</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.GoBack">
+            <summary>
+            Navigation back
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.GoForward">
+            <summary>
+            Navigation forward
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.Refresh">
+            <summary>
+            Reload page
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.WaitNavigationAsync``1(``0)">
+            <summary>
+            10 minutes wait for navigation view-model
+            </summary>
+            <typeparam name="TViewModel">Type view-model</typeparam>
+            <param name="viewModel">await view-model</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.WaitNavigationAsync``1(``0,System.TimeSpan)">
+            <summary>
+            wait for navigation
+            </summary>
+            <typeparam name="TViewModel"></typeparam>
+            <param name="viewModel"></param>
+            <param name="timeSpan">waiting time</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.WaitLeaveViewModelAsync``1(``0)">
+            <summary>
+            10 minutes waiting for leaving of the view-model
+            </summary>
+            <typeparam name="TViewModel">Type view-model</typeparam>
+            <param name="viewModel">await view-model</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.WaitLeaveViewModelAsync``1(``0,System.TimeSpan)">
+            <summary>
+            Wait for leaving view-model. Will return the false if the model does not wait for the allotted time <paramref name="timeSpan"/>
+            </summary>
+            <typeparam name="TViewModel">Type view-model</typeparam>
+            <param name="viewModel">await view-model</param>
+            <param name="timeSpan">waiting period</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager.OnPropertyChanged(System.String)">
+            <summary>
+            Handler changed proprty
+            </summary>
+            <param name="propertyName">property name</param>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.UiServiceBase">
+            <summary>
+            Base class for UI services
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.UiServiceBase.Frame">
+            <summary>
+            <see cref="P:GetcuReone.MvvmFrame.Wpf.Entities.UiServiceBase.Frame"/> for service
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Entities.UiServiceBase.UiServices">
+            <summary>
+            service manager the service is associated with
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs">
+            <summary>
+            Provides data for the Navigating event.
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.#ctor(GetcuReone.MvvmFrame.Wpf.ViewModelBase,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="navigatedViewModel"></param>
+            <param name="navigateParam"></param>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.IsCancel">
+            <summary>
+            is navigation canceled
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.NavigatedViewModel">
+            <summary>
+            Navigated view-model
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.NavigateParam">
+            <summary>
+            Nagation parameter
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.Cancel">
+            <summary>
+            Cancel navigation
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Helpers.TaskHelper">
+            <summary>
+            Task helper
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Helpers.TaskHelper.FireAndForgetSafeAsync(System.Threading.Tasks.ValueTask,GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
+            <summary>
+            Run async task
+            </summary>
+            <param name="valueTask"></param>
+            <param name="handler"></param>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Interfaces.IAsyncCommand">
+            <summary>
+            Interface async command
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IAsyncCommand.ExecuteAsync">
+            <summary>
+            Async execute
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Interfaces.IAsyncCommand`1">
+            <summary>
+            Interface async command
+            </summary>
+            <typeparam name="TParametr"></typeparam>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IAsyncCommand`1.ExecuteAsync(`0)">
+            <summary>
+            Async execute
+            </summary>
+            <param name="parametr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices">
+            <summary>
+            UI services manager
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.GetUiService``1">
+            <summary>
+            Get UI service
+            </summary>
+            <typeparam name="TUiService"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.Contains``1">
+            <summary>
+            Is the service contains
+            </summary>
+            <typeparam name="TUiService"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.AddTransient``2(System.Windows.Controls.Frame)">
+            <summary>
+            Add a service that will be created every time you request
+            </summary>
+            <typeparam name="TUiService">interfaces services</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <param name="frame"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.AddSingleton``2(System.Windows.Controls.Frame)">
+            <summary>
+            Add a service that will be created one time you request
+            </summary>
+            <typeparam name="TUiService">interfaces services</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <param name="frame"></param>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.ModelBase">
+            <summary>
+            Base class for models
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ModelBase.Factory">
+            <summary>
+            Factory about which the model was created
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ModelBase.UiServices">
+            <summary>
+            UI services
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ModelBase.ModelOptions">
+            <summary>
+            Model options
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.ModelBase.VerifyPropertyChange">
+            <summary>
+            Event virification <see cref="T:GetcuReone.MvvmFrame.Interfaces.IModel"/>
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.ModelBase.PropertyChanged">
+            <summary>
+            Occurs when a property value changes
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.OnPropertyChanged(System.String)">
+            <summary>
+            Hendler <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+            <param name="propertyName">property name</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.OnVerifyPropertyChange(System.String)">
+            <summary>
+            Hendler <see cref="E:GetcuReone.MvvmFrame.Wpf.ModelBase.VerifyPropertyChange"/>
+            </summary>
+            <param name="propertyName">property name</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.SetPropertyValue``1(``0@,``0,System.String)">
+            <summary>
+            Set property value
+            </summary>
+            <typeparam name="TProperty">type property</typeparam>
+            <param name="property">property</param>
+            <param name="value">new value</param>
+            <param name="propertyName">property name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.GetModel``1">
+            <summary>
+            Method creation model
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.BindModel``1(``0)">
+            <summary>
+            Bind model to the same factory and options
+            </summary>
+            <typeparam name="TModel">model type</typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.Initialize">
+            <summary>
+            Initialize model
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.GetModelStatic``1(GetcuReone.ComboPatterns.Interfaces.IAbstractFactory,GetcuReone.MvvmFrame.Interfaces.IModelOptions)">
+            <summary>
+            Func creation model 
+            </summary>
+            <typeparam name="TModel">type of model being created</typeparam>
+            <param name="factory">type of factory that will spawn the model</param>
+            <param name="options">model options</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.OnVerification(GetcuReone.MvvmFrame.EventArgs.MvvmElementPropertyVerifyChangeEventArgs)">
+            <summary>
+            Verification hendler
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ModelBase.OnErrors(System.Collections.ObjectModel.ReadOnlyCollection{GetcuReone.MvvmFrame.Entities.MvvmFrameErrorDetail})">
+            <summary>
+            Error hendler
+            </summary>
+            <param name="details"></param>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel">
+            <summary>
+            model button
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel.Text">
+            <summary>
+            Text button
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel.Icon">
+            <summary>
+            Button icon
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel.Command">
+            <summary>
+            Command
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel`1">
+            <summary>
+            model button with custom command
+            </summary>
+            <typeparam name="TCommand"></typeparam>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel`1.Text">
+            <summary>
+            Text button
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel`1.Icon">
+            <summary>
+            Button icon
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ButtonModel`1.Command">
+            <summary>
+            Command
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.Models.ElementModelBase">
+            <summary>
+            Base class for element model
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ElementModelBase.Visibility">
+            <summary>
+            Visibility element. Default value <see cref="F:System.Windows.Visibility.Visible"/>
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.Models.ElementModelBase.IsEnabled">
+            <summary>
+            True - enabled (default value), False - disabled
+            </summary>
+        </member>
+        <member name="T:GetcuReone.MvvmFrame.Wpf.ViewModelBase">
+            <summary>
+            Base class for view-models
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ViewModelBase.NavigationManager">
+            <summary>
+            Navigation view-model manager
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ViewModelBase.UiServices">
+            <summary>
+            UI services
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.ViewModelBase.ModelOptions">
+            <summary>
+            Model options
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.ViewModelBase.VerifyPropertyChange">
+            <summary>
+            Event virification <see cref="T:GetcuReone.MvvmFrame.Interfaces.IModel"/>
+            </summary>
+        </member>
+        <member name="E:GetcuReone.MvvmFrame.Wpf.ViewModelBase.PropertyChanged">
+            <summary>
+            Occurs when a property value changes
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnLoadPageAsync">
+            <summary>
+            Сalled after asynchronous page loading
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnLeavePageAsync(GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs)">
+            <summary>
+            Сalled after asynchronous page leaving
+            </summary>
+            <param name="args">navigating event args</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnGoPageAsync(System.Object)">
+            <summary>
+            Сalled after asynchronous page going
+            </summary>
+            <param name="navigateParam">navigation parametrs</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnPropertyChanged(System.String)">
+            <summary>
+            Hendler <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>
+            </summary>
+            <param name="propertyName">property name</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnVerifyPropertyChange(System.String)">
+            <summary>
+            Hendler <see cref="E:GetcuReone.MvvmFrame.Wpf.ViewModelBase.VerifyPropertyChange"/>
+            </summary>
+            <param name="propertyName">property name</param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.Initialize">
+            <summary>
+            Initialize view-model
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.SetPropertyValue``1(``0@,``0,System.String)">
+            <summary>
+            Set property value
+            </summary>
+            <typeparam name="TProperty">type property</typeparam>
+            <param name="property">property</param>
+            <param name="value">new value</param>
+            <param name="propertyName">property name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.GetModel``1">
+            <summary>
+            Method creation model
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.GetViewModel``1">
+            <summary>
+            Method creation view-model
+            </summary>
+            <typeparam name="TViewModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.BindModel``1(``0)">
+            <summary>
+            Bind model to the same factory and options
+            </summary>
+            <typeparam name="TModel">model type</typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.Navigate``2(System.Object)">
+            <summary>
+            Method page navigation
+            </summary>
+            <typeparam name="TPage"></typeparam>
+            <typeparam name="TViewModel"></typeparam>
+            <param name="navigateParam">navigation parametrs</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.GetViewModelStatic``1(GetcuReone.ComboPatterns.Interfaces.IAbstractFactory,GetcuReone.MvvmFrame.Interfaces.IModelOptions)">
+            <summary>
+            Func creation view-model 
+            </summary>
+            <typeparam name="TViewModel">type of model being created</typeparam>
+            <param name="factory">type of factory that will spawn the model</param>
+            <param name="options">model options</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.CreateViewModel``1(System.Windows.Controls.Frame,GetcuReone.MvvmFrame.Interfaces.IModelOptions,GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices,GetcuReone.MvvmFrame.Wpf.Entities.NavigationViewModelManager)">
+            <summary>
+            Method creation veiw-model
+            </summary>
+            <typeparam name="TViewModel"></typeparam>
+            <param name="frame">frame to which pages will be linked and view-model</param>
+            <param name="options"></param>
+            <param name="uiServices"></param>
+            <param name="navigationManager"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.Navigate``1(GetcuReone.MvvmFrame.Wpf.ViewModelBase,System.Object)">
+            <summary>
+            Method page navigation
+            </summary>
+            <typeparam name="TPage"></typeparam>
+            <param name="viewModel">view-model for DataContext</param>
+            <param name="navigateParam">navigation parametrs</param>
+            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnVerification(GetcuReone.MvvmFrame.EventArgs.MvvmElementPropertyVerifyChangeEventArgs)">
+            <summary>
+            Verification hendler
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.ViewModelBase.OnErrors(System.Collections.ObjectModel.ReadOnlyCollection{GetcuReone.MvvmFrame.Entities.MvvmFrameErrorDetail})">
+            <summary>
+            Hendler errors
+            </summary>
+            <param name="details"></param>
+        </member>
+    </members>
+</doc>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 
-namespace MvvmFrame.Wpf.Entities
+namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     internal sealed class UiServiceEntity<TUiService>
     {

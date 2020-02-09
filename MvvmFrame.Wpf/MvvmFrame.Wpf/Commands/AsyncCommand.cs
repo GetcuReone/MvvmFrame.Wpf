@@ -1,10 +1,10 @@
-﻿using MvvmFrame.Interfaces;
-using MvvmFrame.Wpf.Helpers;
-using MvvmFrame.Wpf.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.Helpers;
+using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace MvvmFrame.Wpf.Commands
+namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
     /// Async Command
