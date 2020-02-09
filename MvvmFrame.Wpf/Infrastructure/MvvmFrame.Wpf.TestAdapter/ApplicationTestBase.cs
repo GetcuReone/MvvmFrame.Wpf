@@ -9,16 +9,19 @@ namespace MvvmFrame.Wpf.TestAdapter
     public abstract class ApplicationTestBase<TApplication>
         where TApplication : Application , new()
     {
+        [TestInitialize]
+        public virtual void Initialize()
+        {
+            Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+        }
+
         protected void RunActionInApp(Action<TApplication> actionTest)
         {
             var app = new TApplication();
 
             StartupEventHandler handler = (sender, e) => 
             {
-                Thread t = new Thread(() => actionTest(app));
-                t.SetApartmentState(ApartmentState.STA);
-
-                t.Start();
+                actionTest(app);
                 app.Shutdown();
             };
 
