@@ -12,7 +12,7 @@ namespace MvvmFrame.Wpf.Commands
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="execute"></p aram>
+        /// <param name="execute"></param>
         /// <param name="canExecute"></param>
         public FirstCanCommand(Action<CommandArgs> execute, Func<bool> canExecute = null)
             : base(execute, canExecute)

@@ -99,7 +99,6 @@ namespace MvvmFrame.Wpf.Entities
         /// </summary>
         /// <typeparam name="TPage"></typeparam>
         /// <typeparam name="TViewModel"></typeparam>
-        /// <param name="page"></param>
         /// <param name="viewModel"></param>
         /// <param name="navigateParam">navigation parametrs</param>
         /// <returns></returns>
