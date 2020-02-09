@@ -1,6 +1,5 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.BindModel.Env;
 using MvvmFrame.Wpf.UnitTests.Common;
