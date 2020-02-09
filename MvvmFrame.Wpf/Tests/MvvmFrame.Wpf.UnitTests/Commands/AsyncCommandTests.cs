@@ -108,7 +108,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .RunWindow(Timeuots.Second.Twenty);
         }
 
-        //[Timeout(Timeuots.Second.Twenty)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_P_RunCommandTestCase()
@@ -133,7 +133,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeuots.Second.Ten);
         }
 
         [Timeout(Timeuots.Second.Five)]
