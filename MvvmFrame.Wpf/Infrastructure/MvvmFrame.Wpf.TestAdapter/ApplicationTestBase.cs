@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Threading;
 using System.Windows;
 
 namespace MvvmFrame.Wpf.TestAdapter
@@ -14,7 +15,10 @@ namespace MvvmFrame.Wpf.TestAdapter
 
             StartupEventHandler handler = (sender, e) => 
             {
-                actionTest(app);
+                Thread t = new Thread(() => actionTest(app));
+                t.SetApartmentState(ApartmentState.STA);
+
+                t.Start();
                 app.Shutdown();
             };
 

@@ -28,13 +28,13 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [TestMethod]
         [Description("[view-model][service] Checking the transfer of services when use GetViewModel")]
         [Timeout(Timeuots.Second.Two)]
+        [STAThread]
         public void UiServicesTests_GetViewModelTestCase()
         {
             RunActionInApp(app =>
             {
                 LoggingHelper.Info("here frame");
 
-                new Button();
                 Frame frame = null;
 
                 app.Dispatcher.Invoke(() => frame = new Frame());
