@@ -1,5 +1,6 @@
 ﻿using GetcuReone.MvvmFrame.Entities;
 using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {
-    public sealed class SetPropertyViewModel: ViewModelBase
+    public sealed class SetPropertyViewModel : ViewModelBase
     {
         public ReadOnlyCollection<MvvmFrameErrorDetail> Details { get; private set; }
         public int OnVerificationCallCounter { get; set; } = 0;

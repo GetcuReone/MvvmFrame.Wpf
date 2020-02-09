@@ -1,13 +1,11 @@
-﻿using GetcuReone.MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.CreateObject.Environment
 {
-    public sealed class CreateObjectViewModel:ViewModelBase
+    public sealed class CreateObjectViewModel : ViewModelBase
     {
         public int GetModelCallCounter { get; set; }
         public int GetViewModelCallCounter { get; set; }

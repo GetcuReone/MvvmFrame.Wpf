@@ -61,6 +61,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj">
+      <Project>{EC5B9340-E954-492A-B792-FF02C9BB61CB}</Project>
+      <Name>MvvmFrame.Wpf.TestAdapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
       <Project>{bb80e7ed-8a8c-4903-8631-9564f5df6599}</Project>
       <Name>MvvmFrame.Wpf</Name>

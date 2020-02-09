@@ -1,9 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GetcuReone.MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.Entities;
-using GetcuReone.MvvmFrame.Wpf.TestAdapter;
-using GetcuReone.MvvmFrame.Wpf.TestAdapter.Entities;
-using GetcuReone.MvvmFrame.Wpf.TestAdapter.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Entities;
+using MvvmFrame.Wpf.TestAdapter.Helpers;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -33,7 +34,7 @@ namespace MvvmFrame.Wpf.UnitTests.Common
     public abstract class UiTestBase<TViewModel> : UiTestBase
         where TViewModel: ViewModelBase, new()
     {
-        protected Given<Frame, TViewModel> GivenInitViewModel()
+        protected GivenBlock<Frame, TViewModel> GivenInitViewModel()
         {
             return Given("Init view-model", frame => ViewModelBase.CreateViewModel<TViewModel>(frame, ModelOptions.Default));
         }
@@ -41,10 +42,10 @@ namespace MvvmFrame.Wpf.UnitTests.Common
 
     public static class UiTestBaseHelper
     {
-        public static void RunWindow<TIn, TOut>(this Then<TIn, TOut> then) 
+        public static void RunWindow<TIn, TOut>(this ThenBlock<TIn, TOut> then) 
             => then.Run<TestWindow>(window => window.mainFrame);
 
-        public static void RunWindow<TIn, TOut>(this ThenAsync<TIn, TOut> then)
+        public static void RunWindow<TIn, TOut>(this ThenAsyncBlock<TIn, TOut> then)
             => then.Run<TestWindow>(window => window.mainFrame);
     }
 }

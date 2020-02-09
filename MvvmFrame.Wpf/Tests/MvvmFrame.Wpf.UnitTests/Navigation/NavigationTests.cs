@@ -1,9 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GetcuReone.MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.Entities;
-using GetcuReone.MvvmFrame.Wpf.TestAdapter;
-using GetcuReone.MvvmFrame.Wpf.TestAdapter.Helpers;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Helpers;
+using MvvmFrame.Wpf.UnitTests.Common;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 

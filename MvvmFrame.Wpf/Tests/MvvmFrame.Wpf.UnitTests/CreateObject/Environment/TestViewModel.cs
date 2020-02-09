@@ -1,9 +1,10 @@
-﻿using GetcuReone.MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.CreateObject.Environment
 {
-    public sealed class TestViewModel: ViewModelBase
+    public sealed class TestViewModel : ViewModelBase
     {
         protected override void Initialize()
         {

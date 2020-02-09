@@ -1,10 +1,11 @@
-﻿using GetcuReone.MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
-    public sealed class NavigationViewModel:ViewModelBase
+    public sealed class NavigationViewModel : ViewModelBase
     {
         public List<string> MethodCallLog { get; } = new List<string>();
 

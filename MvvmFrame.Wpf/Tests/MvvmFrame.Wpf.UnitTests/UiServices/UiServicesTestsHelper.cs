@@ -1,5 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.UiServices.Environment;
+﻿using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices
 {

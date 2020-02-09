@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
+using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
 
 namespace MvvmFrame.Wpf.UnitTests.CreateObject
 {

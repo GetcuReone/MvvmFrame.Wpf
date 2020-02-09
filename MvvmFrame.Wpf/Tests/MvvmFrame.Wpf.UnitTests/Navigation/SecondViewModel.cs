@@ -1,9 +1,10 @@
-﻿using GetcuReone.MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
-    public sealed class SecondViewModel: ViewModelBase
+    public sealed class SecondViewModel : ViewModelBase
     {
 
         protected override void Initialize()

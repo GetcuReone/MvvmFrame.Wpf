@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.BindModel.Env;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.UnitTests.BindModel.Env;
+using MvvmFrame.Wpf.UnitTests.Common;
 using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.UnitTests.BindModel

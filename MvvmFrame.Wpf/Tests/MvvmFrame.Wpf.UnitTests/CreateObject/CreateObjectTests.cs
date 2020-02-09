@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
-using GetcuReone.MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
+﻿using GetcuReone.MvvmFrame.Wpf;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
 using System;
 using System.Windows.Controls;
 

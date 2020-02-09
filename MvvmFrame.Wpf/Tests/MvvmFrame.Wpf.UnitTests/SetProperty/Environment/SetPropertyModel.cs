@@ -2,10 +2,11 @@
 using System.Runtime.CompilerServices;
 using GetcuReone.MvvmFrame.Entities;
 using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.Wpf;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {
-    public sealed class SetPropertyModel: ModelBase
+    public sealed class SetPropertyModel : ModelBase
     {
         public ReadOnlyCollection<MvvmFrameErrorDetail> Details { get; private set; }
         public int OnVerificationCallCounter { get; private set; } = 0;
