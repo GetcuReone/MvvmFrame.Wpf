@@ -30,13 +30,11 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetViewModelTestCase()
         {
-            RunActionInApp(app =>
+            RunActinInSTAThread(() =>
             {
                 LoggingHelper.Info("here frame");
 
-                Frame frame = null;
-
-                app.Dispatcher.Invoke(() => frame = new Frame());
+                Frame frame = new Frame();
 
                 var viewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(frame)
                     .CheckCreateObject(2);
