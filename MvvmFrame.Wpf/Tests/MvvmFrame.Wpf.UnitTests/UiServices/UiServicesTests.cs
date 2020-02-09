@@ -1,4 +1,5 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
+using JwtTestAdapter.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.UnitTests.Common;
@@ -31,6 +32,8 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         {
             RunActionInApp(app =>
             {
+                LoggingHelper.Info("here frame");
+
                 var frame = new Frame();
                 var viewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(frame)
                     .CheckCreateObject(2);
