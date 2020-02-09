@@ -1,12 +1,11 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
-using JwtTestAdapter.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 using System;
-using System.Windows;
 using System.Windows.Controls;
+using TestHelper = MvvmFrame.Wpf.UnitTests.Common.TestHelper;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices
 {
@@ -74,87 +73,122 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
             }, Timeuots.Second.One);
         }
 
-        //[TestMethod]
-        //[Description("[negative][view-model][service] check method AddTransient. Add service already added previously")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddTransientNegativeTestCase()
-        //{
-        //    ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+        [TestMethod]
+        [Description("[negative][view-model][service] check method AddTransient. Add service already added previously")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddTransientNegativeTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    TestHelper.ExpectedException<ArgumentException>(
-        //        () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-        //        "service already added previously");
-        //}
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
 
-        //[TestMethod]
-        //[Description("[negative][view-model][service] check method GetUiService. Return service does not exist")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_GetUiServiceNegativeTestCase()
-        //{
-        //    TestHelper.ExpectedException<ArgumentException>(
-        //        () => ViewModel.UiServices.GetUiService<UiService>(),
-        //        "service does not exist");
-        //}
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
+        }
 
-        //[TestMethod]
-        //[Description("[view-model][service] check method AddSingleton")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddSingletonTestCase()
-        //{
-        //    ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
-        //    var result = ViewModel.UiServices.GetUiService<UiService>();
+        [TestMethod]
+        [Description("[negative][view-model][service] check method GetUiService. Return service does not exist")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_GetUiServiceNegativeTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    Assert.IsNotNull(result, "result cannot be null");
-        //    Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
-        //    Assert.AreEqual(_frame, result.GetFrame(), "frames must match");
-        //}
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.GetUiService<UiService>(),
+                    "service does not exist");
+            }, Timeuots.Second.One);
+        }
 
-        //[TestMethod]
-        //[Description("[view-model][service] check method AddSingleton tow services")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddSingletonTowServicesTestCase()
-        //{
-        //    ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
-        //    var result1 = ViewModel.UiServices.GetUiService<UiService>();
-        //    var result2 = ViewModel.UiServices.GetUiService<UiService>();
+        [TestMethod]
+        [Description("[view-model][service] check method AddSingleton")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddSingletonTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    Assert.AreEqual(result1, result2, "services must match");
-        //}
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                var result = ViewModel.UiServices.GetUiService<UiService>();
 
-        //[TestMethod]
-        //[Description("[negative][view-model][service] check method AddSingleton. Add service already added previously")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddSingletonNegativeTestCase()
-        //{
-        //    ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                Assert.IsNotNull(result, "result cannot be null");
+                Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
+                Assert.AreEqual(_frame, result.GetFrame(), "frames must match");
+            }, Timeuots.Second.One);
+        }
 
-        //    TestHelper.ExpectedException<ArgumentException>(
-        //        () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
-        //        "service already added previously");
-        //}
+        [TestMethod]
+        [Description("[view-model][service] check method AddSingleton tow services")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddSingletonTowServicesTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //[TestMethod]
-        //[Description("[negative][view-model][service] check method AddTransient. Add service already added previously with AddSingleton")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
-        //{
-        //    ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                var result1 = ViewModel.UiServices.GetUiService<UiService>();
+                var result2 = ViewModel.UiServices.GetUiService<UiService>();
 
-        //    TestHelper.ExpectedException<ArgumentException>(
-        //        () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-        //        "service already added previously");
-        //}
+                Assert.AreEqual(result1, result2, "services must match");
+            }, Timeuots.Second.One);
+        }
 
-        //[TestMethod]
-        //[Description("[negative][view-model][service] check method AddSingleton. Add service already added previously with AddTransient")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
-        //{
-        //    ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+        [TestMethod]
+        [Description("[negative][view-model][service] check method AddSingleton. Add service already added previously")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddSingletonNegativeTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    TestHelper.ExpectedException<ArgumentException>(
-        //        () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
-        //        "service already added previously");
-        //}
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
+        }
+
+        [TestMethod]
+        [Description("[negative][view-model][service] check method AddTransient. Add service already added previously with AddSingleton")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
+
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
+        }
+
+        [TestMethod]
+        [Description("[negative][view-model][service] check method AddSingleton. Add service already added previously with AddTransient")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
+
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
+        }
     }
 }
