@@ -34,7 +34,10 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
             {
                 LoggingHelper.Info("here frame");
 
-                var frame = new Frame();
+                Frame frame = null;
+
+                app.Dispatcher.Invoke(() => frame = new Frame());
+
                 var viewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(frame)
                     .CheckCreateObject(2);
 
