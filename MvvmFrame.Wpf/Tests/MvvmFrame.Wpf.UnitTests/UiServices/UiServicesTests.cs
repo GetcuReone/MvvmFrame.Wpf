@@ -55,19 +55,24 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
             }, Timeuots.Second.One);
         }
 
-        //[TestMethod]
-        //[Description("[view-model][service] check method AddTransient tow services")]
-        //[Timeout(Timeuots.Second.Two)]
-        //public void UiServicesTests_AddTransientTowServicesTestCase()
-        //{
-        //    ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
-        //    var result1 = ViewModel.UiServices.GetUiService<UiService>();
-        //    var result2 = ViewModel.UiServices.GetUiService<UiService>();
+        [TestMethod]
+        [Description("[view-model][service] check method AddTransient tow services")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_AddTransientTowServicesTestCase()
+        {
+            RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-        //    Assert.IsNotNull(result1, "result1 cannot be null");
-        //    Assert.IsNotNull(result2, "result2 cannot be null");
-        //    Assert.AreNotEqual(result1, result2, "services must different");
-        //}
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+                var result1 = ViewModel.UiServices.GetUiService<UiService>();
+                var result2 = ViewModel.UiServices.GetUiService<UiService>();
+
+                Assert.IsNotNull(result1, "result1 cannot be null");
+                Assert.IsNotNull(result2, "result2 cannot be null");
+                Assert.AreNotEqual(result1, result2, "services must different");
+            }, Timeuots.Second.One);
+        }
 
         //[TestMethod]
         //[Description("[negative][view-model][service] check method AddTransient. Add service already added previously")]
