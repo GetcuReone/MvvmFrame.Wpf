@@ -6,6 +6,7 @@ using MvvmFrame.Wpf.UnitTests.SetProperty.Environment;
 namespace MvvmFrame.Wpf.UnitTests.SetProperty
 {
     [TestClass]
+    [Ignore]
     public sealed class SetPropertyTests: UiTestBase<SetPropertyViewModel>
     {
         #region SetValueProperty 

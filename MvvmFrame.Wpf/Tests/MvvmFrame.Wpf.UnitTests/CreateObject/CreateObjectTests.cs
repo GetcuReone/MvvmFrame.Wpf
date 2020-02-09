@@ -8,6 +8,7 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.CreateObject
 {
     [TestClass]
+    [Ignore]
     public class CreateObjectTests
     {
         private readonly Frame _frame = new Frame();

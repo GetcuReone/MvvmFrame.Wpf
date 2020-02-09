@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {
     [TestClass]
+    [Ignore]
     public class FirstCanCommandTests
     {
         [Timeout(Timeuots.Millisecond.Twenty)]

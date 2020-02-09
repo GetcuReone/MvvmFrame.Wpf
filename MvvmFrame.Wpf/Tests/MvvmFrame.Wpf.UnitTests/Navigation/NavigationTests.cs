@@ -11,6 +11,7 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
     [TestClass]
+    [Ignore]
     public sealed class NavigationTests : FrameTestBase
     {
         private async ValueTask<TViewModel> WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>(TViewModel viewModel)

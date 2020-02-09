@@ -7,6 +7,7 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.BindModel
 {
     [TestClass]
+    [Ignore]
     public class BindModelTests
     {
         public BindModelViewModel ViewModel { get; set; }

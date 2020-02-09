@@ -6,6 +6,7 @@ using MvvmFrame.Wpf.TestAdapter.Helpers;
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {
     [TestClass]
+    [Ignore]
     public class CommandTests: UiTestBase<CommandViewModel>
     {
         [Timeout(Timeuots.Second.Five)]

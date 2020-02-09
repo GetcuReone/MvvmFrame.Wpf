@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {
     [TestClass]
+    [Ignore]
     public class AsyncCommandTests : UiTestBase<CommandViewModel>
     {
         [Timeout(Timeuots.Second.Five)]
