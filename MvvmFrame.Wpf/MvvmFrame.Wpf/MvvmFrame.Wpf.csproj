@@ -19,8 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ComboPatterns" Version="2.3.0" />
-    <PackageReference Include="MvvmFrame.root" Version="5.0.0" />
+    <PackageReference Include="ComboPatterns" Version="3.0.1" />
+    <PackageReference Include="MvvmFrame.root" Version="6.0.0" />
     <PackageReference Include="PresentationFramework" Version="4.6.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
   </ItemGroup>

@@ -1,6 +1,6 @@
-﻿using GetcuReone.MvvmFrame.EventArgs;
-using GetcuReone.MvvmFrame.Interfaces;
-using GetcuReone.MvvmFrame.Wpf;
+﻿using MvvmFrame.EventArgs;
+using MvvmFrame.Interfaces;
+using MvvmFrame.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;

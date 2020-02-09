@@ -1,4 +1,5 @@
-﻿using ComboPatterns.Interfaces;
+﻿using GetcuReone.ComboPatterns.Factory;
+using GetcuReone.ComboPatterns.Interfaces;
 using GetcuReone.MvvmFrame.Entities;
 using GetcuReone.MvvmFrame.EventArgs;
 using GetcuReone.MvvmFrame.EventHandlers;
@@ -20,7 +21,7 @@ namespace GetcuReone.MvvmFrame.Wpf
     /// <summary>
     /// Base class for view-models
     /// </summary>
-    public abstract class ViewModelBase : IAbstractFactory, IViewModel, IDisposable
+    public abstract class ViewModelBase : FactoryBase, IViewModel, IDisposable
     {
         private NavigationViewModelManager _navigationManager;
 
@@ -262,21 +263,5 @@ namespace GetcuReone.MvvmFrame.Wpf
         /// </summary>
         /// <param name="details"></param>
         public virtual void OnErrors(ReadOnlyCollection<MvvmFrameErrorDetail> details) { }
-
-        /// <summary>
-        /// Create object method
-        /// </summary>
-        /// <typeparam name="TParameters"></typeparam>
-        /// <typeparam name="TObj"></typeparam>
-        /// <param name="factoryFunc"></param>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        public virtual TObj CreateObject<TParameters, TObj>(Func<TParameters, TObj> factoryFunc, TParameters parameters)
-        {
-            if (factoryFunc == null)
-                throw new ArgumentNullException(nameof(factoryFunc), $"{nameof(factoryFunc)} should not be null");
-
-            return factoryFunc(parameters);
-        }
     }
 }

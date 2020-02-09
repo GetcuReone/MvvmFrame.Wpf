@@ -1,6 +1,6 @@
 ﻿using Example_MvvmFrame.Wpf.Pages;
 using Example_MvvmFrame.Wpf.ViewModels;
-using GetcuReone.MvvmFrame.Wpf;
+using MvvmFrame.Wpf;
 using System.Windows;
 
 namespace Example_MvvmFrame.Wpf

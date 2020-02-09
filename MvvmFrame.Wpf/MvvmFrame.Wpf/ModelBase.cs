@@ -1,4 +1,4 @@
-﻿using ComboPatterns.Interfaces;
+﻿using GetcuReone.ComboPatterns.Interfaces;
 using GetcuReone.MvvmFrame.Entities;
 using GetcuReone.MvvmFrame.EventArgs;
 using GetcuReone.MvvmFrame.EventHandlers;

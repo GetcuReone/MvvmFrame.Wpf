@@ -1,4 +1,4 @@
-﻿using ComboPatterns.AFAP;
+﻿using GetcuReone.ComboPatterns.Factory;
 using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System.Windows.Controls;
 
