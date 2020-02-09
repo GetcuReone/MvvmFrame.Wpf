@@ -9,7 +9,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
     [TestClass]
     public class AsyncCommandTests : UiTestBase<CommandViewModel>
     {
-        [Timeout(Timeuots.Second.Five)]
+        //[Timeout(Timeuots.Second.Five)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_RunCommandTestCase()
@@ -108,7 +108,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .RunWindow(Timeuots.Second.Twenty);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
+        //[Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_P_RunCommandTestCase()
