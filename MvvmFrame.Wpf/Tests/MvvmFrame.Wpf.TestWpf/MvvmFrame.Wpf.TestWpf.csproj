@@ -121,7 +121,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
+    <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
       <Project>{BB80E7ED-8A8C-4903-8631-9564F5DF6599}</Project>
       <Name>MvvmFrame.Wpf</Name>
     </ProjectReference>
