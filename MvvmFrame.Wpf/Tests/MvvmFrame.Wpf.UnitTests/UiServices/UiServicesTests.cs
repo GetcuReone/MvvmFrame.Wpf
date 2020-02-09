@@ -10,12 +10,14 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
     [TestClass]
     public sealed class UiServicesTests
     {
-        private readonly Frame _frame = new Frame();
+        private Frame _frame;
         private UiServicesViewModel ViewModel { get; set; }
 
         [TestInitialize]
         public void Initialize()
         {
+            _frame = new Frame();
+
             ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
                 .CheckCreateObject(2);
         }
