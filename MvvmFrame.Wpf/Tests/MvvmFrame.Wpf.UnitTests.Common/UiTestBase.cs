@@ -42,10 +42,10 @@ namespace MvvmFrame.Wpf.UnitTests.Common
 
     public static class UiTestBaseHelper
     {
-        public static void RunWindow<TIn, TOut>(this ThenBlock<TIn, TOut> then) 
-            => then.Run<TestWindow>(window => window.mainFrame);
+        public static void RunWindow<TIn, TOut>(this ThenBlock<TIn, TOut> then, int maxWaitTime) 
+            => then.Run<TestWindow>(window => window.mainFrame, maxWaitTime);
 
-        public static void RunWindow<TIn, TOut>(this ThenAsyncBlock<TIn, TOut> then)
-            => then.Run<TestWindow>(window => window.mainFrame);
+        public static void RunWindow<TIn, TOut>(this ThenAsyncBlock<TIn, TOut> then, int maxWaitTime)
+            => then.Run<TestWindow>(window => window.mainFrame, maxWaitTime);
     }
 }

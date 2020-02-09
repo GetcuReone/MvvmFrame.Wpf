@@ -179,27 +179,32 @@ namespace MvvmFrame.Wpf.TestAdapter.Entities
         /// run given-block-then
         /// </summary>
         /// <param name="getFrame"></param>
-        public virtual void Run<TWindow>(Func<TWindow, Frame> getFrame)
+        /// <param name="maxWaitTime"></param>
+        public virtual void Run<TWindow>(Func<TWindow, Frame> getFrame, int maxWaitTime)
             where TWindow : Window, new()
         {
-            Stack<BlockBase> blocksStack = new Stack<BlockBase>();
-            BlockBase block = this;
 
-            while (true)
+            ThreadHelper.RunActinInSTAThread(() =>
             {
-                blocksStack.Push(block);
+                Stack<BlockBase> blocksStack = new Stack<BlockBase>();
+                BlockBase block = this;
 
-                if (block.PreviousBlock == null)
-                    break;
-                else
-                    block = block.PreviousBlock;
-            }
+                while (true)
+                {
+                    blocksStack.Push(block);
 
-            TWindow window = new TWindow();
+                    if (block.PreviousBlock == null)
+                        break;
+                    else
+                        block = block.PreviousBlock;
+                }
 
-            window.Loaded += async (sender, e) => await GivenWhenThenHelper.RunCodeBlockAndCloseWindow(blocksStack, window, getFrame);
+                TWindow window = new TWindow();
 
-            window.ShowDialog();
+                window.Loaded += async (sender, e) => await GivenWhenThenHelper.RunCodeBlockAndCloseWindow(blocksStack, window, getFrame);
+
+                window.ShowDialog();
+            }, maxWaitTime);
         }
     }
 }
