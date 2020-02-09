@@ -63,7 +63,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .RunWindow();
         }
 
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_RunCompensationOperationTestCase()
@@ -101,7 +101,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 })
                 .Then("Check run command", () => 
                 {
-                    Assert.IsTrue(compensationComlited, "compensation operation not runed");
+                    Assert.IsTrue(compensationComlited, $"compensation operation not runed. Value: {compensationComlited}");
                     Assert.IsFalse(finishCommand, "finishCommand is false");
                     Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
