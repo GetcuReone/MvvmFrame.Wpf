@@ -1,15 +1,15 @@
 ﻿using ComboPatterns.Interfaces;
-using MvvmFrame.Entities;
-using MvvmFrame.EventArgs;
-using MvvmFrame.EventHandlers;
-using MvvmFrame.Interfaces;
-using MvvmFrame.Wpf.Helpers;
-using MvvmFrame.Wpf.Interfaces;
+using GetcuReone.MvvmFrame.Entities;
+using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.EventHandlers;
+using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.Helpers;
+using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MvvmFrame.Wpf
+namespace GetcuReone.MvvmFrame.Wpf
 {
     /// <summary>
     /// Base class for models

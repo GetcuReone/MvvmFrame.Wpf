@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
-using MvvmFrame.Entities;
-using MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.Entities;
+using GetcuReone.MvvmFrame.EventArgs;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment
 {

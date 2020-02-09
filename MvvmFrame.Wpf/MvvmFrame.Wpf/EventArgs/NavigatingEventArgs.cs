@@ -1,6 +1,6 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 
-namespace MvvmFrame.Wpf.EventArgs
+namespace GetcuReone.MvvmFrame.Wpf.EventArgs
 {
     /// <summary>
     /// Provides data for the Navigating event.

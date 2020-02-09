@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Entities;
-using MvvmFrame.Wpf.UnitTests.Common;
-using MvvmFrame.Wpf.UnitTests.SetProperty.Environment;
+using GetcuReone.MvvmFrame.Entities;
+using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
+using GetcuReone.MvvmFrame.Wpf.UnitTests.SetProperty.Environment;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty
 {

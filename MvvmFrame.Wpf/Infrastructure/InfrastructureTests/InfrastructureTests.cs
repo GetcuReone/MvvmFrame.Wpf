@@ -15,7 +15,6 @@ namespace InfrastructureTests
     {
         private string _buildConfiguration;
         private readonly DirectoryInfo _solutionFolder = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.Parent.Parent.Parent;
-        private readonly List<FileInfo> _addedFiles = new List<FileInfo>();
 
         [TestInitialize]
         public void Initialize()
@@ -23,34 +22,6 @@ namespace InfrastructureTests
             _buildConfiguration = Environment.GetEnvironmentVariable("buildConfiguration");
             if (string.IsNullOrEmpty(_buildConfiguration))
                 _buildConfiguration = "Debug";
-
-            List<FileInfo> files = InfrastructureHelper.GetAllFiles(_solutionFolder);
-            FileInfo comboPatternsFile = files.First(file => file.Name == "ComboPatterns.dll");
-            List<DirectoryInfo> projectFolders = files
-                .Where(file => file.Name.Contains(".dll")
-                    && !file.FullName.Contains("obj")
-                    && file.FullName.Contains(_buildConfiguration)
-                    && file.Name.Contains("FactFactory"))
-                .Select(file => file.Directory)
-                .DistinctByFunc((x, y) => x.FullName == y.FullName)
-                .ToList();
-
-            foreach (DirectoryInfo folder in projectFolders)
-            {
-                string filePath = Path.Combine(folder.FullName, comboPatternsFile.Name);
-                if (!File.Exists(filePath))
-                {
-                    _addedFiles.Add(
-                                comboPatternsFile.CopyTo(filePath));
-                }
-            }
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            foreach (FileInfo file in _addedFiles)
-                file.Delete();
         }
 
         [Timeout(Timeouts.Minute.One)]
@@ -89,8 +60,8 @@ namespace InfrastructureTests
                 {
                     var files = new string[]
                     {
-                        "lib/netstandard2.0/FactFactory.dll",
-                        "lib/netstandard2.0/FactFactory.xml",
+                        "lib/net472/MvvmFrame.Wpf.dll",
+                        "lib/net472/MvvmFrame.Wpf.xml",
                         "LICENSE-2.0.txt"
                     };
 
@@ -104,7 +75,7 @@ namespace InfrastructureTests
         [Description("[infrastructure] Check for all attribute Timeout tests")]
         public void AllHaveTimeoutTestCase()
         {
-            string partNameAssemblies = "FactFactory";
+            string partNameAssemblies = "MvvmFrame.Wpf";
 
             Given("Get all file", () => InfrastructureHelper.GetAllFiles(_solutionFolder))
                 .And("Get all assemblies", files => files.Where(file => file.Name.Contains(".dll")))
@@ -156,7 +127,11 @@ namespace InfrastructureTests
         public void AllNamespacesStartWithGetcuReoneTestCase()
         {
             string beginNamespace = "GetcuReone";
-            string partNameAssemblies = "FactFactory";
+            string partNameAssemblies = "MvvmFrame.Wpf";
+            string[] excludeFiles = new string[]
+            {
+                "Example_MvvmFrame.Wpf.dll",
+            };
 
             Given("Get all file", () => InfrastructureHelper.GetAllFiles(_solutionFolder))
                 .And("Get all assemblies", files => files.Where(file => file.Name.Contains(".dll")))
@@ -166,7 +141,8 @@ namespace InfrastructureTests
                         .Where(file => !file.Name.Contains("Tests.dll")
                             && !file.FullName.Contains("TestAdapter.dll")
                             && !file.FullName.Contains("obj")
-                            && file.FullName.Contains(_buildConfiguration)))
+                            && file.FullName.Contains(_buildConfiguration)
+                            && excludeFiles.All(excludeFile => file.Name != excludeFile)))
                 .And($"Exclude duplicate",
                     files => files
                     .DistinctByFunc((x, y) => x.Name == y.Name)

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using MvvmFrame.Wpf.Commands;
-using MvvmFrame.Wpf.EventArgs;
+using GetcuReone.MvvmFrame.Wpf.Commands;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {

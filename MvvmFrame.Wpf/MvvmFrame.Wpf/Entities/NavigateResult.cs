@@ -1,4 +1,4 @@
-﻿namespace MvvmFrame.Wpf.Entities
+﻿namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     /// <summary>
     /// Navigate result

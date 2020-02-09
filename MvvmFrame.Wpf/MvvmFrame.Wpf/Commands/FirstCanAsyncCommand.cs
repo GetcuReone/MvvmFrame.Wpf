@@ -1,8 +1,8 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace MvvmFrame.Wpf.Commands
+namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
     /// on first access, the command will allow execution

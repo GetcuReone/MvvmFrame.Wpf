@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.Commands;
-using MvvmFrame.Wpf.UnitTests.Common;
+using GetcuReone.MvvmFrame.Wpf.Commands;
+using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
 using System.Collections.Generic;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands

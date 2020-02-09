@@ -1,4 +1,4 @@
-﻿using MvvmFrame.Wpf.Entities;
+﻿using GetcuReone.MvvmFrame.Wpf.Entities;
 using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices.Environment

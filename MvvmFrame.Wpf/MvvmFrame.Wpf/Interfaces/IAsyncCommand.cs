@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MvvmFrame.Wpf.Interfaces
+namespace GetcuReone.MvvmFrame.Wpf.Interfaces
 {
     /// <summary>
     /// Interface async command

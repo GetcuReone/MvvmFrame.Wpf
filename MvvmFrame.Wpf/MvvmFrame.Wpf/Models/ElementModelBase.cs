@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MvvmFrame.Wpf.Models
+namespace GetcuReone.MvvmFrame.Wpf.Models
 {
     /// <summary>
     /// Base class for element model

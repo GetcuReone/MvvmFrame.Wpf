@@ -1,11 +1,11 @@
 ﻿using ComboPatterns.AFAP;
-using MvvmFrame.Wpf.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace MvvmFrame.Wpf.Entities
+namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     /// <summary>
     /// UI services manager

@@ -1,7 +1,7 @@
-﻿using MvvmFrame.Wpf.Commands;
-using MvvmFrame.Wpf.EventArgs;
-using MvvmFrame.Wpf.Models;
-using MvvmFrame.Wpf.TestWpf.Pages;
+﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
+using GetcuReone.MvvmFrame.Wpf.Models;
+using GetcuReone.MvvmFrame.Wpf.TestWpf.Pages;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.TestWpf.ViewModels

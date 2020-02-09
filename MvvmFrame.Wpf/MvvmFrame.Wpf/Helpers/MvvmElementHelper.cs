@@ -1,11 +1,11 @@
-﻿using MvvmFrame.EventArgs;
-using MvvmFrame.Interfaces;
-using MvvmFrame.Wpf.Entities;
+﻿using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace MvvmFrame.Wpf.Helpers
+namespace GetcuReone.MvvmFrame.Wpf.Helpers
 {
     internal static class MvvmElementHelper
     {

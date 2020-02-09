@@ -1,5 +1,5 @@
-﻿using MvvmFrame.Wpf.TestWpf.Pages;
-using MvvmFrame.Wpf.TestWpf.ViewModels;
+﻿using GetcuReone.MvvmFrame.Wpf.TestWpf.Pages;
+using GetcuReone.MvvmFrame.Wpf.TestWpf.ViewModels;
 using System.Windows;
 
 namespace MvvmFrame.Wpf.TestWpf

@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Interfaces;
 
 namespace Example_MvvmFrame.Wpf.Pages
 {

@@ -1,6 +1,6 @@
-﻿using MvvmFrame.Entities;
-using MvvmFrame.EventArgs;
-using MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Entities;
+using GetcuReone.MvvmFrame.EventArgs;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;

@@ -2,7 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <DocumentationFile>MvvmFrame.wpf.xml</DocumentationFile>
+    <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
+    <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

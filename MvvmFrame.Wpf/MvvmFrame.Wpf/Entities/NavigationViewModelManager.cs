@@ -1,5 +1,5 @@
-﻿using MvvmFrame.Interfaces;
-using MvvmFrame.Wpf.EventArgs;
+﻿using GetcuReone.MvvmFrame.Interfaces;
+using GetcuReone.MvvmFrame.Wpf.EventArgs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace MvvmFrame.Wpf.Entities
+namespace GetcuReone.MvvmFrame.Wpf.Entities
 {
     /// <summary>
     /// Navigation view-model manager

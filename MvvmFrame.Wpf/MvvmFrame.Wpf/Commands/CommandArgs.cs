@@ -1,8 +1,8 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace MvvmFrame.Wpf.Commands
+namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
     /// Command args

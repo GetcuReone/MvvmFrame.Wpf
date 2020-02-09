@@ -1,4 +1,4 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.UnitTests.SetProperty.Environment

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MvvmFrame.Wpf.Commands
+namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
     /// Command

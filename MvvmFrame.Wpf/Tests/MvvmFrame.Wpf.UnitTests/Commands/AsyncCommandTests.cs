@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.Commands;
-using MvvmFrame.Wpf.TestAdapter.Helpers;
-using MvvmFrame.Wpf.UnitTests.Common;
+using GetcuReone.MvvmFrame.Wpf.Commands;
+using GetcuReone.MvvmFrame.Wpf.TestAdapter.Helpers;
+using GetcuReone.MvvmFrame.Wpf.UnitTests.Common;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands

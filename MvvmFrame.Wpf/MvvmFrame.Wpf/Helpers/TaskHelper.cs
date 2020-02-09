@@ -1,8 +1,8 @@
-﻿using MvvmFrame.Interfaces;
+﻿using GetcuReone.MvvmFrame.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace MvvmFrame.Wpf.Helpers
+namespace GetcuReone.MvvmFrame.Wpf.Helpers
 {
     /// <summary>
     /// Task helper

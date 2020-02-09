@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.Entities;
+using GetcuReone.MvvmFrame.Wpf.Entities;
 
 namespace MvvmFrame.Wpf.UnitTests.Navigation
 {
