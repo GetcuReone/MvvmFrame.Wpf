@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.TestWpf", "Mv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_MvvmFrame.Wpf", "Example_MvvmFrame.Wpf\Example_MvvmFrame.Wpf.csproj", "{4D79F654-DC0E-40D2-80D6-A9E96B40C4D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.AFAP", "MvvmFrame.Wpf.AFAP\MvvmFrame.Wpf.AFAP.csproj", "{39BA8C17-2E26-433E-8BB5-DDE7B50E529A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FC76E7E3-1E15-49F5-94D3-890BA8B88A18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFrame.Wpf.UnitTests.Common", "Tests\MvvmFrame.Wpf.UnitTests.Common\MvvmFrame.Wpf.UnitTests.Common.csproj", "{ED8AC9B9-F984-4285-BADC-5EA256EE1493}"
@@ -43,10 +41,6 @@ Global
 		{4D79F654-DC0E-40D2-80D6-A9E96B40C4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D79F654-DC0E-40D2-80D6-A9E96B40C4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D79F654-DC0E-40D2-80D6-A9E96B40C4D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39BA8C17-2E26-433E-8BB5-DDE7B50E529A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39BA8C17-2E26-433E-8BB5-DDE7B50E529A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39BA8C17-2E26-433E-8BB5-DDE7B50E529A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39BA8C17-2E26-433E-8BB5-DDE7B50E529A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED8AC9B9-F984-4285-BADC-5EA256EE1493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED8AC9B9-F984-4285-BADC-5EA256EE1493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED8AC9B9-F984-4285-BADC-5EA256EE1493}.Release|Any CPU.ActiveCfg = Release|Any CPU

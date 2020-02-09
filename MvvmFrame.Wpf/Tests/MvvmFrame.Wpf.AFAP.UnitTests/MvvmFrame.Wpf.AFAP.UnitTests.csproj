@@ -70,10 +70,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\MvvmFrame.Wpf.AFAP\MvvmFrame.Wpf.AFAP.csproj">
-      <Project>{39ba8c17-2e26-433e-8bb5-dde7b50e529a}</Project>
-      <Name>MvvmFrame.Wpf.AFAP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
       <Project>{BB80E7ED-8A8C-4903-8631-9564F5DF6599}</Project>
       <Name>MvvmFrame.Wpf</Name>
