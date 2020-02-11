@@ -113,6 +113,15 @@ namespace MvvmFrame.Wpf.TestAdapter
         }
 
         /// <summary>
+        /// Empty block given
+        /// </summary>
+        /// <returns></returns>
+        protected virtual GivenBlock<Frame, Frame> GivenEmpty()
+        {
+            return Given("Given empty", frame => frame);
+        }
+
+        /// <summary>
         /// Clean up
         /// </summary>
         /// <remarks>

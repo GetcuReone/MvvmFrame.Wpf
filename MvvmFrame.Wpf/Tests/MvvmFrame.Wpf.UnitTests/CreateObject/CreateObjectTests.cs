@@ -1,5 +1,6 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
 using System;
@@ -8,22 +9,19 @@ using System.Windows.Controls;
 namespace MvvmFrame.Wpf.UnitTests.CreateObject
 {
     [TestClass]
-    [Ignore]
-    public class CreateObjectTests
+    public class CreateObjectTests : FrameTestBase
     {
-        private readonly Frame _frame = new Frame();
-
         #region CreateViewModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[view-model] create view-model")]
         public void ViewModel_CreateViewModelTestCase()
         {
-            var viewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-
-            viewModel.NotNull()
-                .CheckCreateObject(2);
+            GivenEmpty()
+                .When("Create view-model", frame => ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .Then("Checking view-model", viewModel => viewModel.NotNull().CheckCreateObject(2))
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -43,36 +41,45 @@ namespace MvvmFrame.Wpf.UnitTests.CreateObject
         #region GetViewModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[view-model] get view-model")]
         public void ViewModel_GetViewModelTestCase()
         {
-            var firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var secondViewModel = firstViewModel.GetViewModel<TestViewModel>();
+            CreateObjectViewModel firstViewModel = null;
 
-            firstViewModel.NotNull()
-                .CheckCreateObject(3);
-
-            Assert.IsNotNull(secondViewModel, "second view-model can not be null");
-            TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
+            Given("Create view-model", frame => ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .And("Cheking first view-model", viewModel => firstViewModel = viewModel.NotNull().CheckCreateObject(2))
+                .When("Get seccond view-model", _ => firstViewModel.GetViewModel<TestViewModel>())
+                .Then("Cheking view-models", secondViewModel =>
+                {
+                    firstViewModel.CheckCreateObject(3);
+                    Assert.IsNotNull(secondViewModel, "second view-model can not be null");
+                    TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[view-model] get view-model some type")]
         public void ViewModel_GetViewModelSomeTypeTestCase()
         {
-            var firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var secondViewModel = firstViewModel.GetViewModel<CreateObjectViewModel>();
+            CreateObjectViewModel firstViewModel = null;
 
-            firstViewModel.NotNull()
-                .CheckCreateObject(3);
+            Given("Create view-model", frame => firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .When("Get seccond view-model", _ => firstViewModel.GetViewModel<CreateObjectViewModel>())
+                .Then("Cheking view-models", secondViewModel =>
+                {
+                    firstViewModel.NotNull()
+                        .CheckCreateObject(3);
 
-            secondViewModel.NotNull()
-                .CheckCreateObject(0);
+                    secondViewModel.NotNull()
+                        .CheckCreateObject(0);
 
-            Assert.AreNotEqual(firstViewModel, secondViewModel, "must be different objects");
-            TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
+                    Assert.AreNotEqual(firstViewModel, secondViewModel, "must be different objects");
+                    TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
@@ -80,51 +87,72 @@ namespace MvvmFrame.Wpf.UnitTests.CreateObject
         #region GetModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[view-model] get model")]
         public void ViewModel_GetModelTestCase()
         {
-            var firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var model = firstViewModel.GetModel<CreateObjectModel>();
+            CreateObjectViewModel firstViewModel = null;
 
-            firstViewModel.NotNull()
-                .CheckCreateObject(3);
+            Given("Create view-model", frame => firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .When("Get model", _ => firstViewModel.GetModel<CreateObjectModel>())
+                .Then("Cheking view-models", model =>
+                {
+                    firstViewModel.NotNull()
+                        .CheckCreateObject(3);
 
-            Assert.IsNotNull(model, "model can not be null");
+                    Assert.IsNotNull(model, "model can not be null");
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[model] get model")]
         public void Model_GetModelTestCase()
         {
-            var firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var firstModel = firstViewModel.GetModel<CreateObjectModel>();
-            var secondModel = firstModel.GetModel<TestModel>();
+            CreateObjectViewModel firstViewModel = null;
+            CreateObjectModel firstModel = null;
+            TestModel secondModel = null;
 
+            Given("Create view-model", frame => firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .When("Get models", _ =>
+                {
+                    firstModel = firstViewModel.GetModel<CreateObjectModel>();
+                    secondModel = firstModel.GetModel<TestModel>();
+                })
+                .Then("Cheking models", _ =>
+                {
+                    firstViewModel.NotNull().CheckCreateObject(4);
 
-            firstViewModel.NotNull()
-                .CheckCreateObject(4);
-
-            Assert.IsNotNull(firstModel, "first model can not be null");
-            Assert.IsNotNull(secondModel, "first model can not be null");
-            Assert.AreEqual(1, firstModel.GetModelCallCounter, $"method '{nameof(ModelBase.GetModel)}' should be called 1 times");
+                    Assert.IsNotNull(firstModel, "first model can not be null");
+                    Assert.IsNotNull(secondModel, "first model can not be null");
+                    Assert.AreEqual(1, firstModel.GetModelCallCounter, $"method '{nameof(ModelBase.GetModel)}' should be called 1 times");
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.One)]
+        [Timeout(Timeuots.Second.Five)]
         [Description("[model] get model some type")]
         public void Model_GetModelSameTypeTestCase()
         {
-            var firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var firstModel = firstViewModel.GetModel<CreateObjectModel>();
-            var secondModel = firstModel.GetModel<CreateObjectModel>();
+            CreateObjectViewModel firstViewModel = null;
+            CreateObjectModel firstModel = null;
+            CreateObjectModel secondModel = null;
 
+            Given("Create view-model", frame => firstViewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .When("Get models", _ =>
+                {
+                    firstModel = firstViewModel.GetModel<CreateObjectModel>();
+                    secondModel = firstModel.GetModel<CreateObjectModel>();
+                })
+                .Then("Cheking models", _ =>
+                {
+                    firstViewModel.NotNull().CheckCreateObject(4);
 
-            firstViewModel.NotNull()
-                .CheckCreateObject(4);
-
-            Assert.AreNotEqual(firstModel, secondModel, "must be different objects");
+                    Assert.AreNotEqual(firstModel, secondModel, "must be different objects");
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
@@ -133,17 +161,23 @@ namespace MvvmFrame.Wpf.UnitTests.CreateObject
 
         [TestMethod]
         [Description("[view-model] check method BindModel")]
-        [Timeout(Timeuots.Second.Two)]
+        [Timeout(Timeuots.Second.Five)]
         public void ViewModel_BindModelTestCase()
         {
-            var viewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(_frame);
-            var result = new CreateObjectModel();
+            CreateObjectViewModel viewModel = null;
+            CreateObjectModel result = new CreateObjectModel();
 
-            viewModel.BindModel(result);
-
-            viewModel.NotNull()
-                .CheckCreateObject(2);
-            Assert.AreEqual(viewModel.ModelOptions, result.ModelOptions, "options must match");
+            Given("Create view-model", frame => viewModel = ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
+                .When("Bind model", _ =>
+                {
+                    viewModel.BindModel(result);
+                })
+                .Then("Cheking models", _ =>
+                {
+                    viewModel.NotNull().CheckCreateObject(2);
+                    Assert.AreEqual(viewModel.ModelOptions, result.ModelOptions, "options must match");
+                })
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
