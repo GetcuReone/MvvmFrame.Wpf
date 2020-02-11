@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmFrame.Wpf.TestAdapter.Exceptions;
+using System;
 using System.Threading;
 
 namespace MvvmFrame.Wpf.TestAdapter.Helpers
@@ -12,6 +13,12 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
         /// <param name="maxWaitTime"></param>
         public static void RunActinInSTAThread(Action threadStart, int maxWaitTime)
         {
+            if (Thread.CurrentThread.GetApartmentState().HasFlag(ApartmentState.STA))
+            {
+                threadStart();
+                return;
+            }
+
             Exception exception = null;
             var thread = new Thread(() => 
             {
@@ -38,7 +45,7 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
             }
 
             if (exception != null)
-                throw exception;
+                throw new ThreadAnotherException(exception);
         }
     }
 }
