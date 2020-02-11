@@ -178,7 +178,6 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 {
                     viewModel.AsyncCommandWithParam = new AsyncCommand<CommandViewModel>(async e =>
                     {
-                        Assert.Fail("egwtesthdryt");
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
                         e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.AddCompensation(() => 
