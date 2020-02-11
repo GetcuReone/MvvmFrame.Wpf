@@ -1,21 +1,25 @@
 ﻿using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MvvmFrame.Wpf.TestAdapter;
+using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 using System;
 using System.Windows.Controls;
+using TestHelper = MvvmFrame.Wpf.UnitTests.Common.TestHelper;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices
 {
     [TestClass]
     public sealed class UiServicesTests
     {
-        private readonly Frame _frame = new Frame();
+        private Frame _frame;
         private UiServicesViewModel ViewModel { get; set; }
 
-        [TestInitialize]
         public void Initialize()
         {
+            _frame = new Frame();
+
             ViewModel = ViewModelBase.CreateViewModel<UiServicesViewModel>(_frame)
                 .CheckCreateObject(2);
         }
@@ -25,9 +29,14 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetViewModelTestCase()
         {
-            var result = ViewModel.GetViewModel<UiServicesViewModel>();
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            Assert.AreEqual(ViewModel.UiServices, result.UiServices, "UiServices must be match");
+                var result = ViewModel.GetViewModel<UiServicesViewModel>();
+
+                Assert.AreEqual(ViewModel.UiServices, result.UiServices, "UiServices must be match");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -35,10 +44,15 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_ContainsTestCase()
         {
-            ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
-            Assert.AreEqual(_frame, ViewModel.UiServices.GetUiService<UiService>().GetFrame(), "frames must match");
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+
+                Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
+                Assert.AreEqual(_frame, ViewModel.UiServices.GetUiService<UiService>().GetFrame(), "frames must match");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -46,13 +60,18 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientTowServicesTestCase()
         {
-            ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
-            var result1 = ViewModel.UiServices.GetUiService<UiService>();
-            var result2 = ViewModel.UiServices.GetUiService<UiService>();
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            Assert.IsNotNull(result1, "result1 cannot be null");
-            Assert.IsNotNull(result2, "result2 cannot be null");
-            Assert.AreNotEqual(result1, result2, "services must different");
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+                var result1 = ViewModel.UiServices.GetUiService<UiService>();
+                var result2 = ViewModel.UiServices.GetUiService<UiService>();
+
+                Assert.IsNotNull(result1, "result1 cannot be null");
+                Assert.IsNotNull(result2, "result2 cannot be null");
+                Assert.AreNotEqual(result1, result2, "services must different");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -60,11 +79,16 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientNegativeTestCase()
         {
-            ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            TestHelper.ExpectedException<ArgumentException>(
-                () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-                "service already added previously");
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -72,9 +96,14 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_GetUiServiceNegativeTestCase()
         {
-            TestHelper.ExpectedException<ArgumentException>(
-                () => ViewModel.UiServices.GetUiService<UiService>(),
-                "service does not exist");
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.GetUiService<UiService>(),
+                    "service does not exist");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -82,12 +111,17 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTestCase()
         {
-            ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
-            var result = ViewModel.UiServices.GetUiService<UiService>();
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            Assert.IsNotNull(result, "result cannot be null");
-            Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
-            Assert.AreEqual(_frame, result.GetFrame(), "frames must match");
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                var result = ViewModel.UiServices.GetUiService<UiService>();
+
+                Assert.IsNotNull(result, "result cannot be null");
+                Assert.IsTrue(ViewModel.UiServices.Contains<UiService>(), "services must contains");
+                Assert.AreEqual(_frame, result.GetFrame(), "frames must match");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -95,11 +129,16 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonTowServicesTestCase()
         {
-            ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
-            var result1 = ViewModel.UiServices.GetUiService<UiService>();
-            var result2 = ViewModel.UiServices.GetUiService<UiService>();
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            Assert.AreEqual(result1, result2, "services must match");
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+                var result1 = ViewModel.UiServices.GetUiService<UiService>();
+                var result2 = ViewModel.UiServices.GetUiService<UiService>();
+
+                Assert.AreEqual(result1, result2, "services must match");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -107,11 +146,16 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonNegativeTestCase()
         {
-            ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            TestHelper.ExpectedException<ArgumentException>(
-                () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
-                "service already added previously");
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -119,11 +163,16 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
         {
-            ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            TestHelper.ExpectedException<ArgumentException>(
-                () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-                "service already added previously");
+                ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
         }
 
         [TestMethod]
@@ -131,11 +180,16 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
         [Timeout(Timeuots.Second.Two)]
         public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
         {
-            ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
 
-            TestHelper.ExpectedException<ArgumentException>(
-                () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
-                "service already added previously");
+                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
+                    "service already added previously");
+            }, Timeuots.Second.One);
         }
     }
 }

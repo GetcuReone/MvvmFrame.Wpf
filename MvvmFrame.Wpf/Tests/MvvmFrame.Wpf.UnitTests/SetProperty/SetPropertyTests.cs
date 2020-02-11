@@ -28,7 +28,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                 {
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Ten);
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                 {
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
@@ -75,7 +75,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(0, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' not should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -126,7 +126,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     MvvmFrameErrorDetail detail = model.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyViewModel.OnVerification)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -172,7 +172,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(0, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyViewModel.OnVerification)}' not should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -199,7 +199,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     MvvmFrameErrorDetail detail = viewModel.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
@@ -232,7 +232,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -263,7 +263,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(0, eventCallCounter, $"method '{nameof(SetPropertyModel.VerifyPropertyChange)}' not should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -295,7 +295,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     MvvmFrameErrorDetail detail = model.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -324,7 +324,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, eventCallCounter, $"event '{nameof(SetPropertyViewModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -355,7 +355,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyViewModel.VerifyPropertyChange)}' not should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -387,7 +387,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     MvvmFrameErrorDetail detail = viewModel.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion
@@ -413,7 +413,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, model.OnPropertyChangedCallCounter, $"method '{nameof(SetPropertyModel.OnPropertyChanged)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -441,7 +441,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(0, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -463,7 +463,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(text, vewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, vewModel.OnPropertyChangedCallCounter, $"method '{nameof(SetPropertyModel.OnPropertyChanged)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [TestMethod]
@@ -491,7 +491,7 @@ namespace MvvmFrame.Wpf.UnitTests.SetProperty
                     Assert.AreEqual(0, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         #endregion

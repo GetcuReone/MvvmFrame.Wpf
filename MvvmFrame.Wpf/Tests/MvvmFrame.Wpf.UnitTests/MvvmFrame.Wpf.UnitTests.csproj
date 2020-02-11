@@ -106,6 +106,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\JwtTestAdapter\JwtTestAdapter.csproj">
+      <Project>{EE0FFDD9-355F-4B1B-A862-D2CCEDD94A98}</Project>
+      <Name>JwtTestAdapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj">
       <Project>{EC5B9340-E954-492A-B792-FF02C9BB61CB}</Project>
       <Name>MvvmFrame.Wpf.TestAdapter</Name>
@@ -137,7 +141,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

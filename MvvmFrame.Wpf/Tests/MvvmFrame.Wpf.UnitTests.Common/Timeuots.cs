@@ -21,6 +21,7 @@
             public const int Two = 2_000;
             public const int Five = 5_000;
             public const int Ten = 10_000;
+            public const int Twenty = 20_000;
         }
     }
 }

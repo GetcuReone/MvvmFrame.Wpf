@@ -9,7 +9,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
     [TestClass]
     public class AsyncCommandTests : UiTestBase<CommandViewModel>
     {
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_RunCommandTestCase()
@@ -33,7 +33,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Ten);
         }
 
         [Timeout(Timeuots.Second.Five)]
@@ -60,10 +60,10 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
+        [Timeout(Timeuots.Second.Twenty)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_RunCompensationOperationTestCase()
@@ -105,10 +105,10 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     Assert.IsFalse(finishCommand, "finishCommand is false");
                     Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Twenty);
         }
 
-        [Timeout(Timeuots.Second.Five)]
+        //[Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_P_RunCommandTestCase()
@@ -133,7 +133,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Ten);
         }
 
         [Timeout(Timeuots.Second.Five)]
@@ -161,7 +161,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     await Task.Delay(Timeuots.Second.One);
                 })
                 .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
 
         [Timeout(Timeuots.Second.Five)]
@@ -206,7 +206,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     Assert.IsFalse(finishCommand, "finishCommand is false");
                     Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
-                .RunWindow();
+                .RunWindow(Timeuots.Second.Five);
         }
     }
 }
