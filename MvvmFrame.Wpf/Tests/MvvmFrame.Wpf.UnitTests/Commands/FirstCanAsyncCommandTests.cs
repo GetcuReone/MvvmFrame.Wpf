@@ -5,7 +5,6 @@ using MvvmFrame.Wpf.UnitTests.Common;
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {
     [TestClass]
-    [Ignore]
     public class FirstCanAsyncCommandTests
     {
         [Timeout(Timeuots.Millisecond.Twenty)]
