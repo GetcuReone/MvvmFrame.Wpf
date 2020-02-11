@@ -13,12 +13,6 @@ namespace MvvmFrame.Wpf.TestAdapter.Helpers
         /// <param name="maxWaitTime"></param>
         public static void RunActinInSTAThread(Action threadStart, int maxWaitTime)
         {
-            if (Thread.CurrentThread.GetApartmentState().HasFlag(ApartmentState.STA))
-            {
-                threadStart();
-                return;
-            }
-
             Exception exception = null;
             var thread = new Thread(() => 
             {
