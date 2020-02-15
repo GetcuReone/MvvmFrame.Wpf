@@ -27,8 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj" />
-    <ProjectReference Include="..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\MvvmFrame.Wpf.TestAdapter\MvvmFrame.Wpf.TestAdapter.csproj" />
   </ItemGroup>
 
   <ItemGroup>
