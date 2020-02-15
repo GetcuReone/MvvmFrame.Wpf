@@ -1,7 +1,7 @@
 ﻿using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.UnitTests.Common;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
+using MvvmFrame.Wpf.TestsCommon;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands
 {

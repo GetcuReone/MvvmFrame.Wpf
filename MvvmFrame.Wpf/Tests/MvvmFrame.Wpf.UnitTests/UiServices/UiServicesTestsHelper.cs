@@ -1,4 +1,4 @@
-﻿using MvvmFrame.Wpf.UnitTests.Common;
+﻿using MvvmFrame.Wpf.TestsCommon;
 using MvvmFrame.Wpf.UnitTests.UiServices.Environment;
 
 namespace MvvmFrame.Wpf.UnitTests.UiServices
