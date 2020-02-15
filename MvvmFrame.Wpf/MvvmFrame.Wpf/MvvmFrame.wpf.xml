@@ -542,7 +542,7 @@
             Provides data for the Navigating event.
             </summary>
         </member>
-        <member name="M:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.#ctor(GetcuReone.MvvmFrame.Wpf.ViewModelBase,System.Object)">
+        <member name="M:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.#ctor(GetcuReone.MvvmFrame.Wpf.ViewModelBase,System.Object,System.Windows.Navigation.NavigationMode)">
             <summary>
             Constructor
             </summary>
@@ -562,6 +562,11 @@
         <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.NavigateParam">
             <summary>
             Nagation parameter
+            </summary>
+        </member>
+        <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.NavigationMode">
+            <summary>
+            Navigatiom mode
             </summary>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.Cancel">

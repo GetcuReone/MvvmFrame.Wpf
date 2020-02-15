@@ -8,6 +8,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
     public sealed class NavigationViewModel : ViewModelBase
     {
         public List<string> MethodCallLog { get; } = new List<string>();
+        public List<string> NavigationModes { get; } = new List<string>();
 
         public bool IsLeaved { get; private set; } = false;
         public bool IsLoaded { get; private set; } = false;
@@ -28,6 +29,7 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
             IsLeaved = true;
             IsNavigated = false;
             IsLoaded = false;
+            NavigationModes.Add(args.NavigationMode.ToString());
             MethodCallLog.Add(nameof(OnLeavePageAsync));
             return default;
         }

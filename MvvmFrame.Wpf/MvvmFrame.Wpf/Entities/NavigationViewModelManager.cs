@@ -50,18 +50,15 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
         }
         private async void OnNavigating(object sender, NavigatingCancelEventArgs e)
         {
-            if (e.NavigationMode == NavigationMode.Refresh)
-                return;
-
             ViewModelBase previous = (_navigationService.Content as Page)?.DataContext as ViewModelBase;
             if (previous == null)
                 return;
 
-            ViewModelBase viewModel = (e.Content as Page)?.DataContext as ViewModelBase;
-            if (viewModel == null)
+            ViewModelBase current = (e.Content as Page)?.DataContext as ViewModelBase;
+            if (current == null)
                 return;
 
-            var args = new NavigatingEventArgs(viewModel, e.ExtraData);
+            var args = new NavigatingEventArgs(current, e.ExtraData, e.NavigationMode);
             await previous.InnerOnLeavePageAsync(args);
 
             if (args.IsCancel)
