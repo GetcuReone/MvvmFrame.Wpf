@@ -4,7 +4,7 @@ using GetcuReone.MvvmFrame.Wpf.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
-using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.TestsCommon;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 

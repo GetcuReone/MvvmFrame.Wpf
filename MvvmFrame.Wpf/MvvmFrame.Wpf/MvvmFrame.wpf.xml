@@ -548,6 +548,7 @@
             </summary>
             <param name="navigatedViewModel"></param>
             <param name="navigateParam"></param>
+            <param name="navigationMode"></param>
         </member>
         <member name="P:GetcuReone.MvvmFrame.Wpf.EventArgs.NavigatingEventArgs.IsCancel">
             <summary>

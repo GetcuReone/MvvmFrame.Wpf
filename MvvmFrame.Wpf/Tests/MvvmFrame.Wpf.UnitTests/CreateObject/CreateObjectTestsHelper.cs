@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.TestsCommon;
 using MvvmFrame.Wpf.UnitTests.CreateObject.Environment;
 
 namespace MvvmFrame.Wpf.UnitTests.CreateObject

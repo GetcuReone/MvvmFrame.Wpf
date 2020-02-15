@@ -1,7 +1,8 @@
 ﻿using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
-using MvvmFrame.Wpf.UnitTests.Common;
+using MvvmFrame.Wpf.TestsCommon;
+using System;
 using System.Threading.Tasks;
 
 namespace MvvmFrame.Wpf.UnitTests.Commands
@@ -108,12 +109,12 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 .RunWindow(Timeuots.Second.Twenty);
         }
 
-        //[Timeout(Timeuots.Second.Ten)]
+        [Timeout(Timeuots.Second.Ten)]
         [Description("[ui][async][command] run command")]
         [TestMethod]
         public void AsyncCommand_P_RunCommandTestCase()
         {
-            bool commandComlited = false;
+            object commandComlited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -132,7 +133,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     page.btnAsyncCommandParam.OnClick();
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
-                .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
+                .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(commandComlited), "Command not runed"))
                 .RunWindow(Timeuots.Second.Ten);
         }
 

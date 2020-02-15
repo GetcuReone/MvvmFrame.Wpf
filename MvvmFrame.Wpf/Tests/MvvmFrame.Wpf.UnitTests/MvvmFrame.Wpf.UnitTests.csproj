@@ -114,13 +114,13 @@
       <Project>{EC5B9340-E954-492A-B792-FF02C9BB61CB}</Project>
       <Name>MvvmFrame.Wpf.TestAdapter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\MvvmFrame.Wpf.TestsCommon\MvvmFrame.Wpf.TestsCommon.csproj">
+      <Project>{E89704E8-E1F1-49E0-A473-C3183DC39237}</Project>
+      <Name>MvvmFrame.Wpf.TestsCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj">
       <Project>{bb80e7ed-8a8c-4903-8631-9564f5df6599}</Project>
       <Name>MvvmFrame.Wpf</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MvvmFrame.Wpf.UnitTests.Common\MvvmFrame.Wpf.UnitTests.Common.csproj">
-      <Project>{ed8ac9b9-f984-4285-badc-5ea256ee1493}</Project>
-      <Name>MvvmFrame.Wpf.UnitTests.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
