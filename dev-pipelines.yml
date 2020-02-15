@@ -16,7 +16,6 @@ variables:
   buildConfiguration: 'Debug'
   majorVersion: '1'
   packageVersion: '$(majorVersion).0.0'
-  packageFileName: '$MvvmFrameWpf.$(packageVersion).nupkg'
   nugetProjectName: 'MvvmFrame.Wpf'
 
 steps:
