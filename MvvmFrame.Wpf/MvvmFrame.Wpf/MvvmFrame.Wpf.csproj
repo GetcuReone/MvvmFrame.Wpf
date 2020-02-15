@@ -15,6 +15,7 @@
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
     <PackageReleaseNotes>Restructuring. Changed the navigation processing when refreshing the page</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
     <Copyright>Copyright © 2019 GetcuReone</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
