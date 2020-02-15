@@ -15,7 +15,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         [TestMethod]
         public void AsyncCommand_RunCommandTestCase()
         {
-            bool commandComlited = false;
+            object commandComlited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -33,7 +33,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     page.btnAsyncCommand.OnClick();
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
-                .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
+                .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(commandComlited), "Command not runed"))
                 .RunWindow(Timeuots.Second.Ten);
         }
 
@@ -42,7 +42,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         [TestMethod]
         public void AsyncCommand_RunFinishOperationTestCase()
         {
-            bool finishComlited = false;
+            object finishComlited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -60,7 +60,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     page.btnAsyncCommand.OnClick();
                     await Task.Delay(Timeuots.Millisecond.Hundred);
                 })
-                .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
+                .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(finishComlited), "Finis operation not runed"))
                 .RunWindow(Timeuots.Second.Five);
         }
 
@@ -69,9 +69,9 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         [TestMethod]
         public void AsyncCommand_RunCompensationOperationTestCase()
         {
-            bool compensationComlited = false;
-            bool finishCommand = false;
-            bool finishOperationCoplited = false;
+            object compensationComlited = false;
+            object finishCommand = false;
+            object finishOperationCoplited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -102,9 +102,9 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 })
                 .Then("Check run command", () => 
                 {
-                    Assert.IsTrue(compensationComlited, $"compensation operation not runed. Value: {compensationComlited}");
-                    Assert.IsFalse(finishCommand, "finishCommand is false");
-                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
+                    Assert.IsTrue(Convert.ToBoolean(compensationComlited), $"compensation operation not runed. Value: {compensationComlited}");
+                    Assert.IsFalse(Convert.ToBoolean(finishCommand), "finishCommand is false");
+                    Assert.IsTrue(Convert.ToBoolean(finishOperationCoplited), "Finis operation not runed");
                 })
                 .RunWindow(Timeuots.Second.Twenty);
         }
@@ -142,7 +142,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         [TestMethod]
         public void AsyncCommand_P_RunFinishOperationTestCase()
         {
-            bool finishComlited = false;
+            object finishComlited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -161,7 +161,7 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                     page.btnAsyncCommandParam.OnClick();
                     await Task.Delay(Timeuots.Second.One);
                 })
-                .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
+                .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(finishComlited), "Finis operation not runed"))
                 .RunWindow(Timeuots.Second.Five);
         }
 
@@ -170,9 +170,9 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
         [TestMethod]
         public void AsyncCommand_P_RunCompensationOperationTestCase()
         {
-            bool compensationComlited = false;
-            bool finishCommand = false;
-            bool finishOperationCoplited = false;
+            object compensationComlited = false;
+            object finishCommand = false;
+            object finishOperationCoplited = false;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -203,9 +203,9 @@ namespace MvvmFrame.Wpf.UnitTests.Commands
                 })
                 .Then("Check run command", () =>
                 {
-                    Assert.IsTrue(compensationComlited, "compensation operation not runed");
-                    Assert.IsFalse(finishCommand, "finishCommand is false");
-                    Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
+                    Assert.IsTrue(Convert.ToBoolean(compensationComlited), "compensation operation not runed");
+                    Assert.IsFalse(Convert.ToBoolean(finishCommand), "finishCommand is false");
+                    Assert.IsTrue(Convert.ToBoolean(finishOperationCoplited), "Finis operation not runed");
                 })
                 .RunWindow(Timeuots.Second.Five);
         }
