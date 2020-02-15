@@ -4,6 +4,19 @@
     <TargetFramework>net472</TargetFramework>
     <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
     <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
+
+    <Authors>GetcuReone</Authors>
+    <PackageId>MvvmFrameWpf</PackageId>
+    <Product>MvvmFrameWpf</Product>
+    <Description>Pattern implementation MVVM with Frame for WPF</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
+    <PackageReleaseNotes>Restructuring. Changed the navigation processing when refreshing the page</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright © 2019 GetcuReone</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -28,5 +41,12 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System.Xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE-2.0.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>

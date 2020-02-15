@@ -262,11 +262,16 @@ namespace MvvmFrame.Wpf.UnitTests.Navigation
                     Assert.IsTrue(viewModel.IsNavigated, "IsNavigated must be true");
                     Assert.IsTrue(viewModel.IsLoaded, "IsNavigated must be true");
                     Assert.IsFalse(viewModel.IsLeaved, "IsNavigated must be false");
-                    Assert.AreEqual(4, viewModel.MethodCallLog.Count, "long call log should be 4");
+
+                    Assert.AreEqual(5, viewModel.MethodCallLog.Count, "long call log should be 4");
                     Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
                     Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
-                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[2], "3st must be called OnGoPageAsync");
-                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[3], "4st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnLeavePageAsync", viewModel.MethodCallLog[2], "2st must be called OnLoadPageAsync");
+                    Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[3], "3st must be called OnGoPageAsync");
+                    Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[4], "4st must be called OnLoadPageAsync");
+
+                    Assert.AreEqual(1, viewModel.NavigationModes.Count, "There must be 2 navigation");
+                    Assert.AreEqual("Refresh", viewModel.NavigationModes[0], "2st  must be page refresh navigation");
                 })
                 .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
         }

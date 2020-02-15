@@ -16,8 +16,7 @@ variables:
   buildConfiguration: 'Debug'
   majorVersion: '1'
   packageVersion: '$(majorVersion).0.0'
-  packageFileName: '$MvvmFrameWpf.$(packageVersion).nupkg'
-  nugetProjectName: 'NugetProject'
+  nugetProjectName: 'MvvmFrame.Wpf'
 
 steps:
 - template: pipeline_steps/step_restore_build_pack.yml

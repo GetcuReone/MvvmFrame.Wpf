@@ -34,7 +34,7 @@ namespace InfrastructureTests
                 var currenFolder = new DirectoryInfo(System.Environment.CurrentDirectory);
                 string nugetFolderPath = Path.Combine(
                     currenFolder.Parent.Parent.Parent.Parent.Parent.FullName,
-                    "NugetProject",
+                    "MvvmFrame.Wpf",
                     "bin",
                     _buildConfiguration);
                 return new DirectoryInfo(nugetFolderPath);
