@@ -78,7 +78,6 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
         {
             _navigationCompensation.Compensate();
         }
-
         private async void OnNavigated(object sender, NavigationEventArgs e)
         {
             ViewModelBase current = (_navigationService.Content as Page)?.DataContext as ViewModelBase;
