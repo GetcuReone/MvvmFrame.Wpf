@@ -11,7 +11,7 @@ variables:
   buildConfiguration: 'Release'
   majorVersion: '6'
   packageVersion: '$(majorVersion).$(Build.BuildNumber)'
-  nugetProjectName: 'NugetProject'
+  nugetProjectName: 'MvvmFrame.Wpf'
 
 
 steps:

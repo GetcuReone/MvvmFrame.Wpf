@@ -36,7 +36,7 @@ namespace MvvmFrame.Wpf.UnitTests.UiServices
                 var result = ViewModel.GetViewModel<UiServicesViewModel>();
 
                 Assert.AreEqual(ViewModel.UiServices, result.UiServices, "UiServices must be match");
-            }, Timeuots.Second.One);
+            }, Timeuots.Second.Two);
         }
 
         [TestMethod]
