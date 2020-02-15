@@ -13,7 +13,7 @@ variables:
   minorVersion: '0'
   pathVersion: '0'
   packageVersion: '$(majorVersion).$(minorVersion).$(pathVersion)'
-  nugetProjectName: 'NugetProject'
+  nugetProjectName: 'MvvmFrame.Wpf'
 
 
 steps:
