@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>Restructuring</PackageReleaseNotes>
+    <PackageReleaseNotes>Restructuring. Changed the navigation processing when refreshing the page</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright © 2019 GetcuReone</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
