@@ -70,8 +70,15 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
                 _navigationCompensation.Compensate();
             }
         }
-        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e) => _navigationCompensation.Compensate();
-        private void OnNavigationStopped(object sender, NavigationEventArgs e) => _navigationCompensation.Compensate();
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            _navigationCompensation.Compensate();
+        }
+        private void OnNavigationStopped(object sender, NavigationEventArgs e)
+        {
+            _navigationCompensation.Compensate();
+        }
+
         private async void OnNavigated(object sender, NavigationEventArgs e)
         {
             ViewModelBase current = (_navigationService.Content as Page)?.DataContext as ViewModelBase;
