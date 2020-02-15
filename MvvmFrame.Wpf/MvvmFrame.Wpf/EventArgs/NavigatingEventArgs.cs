@@ -13,6 +13,7 @@ namespace GetcuReone.MvvmFrame.Wpf.EventArgs
         /// </summary>
         /// <param name="navigatedViewModel"></param>
         /// <param name="navigateParam"></param>
+        /// <param name="navigationMode"></param>
         public NavigatingEventArgs(ViewModelBase navigatedViewModel, object navigateParam, NavigationMode navigationMode)
         {
             IsCancel = false;
