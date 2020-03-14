@@ -120,17 +120,5 @@ namespace MvvmFrame.Wpf.TestAdapter
         {
             return Given("Given empty", frame => frame);
         }
-
-        /// <summary>
-        /// Clean up
-        /// </summary>
-        /// <remarks>
-        /// Thank you very much https://www.meziantou.net/unit-tests-with-a-wpf-window.htm
-        /// </remarks>
-        //[TestCleanup]
-        //public virtual void CleanUp()
-        //{
-        //    Dispatcher.CurrentDispatcher.InvokeShutdown();
-        //}
     }
 }
