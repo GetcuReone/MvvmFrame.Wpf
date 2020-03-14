@@ -5,7 +5,7 @@
     <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
     <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
 
-    <Authors>GetcuReone</Authors>
+    <Authors>Itua Juel-Gaben</Authors>
     <PackageId>MvvmFrameWpf</PackageId>
     <Product>MvvmFrameWpf</Product>
     <Description>Pattern implementation MVVM with Frame for WPF</Description>
@@ -13,10 +13,10 @@
     <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>Restructuring. Changed the navigation processing when refreshing the page</PackageReleaseNotes>
+    <PackageReleaseNotes>Dependency Update</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
-    <Copyright>Copyright © 2019 GetcuReone</Copyright>
+    <Copyright>Copyright © 2019 $(Authors)</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
@@ -33,7 +33,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ComboPatterns" Version="3.0.1" />
+    <PackageReference Include="ComboPatterns" Version="3.0.2" />
     <PackageReference Include="MvvmFrame.root" Version="6.0.0" />
     <PackageReference Include="PresentationFramework" Version="4.6.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
