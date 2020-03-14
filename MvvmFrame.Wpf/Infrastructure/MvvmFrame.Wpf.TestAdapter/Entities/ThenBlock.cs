@@ -204,6 +204,7 @@ namespace MvvmFrame.Wpf.TestAdapter.Entities
                 window.Loaded += async (sender, e) => await GivenWhenThenHelper.RunCodeBlockAndCloseWindow(blocksStack, window, getFrame);
 
                 window.ShowDialog();
+                window.Dispatcher.InvokeShutdown();
             }, maxWaitTime);
         }
     }
