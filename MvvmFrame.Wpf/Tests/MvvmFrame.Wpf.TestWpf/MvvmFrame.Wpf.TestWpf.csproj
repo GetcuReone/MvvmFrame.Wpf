@@ -111,7 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ComboPatterns">
-      <Version>3.0.1</Version>
+      <Version>3.0.2</Version>
     </PackageReference>
     <PackageReference Include="MvvmFrame.root">
       <Version>6.0.0</Version>
