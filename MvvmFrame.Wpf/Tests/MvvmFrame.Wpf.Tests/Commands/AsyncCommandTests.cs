@@ -15,11 +15,12 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestMethod]
         public void AsyncCommand_RunCommandTestCase()
         {
-            object commandComlited = false;
+            object commandComlited = null;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
                 {
+                    commandComlited = false;
                     viewModel.AsyncCommand = new AsyncCommand(async _ =>
                     {
                         await Task.Delay(Timeuots.Millisecond.Hundred);
