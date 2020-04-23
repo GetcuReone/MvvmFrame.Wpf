@@ -60,18 +60,25 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         {
             if (CanExecute(null))
             {
+                currentArgs = new AsyncCommandArgs();
+
                 try
                 {
-                    currentArgs = new AsyncCommandArgs();
                     await execute(currentArgs);
+                }
+                catch (Exception)
+                {
                     if (currentArgs.IsCancel)
                         await currentArgs.Compensate();
 
                     currentArgs.FinishOperations();
+                    throw;
                 }
-                finally
-                {
-                }
+
+                if (currentArgs.IsCancel)
+                    await currentArgs.Compensate();
+
+                currentArgs.FinishOperations();
             }
 
             RaiseCanExecuteChanged();
@@ -135,18 +142,25 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         {
             if (CanExecute(null))
             {
+                currentArgs = new AsyncCommandArgs<TParametr>(parametr);
+
                 try
                 {
-                    currentArgs = new AsyncCommandArgs<TParametr>(parametr);
                     await execute(currentArgs);
+                }
+                catch (Exception)
+                {
                     if (currentArgs.IsCancel)
                         await currentArgs.Compensate();
 
                     currentArgs.FinishOperations();
+                    throw;
                 }
-                finally
-                {
-                }
+
+                if (currentArgs.IsCancel)
+                    await currentArgs.Compensate();
+
+                currentArgs.FinishOperations();
             }
 
             RaiseCanExecuteChanged();

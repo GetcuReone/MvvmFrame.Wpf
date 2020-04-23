@@ -43,7 +43,18 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         {
             currentArgs = new CommandArgs();
 
-            execute(currentArgs);
+            try
+            {
+                execute(currentArgs);
+            }
+            catch (Exception)
+            {
+                if (currentArgs.IsCancel)
+                    currentArgs.Compensate();
+
+                currentArgs.FinishOperations();
+                throw;
+            }
 
             if (currentArgs.IsCancel)
                 currentArgs.Compensate();
@@ -100,7 +111,18 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         {
             currentArgs = new CommandArgs<TParameter>((TParameter)parameter);
 
-            execute(currentArgs);
+            try
+            {
+                execute(currentArgs);
+            }
+            catch (Exception)
+            {
+                if (currentArgs.IsCancel)
+                    currentArgs.Compensate();
+
+                currentArgs.FinishOperations();
+                throw;
+            }
 
             if (currentArgs.IsCancel)
                 currentArgs.Compensate();
