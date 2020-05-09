@@ -1,4 +1,5 @@
 ﻿using GetcuReone.ComboPatterns.Factory;
+using GetcuReone.MvvmFrame.Wpf.Helpers;
 using GetcuReone.MvvmFrame.Wpf.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,12 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
         }
 
         /// <inheritdoc/>
-        public bool Contains<TUiService>() => _uiServicesEntities.Any(entity => entity is UiServiceEntity<TUiService>);
+        public bool Contains<TUiService>()
+        {
+            if (_uiServicesEntities.IsNullOrEmpty())
+                return false;
+            return _uiServicesEntities.Any(entity => entity is UiServiceEntity<TUiService>);
+        }
 
         /// <inheritdoc/>
         public void AddSingleton<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new()
@@ -61,7 +67,10 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
         /// <inheritdoc/>
         public void Remove<TUiService>()
         {
-            var entity = GetUiService<TUiService>();
+            var entity = _uiServicesEntities.FirstOrDefault(obj => obj is UiServiceEntity<TUiService>);
+
+            if (entity == null)
+                throw new ArgumentException($"Service {typeof(TUiService).Name} does not exist.");
 
             _uiServicesEntities.Remove(entity);
         }

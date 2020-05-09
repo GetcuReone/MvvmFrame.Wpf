@@ -210,11 +210,31 @@ namespace MvvmFrame.Wpf.Tests.UiServices
             {
                 Initialize();
 
-                ViewModel.UiServices.AddTransient<UiService, UiService>(_frame);
-                ViewModel.UiServices.Remove<UiService>();
+                var uiService = ViewModel.UiServices;
+                uiService.AddTransient<UiService, UiService>(_frame);
 
+                var t = uiService.Contains<UiService>();
                 Assert.IsFalse(ViewModel.UiServices.Contains<UiService>(), "Service exists.");
-            }, Timeuots.Second.One);
+            }, Timeuots.Second.Two);
+        }
+
+        [TestMethod]
+        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [Description("Remove non-added service.")]
+        [Timeout(Timeuots.Second.Two)]
+        public void UiServicesTests_RemoveNonAddedServiceTestCase()
+        {
+            ThreadHelper.RunActinInSTAThread(() =>
+            {
+                Initialize();
+
+                var uiService = ViewModel.UiServices;
+
+                TestHelper.ExpectedException<ArgumentException>(
+                    () => uiService.Remove<UiService>(),
+                    $"Service {typeof(UiService).Name} does not exist.");
+
+            }, Timeuots.Second.Two);
         }
     }
 }

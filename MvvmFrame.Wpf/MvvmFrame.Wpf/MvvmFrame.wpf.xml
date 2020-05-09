@@ -362,34 +362,19 @@
             </summary>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.AddTransient``2(System.Windows.Controls.Frame)">
-            <summary>
-            Add a service that will be created every time you request
-            </summary>
-            <typeparam name="TUiService">interfaces services</typeparam>
-            <typeparam name="TUiServiceImplementation">implement services</typeparam>
-            <param name="frame"></param>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.GetUiService``1">
-            <summary>
-            Get UI service
-            </summary>
-            <typeparam name="TUiService">service type</typeparam>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.Contains``1">
-            <summary>
-            Is the service contains
-            </summary>
-            <typeparam name="TUiService"></typeparam>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.AddSingleton``2(System.Windows.Controls.Frame)">
-            <summary>
-            Add a service that will be created one time you request
-            </summary>
-            <typeparam name="TUiService">interfaces services</typeparam>
-            <typeparam name="TUiServiceImplementation">implement services</typeparam>
-            <param name="frame"></param>
+            <inheritdoc/>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices.Remove``1">
+            <inheritdoc/>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.ModelOptions">
             <summary>
@@ -618,33 +603,39 @@
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.GetUiService``1">
             <summary>
-            Get UI service
+            Get UI service.
             </summary>
             <typeparam name="TUiService"></typeparam>
             <returns></returns>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.Contains``1">
             <summary>
-            Is the service contains
+            Is the service contains.
             </summary>
             <typeparam name="TUiService"></typeparam>
             <returns></returns>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.AddTransient``2(System.Windows.Controls.Frame)">
             <summary>
-            Add a service that will be created every time you request
+            Add a service that will be created every time you request.
             </summary>
-            <typeparam name="TUiService">interfaces services</typeparam>
-            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <typeparam name="TUiService">interfaces services.</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services.</typeparam>
             <param name="frame"></param>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.AddSingleton``2(System.Windows.Controls.Frame)">
             <summary>
-            Add a service that will be created one time you request
+            Add a service that will be created one time you request.
             </summary>
-            <typeparam name="TUiService">interfaces services</typeparam>
-            <typeparam name="TUiServiceImplementation">implement services</typeparam>
+            <typeparam name="TUiService">interfaces services.</typeparam>
+            <typeparam name="TUiServiceImplementation">implement services.</typeparam>
             <param name="frame"></param>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Interfaces.IConfigUiServices.Remove``1">
+            <summary>
+            Remove service <typeparamref name="TUiService"/>.
+            </summary>
+            <typeparam name="TUiService"></typeparam>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.ModelBase">
             <summary>
