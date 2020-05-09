@@ -160,7 +160,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
 
                 TestHelper.ExpectedException<ArgumentException>(
                     () => ViewModel.UiServices.AddSingleton<UiService, UiService>(_frame),
-                    "service already added previously");
+                    "Service already added previously.");
             }, Timeuots.Second.One);
         }
 
