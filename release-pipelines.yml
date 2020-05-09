@@ -10,8 +10,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   majorVersion: '6'
-  minorVersion: '0'
-  pathVersion: '2'
+  minorVersion: '1'
+  pathVersion: '0'
   packageVersion: '$(majorVersion).$(minorVersion).$(pathVersion)'
   nugetProjectName: 'MvvmFrame.Wpf'
 
