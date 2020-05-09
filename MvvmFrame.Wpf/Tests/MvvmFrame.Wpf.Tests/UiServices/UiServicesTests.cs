@@ -212,8 +212,8 @@ namespace MvvmFrame.Wpf.Tests.UiServices
 
                 var uiService = ViewModel.UiServices;
                 uiService.AddTransient<UiService, UiService>(_frame);
+                uiService.Remove<UiService>();
 
-                var t = uiService.Contains<UiService>();
                 Assert.IsFalse(ViewModel.UiServices.Contains<UiService>(), "Service exists.");
             }, Timeuots.Second.Two);
         }
