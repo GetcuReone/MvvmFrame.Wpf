@@ -89,7 +89,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
 
                 TestHelper.ExpectedException<ArgumentException>(
                     () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-                    "service already added previously");
+                    "Service already added previously.");
             }, Timeuots.Second.One);
         }
 
@@ -105,7 +105,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
 
                 TestHelper.ExpectedException<ArgumentException>(
                     () => ViewModel.UiServices.GetUiService<UiService>(),
-                    "service does not exist");
+                    "Service does not exist.");
             }, Timeuots.Second.One);
         }
 
@@ -178,7 +178,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
 
                 TestHelper.ExpectedException<ArgumentException>(
                     () => ViewModel.UiServices.AddTransient<UiService, UiService>(_frame),
-                    "service already added previously");
+                    "Service already added previously.");
             }, Timeuots.Second.One);
         }
 
