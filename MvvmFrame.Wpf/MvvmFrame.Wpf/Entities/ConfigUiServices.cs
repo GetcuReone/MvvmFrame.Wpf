@@ -18,7 +18,7 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
             where TUiServiceImplementation : UiServiceBase, TUiService, new()
         {
             if (Contains<TUiService>())
-                throw new ArgumentException("service already added previously");
+                throw new ArgumentException("Service already added previously.");
 
             var uiServiceEntity = new UiServiceEntity<TUiService>(this)
             {
@@ -46,7 +46,7 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
             var entity = _uiServicesEntities.FirstOrDefault(obj => obj is UiServiceEntity<TUiService>);
 
             if (entity == null)
-                throw new ArgumentException("service does not exist");
+                throw new ArgumentException("Service does not exist.");
 
             return ((UiServiceEntity<TUiService>)entity).GetService();
         }
