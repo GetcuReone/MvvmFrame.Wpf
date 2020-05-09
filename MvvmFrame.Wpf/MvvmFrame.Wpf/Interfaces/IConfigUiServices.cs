@@ -9,33 +9,39 @@ namespace GetcuReone.MvvmFrame.Wpf.Interfaces
     public interface IConfigUiServices
     {
         /// <summary>
-        /// Get UI service
+        /// Get UI service.
         /// </summary>
         /// <typeparam name="TUiService"></typeparam>
         /// <returns></returns>
         TUiService GetUiService<TUiService>();
 
         /// <summary>
-        /// Is the service contains
+        /// Is the service contains.
         /// </summary>
         /// <typeparam name="TUiService"></typeparam>
         /// <returns></returns>
         bool Contains<TUiService>();
 
         /// <summary>
-        /// Add a service that will be created every time you request
+        /// Add a service that will be created every time you request.
         /// </summary>
-        /// <typeparam name="TUiService">interfaces services</typeparam>
-        /// <typeparam name="TUiServiceImplementation">implement services</typeparam>
+        /// <typeparam name="TUiService">interfaces services.</typeparam>
+        /// <typeparam name="TUiServiceImplementation">implement services.</typeparam>
         /// <param name="frame"></param>
         void AddTransient<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new();
 
         /// <summary>
-        /// Add a service that will be created one time you request
+        /// Add a service that will be created one time you request.
         /// </summary>
-        /// <typeparam name="TUiService">interfaces services</typeparam>
-        /// <typeparam name="TUiServiceImplementation">implement services</typeparam>
+        /// <typeparam name="TUiService">interfaces services.</typeparam>
+        /// <typeparam name="TUiServiceImplementation">implement services.</typeparam>
         /// <param name="frame"></param>
         void AddSingleton<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new();
+
+        /// <summary>
+        /// Remove service <typeparamref name="TUiService"/>.
+        /// </summary>
+        /// <typeparam name="TUiService"></typeparam>
+        void Remove<TUiService>();
     }
 }

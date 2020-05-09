@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>Fix bug https://github.com/GetcuReone/MvvmFrame.Wpf/issues/1 </PackageReleaseNotes>
+    <PackageReleaseNotes>Issue https://github.com/GetcuReone/MvvmFrame.Wpf/issues/2</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
     <Copyright>Copyright © 2019 $(Authors)</Copyright>
