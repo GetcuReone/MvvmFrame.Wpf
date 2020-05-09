@@ -36,20 +36,11 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
             _uiServicesEntities.Add(uiServiceEntity);
         }
 
-        /// <summary>
-        /// Add a service that will be created every time you request
-        /// </summary>
-        /// <typeparam name="TUiService">interfaces services</typeparam>
-        /// <typeparam name="TUiServiceImplementation">implement services</typeparam>
-        /// <param name="frame"></param>
+        /// <inheritdoc/>
         public void AddTransient<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new()
             => AddUiService<TUiService, TUiServiceImplementation>(frame, isSingleton: false);
 
-        /// <summary>
-        /// Get UI service
-        /// </summary>
-        /// <typeparam name="TUiService">service type</typeparam>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public TUiService GetUiService<TUiService>()
         {
             var entity = _uiServicesEntities.FirstOrDefault(obj => obj is UiServiceEntity<TUiService>);
@@ -60,20 +51,19 @@ namespace GetcuReone.MvvmFrame.Wpf.Entities
             return ((UiServiceEntity<TUiService>)entity).GetService();
         }
 
-        /// <summary>
-        /// Is the service contains
-        /// </summary>
-        /// <typeparam name="TUiService"></typeparam>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public bool Contains<TUiService>() => _uiServicesEntities.Any(entity => entity is UiServiceEntity<TUiService>);
 
-        /// <summary>
-        /// Add a service that will be created one time you request
-        /// </summary>
-        /// <typeparam name="TUiService">interfaces services</typeparam>
-        /// <typeparam name="TUiServiceImplementation">implement services</typeparam>
-        /// <param name="frame"></param>
+        /// <inheritdoc/>
         public void AddSingleton<TUiService, TUiServiceImplementation>(Frame frame) where TUiServiceImplementation : UiServiceBase, TUiService, new()
             => AddUiService<TUiService, TUiServiceImplementation>(frame, isSingleton: true);
+
+        /// <inheritdoc/>
+        public void Remove<TUiService>()
+        {
+            var entity = GetUiService<TUiService>();
+
+            _uiServicesEntities.Remove(entity);
+        }
     }
 }
