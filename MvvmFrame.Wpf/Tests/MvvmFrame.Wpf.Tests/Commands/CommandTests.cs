@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.TestsCommon;
@@ -8,9 +9,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class CommandTests : UiTestBase<CommandViewModel>
     {
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -30,9 +32,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with finish operation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -52,9 +55,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with compansate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
@@ -88,9 +92,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -111,9 +116,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param and finish operation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -134,9 +140,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param and compansate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
