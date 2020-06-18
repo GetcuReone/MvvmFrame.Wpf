@@ -15,6 +15,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run async command.")]
         [Timeout(Timeouts.Second.Ten)]
+        [Ignore]
         public void AsyncCommand_RunCommandTestCase()
         {
             object commandComlited = null;
@@ -44,6 +45,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run async command with finish operation.")]
         [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_RunFinishOperationTestCase()
         {
             object finishComlited = false;
@@ -72,6 +74,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run async command with compansate.")]
         [Timeout(Timeouts.Second.Twenty)]
+        [Ignore]
         public void AsyncCommand_RunCompensationOperationTestCase()
         {
             object compensationComlited = false;
@@ -118,6 +121,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run async command with param.")]
         [Timeout(Timeouts.Second.Ten)]
+        [Ignore]
         public void AsyncCommand_P_RunCommandTestCase()
         {
             object commandComlited = false;
@@ -147,6 +151,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run async command with param and finsh operation.")]
         [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_P_RunFinishOperationTestCase()
         {
             object finishComlited = false;
@@ -176,6 +181,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
         [Description("Run command with param and compensate.")]
         [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_P_RunCompensationOperationTestCase()
         {
             object compensationComlited = false;

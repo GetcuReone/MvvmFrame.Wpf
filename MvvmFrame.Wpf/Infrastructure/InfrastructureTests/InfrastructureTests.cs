@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Reflection;
 using GetcuReone.GetcuTestAdapter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -34,12 +30,12 @@ namespace InfrastructureTests
         [Timeout(Timeouts.Minute.One)]
         public void NugetHaveNeedFilesTestCase()
         {
-            string nugetId = "MvvmFrame.root";
+            string nugetId = "MvvmFrameWpf";
             string libPattern = $"lib/{TargetFramework}/" + "{0}";
             var files = new string[]
             {
                 string.Format(libPattern, "MvvmFrame.Wpf.dll"),
-                string.Format(libPattern, "MvvmFrame.xml"),
+                string.Format(libPattern, "MvvmFrame.Wpf.xml"),
                 "LICENSE-2.0.txt",
                 "README.md",
             };
