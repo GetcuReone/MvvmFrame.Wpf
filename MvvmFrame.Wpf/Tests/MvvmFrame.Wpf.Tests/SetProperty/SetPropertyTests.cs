@@ -13,7 +13,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
 
         [TestMethod]
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Model), TestCategory(TC.UI)]
-        [Description("Check SetValueProperty for model")]
+        [Description("Check SetValueProperty for model.")]
         [Timeout(Timeouts.Second.Ten)]
         [Ignore]
         public void Model_SetValuePropertyTestCase()
