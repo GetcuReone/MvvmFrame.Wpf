@@ -13,7 +13,10 @@
     <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>Issue https://github.com/GetcuReone/MvvmFrame.Wpf/issues/2</PackageReleaseNotes>
+    <PackageReleaseNotes>
+        Changes:
+        - added method OnCanExecuteChanged.
+    </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
     <Copyright>Copyright © 2019 $(Authors)</Copyright>

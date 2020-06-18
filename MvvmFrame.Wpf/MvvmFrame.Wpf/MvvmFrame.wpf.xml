@@ -150,73 +150,65 @@
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.Command">
             <summary>
-            Command
+            Command.
             </summary>
         </member>
         <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecuteChanged">
-            <summary>
-            Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs},System.Func{System.Boolean})">
             <summary>
-            Constructor
+            Constructor.
             </summary>
             <param name="execute"></param>
             <param name="canExecute"></param>
         </member>
-        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecute(System.Object)">
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.OnCanExecuteChanged">
             <summary>
-            Defines the method that determines whether the command can execute in its current state
+            Handler <see cref="E:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecuteChanged"/>.
             </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.CanExecute(System.Object)">
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.Execute(System.Object)">
-            <summary>
-            Defines the method to be called when the command is invoked
-            </summary>
-            <param name="parameter"></param>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command.Cancel">
             <summary>
-            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>
+            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>.
             </summary>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.Command`1">
             <summary>
-            Command
+            Command.
             </summary>
             <typeparam name="TParameter"></typeparam>
         </member>
         <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecuteChanged">
-            <summary>
-            Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs{`0}},System.Func{`0,System.Boolean})">
             <summary>
-            Constructor
+            Constructor.
             </summary>
             <param name="execute"></param>
             <param name="canExecute"></param>
         </member>
-        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecute(System.Object)">
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.OnCanExecuteChanged">
             <summary>
-            Defines the method that determines whether the command can execute in its current state
+            Handler <see cref="E:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecuteChanged"/>.
             </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.CanExecute(System.Object)">
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.Execute(System.Object)">
-            <summary>
-            Defines the method to be called when the command is invoked
-            </summary>
-            <param name="parameter"></param>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.Command`1.Cancel">
             <summary>
-            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>
+            Cancel command. Upon completion of the command, start compensation processes <see cref="M:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs.Compensate"/>.
             </summary>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs">
