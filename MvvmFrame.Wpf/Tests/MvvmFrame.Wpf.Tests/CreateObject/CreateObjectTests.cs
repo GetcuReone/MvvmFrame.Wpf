@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.Tests.CreateObject.Env;
@@ -13,8 +14,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region CreateViewModel
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel)]
+        [Description("Create view-model.")]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[view-model] create view-model")]
         public void ViewModel_CreateViewModelTestCase()
         {
             GivenEmpty()
@@ -24,7 +26,8 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         }
 
         [TestMethod]
-        [Description("[negative][view-model] create view-model view-model without frame")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel)]
+        [Description("Create view-model view-model without frame.")]
         [Timeout(Timeouts.Second.Two)]
         public void ViewModel_CreateViewModelWithoutFrameTestCase()
         {
@@ -40,8 +43,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region GetViewModel
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[view-model] get view-model")]
+        [Description("Get view-model.")]
         public void ViewModel_GetViewModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -59,8 +63,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         }
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get view-model some type.")]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[view-model] get view-model some type")]
         public void ViewModel_GetViewModelSomeTypeTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -86,8 +91,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region GetModel
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model from view-model.")]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[view-model] get model")]
         public void ViewModel_GetModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -105,8 +111,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         }
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model.")]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[model] get model")]
         public void Model_GetModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -131,8 +138,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         }
 
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model some type.")]
         [Timeout(Timeouts.Second.Five)]
-        [Description("[model] get model some type")]
         public void Model_GetModelSameTypeTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -159,7 +167,8 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region BindModel
 
         [TestMethod]
-        [Description("[view-model] check method BindModel")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Check method BindModel")]
         [Timeout(Timeouts.Second.Five)]
         public void ViewModel_BindModelTestCase()
         {
