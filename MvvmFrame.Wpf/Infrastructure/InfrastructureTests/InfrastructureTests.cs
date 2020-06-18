@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace InfrastructureTests
 {
     [TestClass]
-    public sealed class InfrastructureTests : InfrastructureTestBase
+    public class InfrastructureTests : InfrastructureTestBase
     {
         private DirectoryInfo _solutionFolder;
         private string _projectName;
