@@ -11,7 +11,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
         #region SetValueProperty 
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Ten)]
+        [Timeout(Timeouts.Second.Ten)]
         [Description("[ui][model] check SetValueProperty for model")]
         public void Model_SetValuePropertyTestCase()
         {
@@ -28,11 +28,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                 {
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                 })
-                .RunWindow(Timeuots.Second.Ten);
+                .RunWindow(Timeouts.Second.Ten);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check SetValueProperty for view-model")]
         public void ViewModel_SetValuePropertyTestCase()
         {
@@ -49,7 +49,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                 {
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion
@@ -57,7 +57,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
         #region OnVerification method
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check method OnVerification for model")]
         public void Model_OnVerificationTestCase()
         {
@@ -75,11 +75,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check method OnVerification for model with disable option")]
         public void Model_OnVerificationDisableTestCase()
         {
@@ -99,11 +99,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(0, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' not should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check method OnVerification for model with error")]
         public void Model_OnVerificationErrorTestCase()
         {
@@ -126,11 +126,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     MvvmFrameErrorDetail detail = model.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check method OnVerification for view-model")]
         public void ViewModel_OnVerificationTestCase()
         {
@@ -148,11 +148,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyViewModel.OnVerification)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check method OnVerification for view-model with disable option")]
         public void ViewModel_OnVerificationDisableTestCase()
         {
@@ -172,11 +172,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(0, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyViewModel.OnVerification)}' not should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check method OnVerification for view-model with error")]
         public void ViewModel_OnVerificationErrorTestCase()
         {
@@ -199,7 +199,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     MvvmFrameErrorDetail detail = viewModel.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion
@@ -207,7 +207,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
         #region VerifyPropertyChange event
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check event VerifyPropertyChange for model")]
         public void Model_VerifyPropertyChangeTestCase()
         {
@@ -232,11 +232,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check event VerifyPropertyChange for model with disable option")]
         public void Model_VerifyPropertyChangeDisableTestCase()
         {
@@ -263,11 +263,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(0, eventCallCounter, $"method '{nameof(SetPropertyModel.VerifyPropertyChange)}' not should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check event VerifyPropertyChange for model with error")]
         public void Model_VerifyPropertyChangeErrorTestCase()
         {
@@ -295,11 +295,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     MvvmFrameErrorDetail detail = model.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check event VerifyPropertyChange for view-model")]
         public void ViewModel_VerifyPropertyChangeTestCase()
         {
@@ -324,11 +324,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, eventCallCounter, $"event '{nameof(SetPropertyViewModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check event VerifyPropertyChange for view-model with disable option")]
         public void ViewModel_VerifyPropertyChangeDisableTestCase()
         {
@@ -355,11 +355,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, viewModel.TextTest, "texts must match");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyViewModel.VerifyPropertyChange)}' not should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check event VerifyPropertyChange for view-model with error")]
         public void ViewModel_VerifyPropertyChangeErrorTestCase()
         {
@@ -387,7 +387,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     MvvmFrameErrorDetail detail = viewModel.Details[0];
                     Assert.AreEqual("InvalidData", detail.Code, "the error code must be different");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion
@@ -395,7 +395,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
         #region OnPropertyChanged
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check OnPropertyChanged for model")]
         public void Model_OnPropertyChangedTestCase()
         {
@@ -413,11 +413,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, model.TextTest, "texts must match");
                     Assert.AreEqual(1, model.OnPropertyChangedCallCounter, $"method '{nameof(SetPropertyModel.OnPropertyChanged)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check OnPropertyChanged for model with enabled option")]
         public void Model_OnPropertyChangedEnabledTestCase()
         {
@@ -441,11 +441,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(0, model.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][view-model] check OnPropertyChanged for view-model")]
         public void ViewModel_OnPropertyChangedTestCase()
         {
@@ -463,11 +463,11 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(text, vewModel.TextTest, "texts must match");
                     Assert.AreEqual(1, vewModel.OnPropertyChangedCallCounter, $"method '{nameof(SetPropertyModel.OnPropertyChanged)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
+        [Timeout(Timeouts.Second.Five)]
         [Description("[ui][model] check OnPropertyChanged for model with enabled option")]
         public void ViewModel_OnPropertyChangedEnabledTestCase()
         {
@@ -491,7 +491,7 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
                     Assert.AreEqual(0, viewModel.OnVerificationCallCounter, $"method '{nameof(SetPropertyModel.OnVerification)}' should be called");
                     Assert.AreEqual(0, eventCallCounter, $"event '{nameof(SetPropertyModel.VerifyPropertyChange)}' should be called");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion

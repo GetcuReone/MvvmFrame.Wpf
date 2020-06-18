@@ -7,7 +7,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class FirstCanAsyncCommandTests
     {
-        [Timeout(Timeuots.Millisecond.Twenty)]
+        [Timeout(Timeouts.Millisecond.Twenty)]
         [TestMethod]
         [Description("[command] check 'can' for FirstCanAsyncCommand")]
         public void FirstCanAsyncCommand_CheckCanTestCase()
@@ -20,7 +20,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
             Assert.IsFalse(asyncCommand.CanExecute(null), "second can must be false");
         }
 
-        [Timeout(Timeuots.Millisecond.Twenty)]
+        [Timeout(Timeouts.Millisecond.Twenty)]
         [TestMethod]
         [Description("[command] check 'can' for FirstCanCommand with param")]
         public void FirstCanAsyncCommand_P_CheckCanTestCase()

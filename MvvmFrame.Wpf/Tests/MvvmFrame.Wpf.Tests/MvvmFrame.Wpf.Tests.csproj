@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="GetcuReone.GetcuTestAdapter" Version="[1.1.0,)" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
   </ItemGroup>
 

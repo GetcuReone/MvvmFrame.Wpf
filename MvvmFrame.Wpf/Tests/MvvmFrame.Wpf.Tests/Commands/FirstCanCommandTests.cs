@@ -8,7 +8,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class FirstCanCommandTests
     {
-        [Timeout(Timeuots.Millisecond.Twenty)]
+        [Timeout(Timeouts.Millisecond.Twenty)]
         [TestMethod]
         [Description("[command] check 'can' for FirstCanCommand")]
         public void FirstCanCommand_CheckCanTestCase()
@@ -26,7 +26,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
             Assert.AreEqual(1, list.Count, "collection must have 1 element");
         }
 
-        [Timeout(Timeuots.Millisecond.Twenty)]
+        [Timeout(Timeouts.Millisecond.Twenty)]
         [TestMethod]
         [Description("[command] check 'can' for FirstCanCommand with param")]
         public void FirstCanCommand_P_CheckCanTestCase()
