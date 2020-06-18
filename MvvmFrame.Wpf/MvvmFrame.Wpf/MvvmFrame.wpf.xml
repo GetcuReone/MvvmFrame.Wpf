@@ -6,58 +6,53 @@
     <members>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand">
             <summary>
-            Async Command
+            Async Command.
             </summary>
             <remarks>
             Thanks https://johnthiriet.com/mvvm-going-async-with-async-command/#
             </remarks>
         </member>
         <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecuteChanged">
-            <summary>
-            Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs,System.Threading.Tasks.ValueTask},System.Func{System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
             <summary>
-            Constructor
+            Constructor.
             </summary>
             <param name="execute"></param>
             <param name="canExecute"></param>
             <param name="errorHandler"></param>
         </member>
-        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecute(System.Object)">
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.OnCanExecuteChanged">
             <summary>
-            Defines the method that determines whether the command can execute in its current state
+            Handler <see cref="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecuteChanged"/>.
             </summary>
-            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.CanExecute(System.Object)">
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.Execute(System.Object)">
-            <summary>
-            Execute
-            </summary>
-            <param name="parameter"></param>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.ExecuteAsync">
             <summary>
-            Async execute
+            Async execute.
             </summary>
             <returns></returns>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand.RaiseCanExecuteChanged">
             <summary>
-            A raise can execute a modified
+            A raise can execute a modified.
             </summary>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1">
             <summary>
-            Async Command
+            Async Command.
             </summary>
             <typeparam name="TParametr"></typeparam>
         </member>
         <member name="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecuteChanged">
-            <summary>
-            Occurs when changes occur that affect whether or not the command should execute.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs{`0},System.Threading.Tasks.ValueTask},System.Func{`0,System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
             <summary>
@@ -67,27 +62,26 @@
             <param name="canExecute"></param>
             <param name="errorHandler"></param>
         </member>
-        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecute(System.Object)">
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.OnCanExecuteChanged">
             <summary>
-            Defines the method that determines whether the command can execute in its current state
+            Handler <see cref="E:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecuteChanged"/>.
             </summary>
-            <returns></returns>
+        </member>
+        <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.CanExecute(System.Object)">
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.Execute(System.Object)">
-            <summary>
-            Execute
-            </summary>
-            <param name="parameter"></param>
+            <inheritdoc/>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.ExecuteAsync(`0)">
             <summary>
-            Async execute
+            Async execute.
             </summary>
             <returns></returns>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommand`1.RaiseCanExecuteChanged">
             <summary>
-            A raise can execute a modified
+            A raise can execute a modified.
             </summary>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs">
@@ -271,7 +265,7 @@
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand">
             <summary>
-            on first access, the command will allow execution
+            On first access, the command will allow execution.
             </summary>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand.#ctor(System.Func{GetcuReone.MvvmFrame.Wpf.Commands.AsyncCommandArgs,System.Threading.Tasks.ValueTask},System.Func{System.Boolean},GetcuReone.MvvmFrame.Interfaces.IErrorHandler)">
@@ -283,11 +277,7 @@
             <param name="errorHandler"></param>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand.CanExecute(System.Object)">
-            <summary>
-            Defines the method that determines whether the command can execute in its current state
-            </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand`1">
             <summary>
@@ -303,15 +293,11 @@
             <param name="errorHandler"></param>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanAsyncCommand`1.CanExecute(System.Object)">
-            <summary>
-            Defines the method that determines whether the command can execute in its current state
-            </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand">
             <summary>
-            on first access, the command will allow execution
+            On first access, the command will allow execution.
             </summary>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand.#ctor(System.Action{GetcuReone.MvvmFrame.Wpf.Commands.CommandArgs},System.Func{System.Boolean})">
@@ -322,15 +308,11 @@
             <param name="canExecute"></param>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand.CanExecute(System.Object)">
-            <summary>
-            Defines the method that determines whether the command can execute in its current state
-            </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand`1">
             <summary>
-            on first access, the command will allow execution
+            On first access, the command will allow execution.
             </summary>
             <typeparam name="TParameter"></typeparam>
         </member>
@@ -342,11 +324,7 @@
             <param name="canExecute"></param>
         </member>
         <member name="M:GetcuReone.MvvmFrame.Wpf.Commands.FirstCanCommand`1.CanExecute(System.Object)">
-            <summary>
-            Defines the method that determines whether the command can execute in its current state
-            </summary>
-            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-            <returns></returns>
+            <inheritdoc/>
         </member>
         <member name="T:GetcuReone.MvvmFrame.Wpf.Entities.ConfigUiServices">
             <summary>

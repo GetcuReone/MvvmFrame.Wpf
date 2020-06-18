@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmFrame.Wpf.TestAdapter",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmFrame.Wpf.TestsCommon", "Tests\MvvmFrame.Wpf.TestsCommon\MvvmFrame.Wpf.TestsCommon.csproj", "{85663E4B-E143-429A-88EC-0EB30B9336CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmFrame.Wpf.Tests", "Tests\MvvmFrame.Wpf.Tests\MvvmFrame.Wpf.Tests.csproj", "{EA1C60E0-A16C-4866-9F21-193E651AC7E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmFrame.WpfTests", "Tests\MvvmFrame.Wpf.Tests\MvvmFrame.WpfTests.csproj", "{EA1C60E0-A16C-4866-9F21-193E651AC7E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

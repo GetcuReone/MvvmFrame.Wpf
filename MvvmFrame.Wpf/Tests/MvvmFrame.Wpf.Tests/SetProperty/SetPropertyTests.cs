@@ -15,7 +15,6 @@ namespace MvvmFrame.Wpf.Tests.SetProperty
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Model), TestCategory(TC.UI)]
         [Description("Check SetValueProperty for model")]
         [Timeout(Timeouts.Second.Ten)]
-        [Ignore]
         public void Model_SetValuePropertyTestCase()
         {
             string text = "Is model text";
