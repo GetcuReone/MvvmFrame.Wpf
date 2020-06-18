@@ -8,5 +8,6 @@
         public const string Command = "command_test";
         public const string UI = "ui_test";
         public const string Async = "async_test";
+        public const string Navigation = "navigation_test";
     }
 }

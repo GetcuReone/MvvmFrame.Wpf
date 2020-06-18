@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Interfaces;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Interfaces;
 using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -32,9 +33,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
             return WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>((TViewModel)navigateResult.HasSuccessAndGetViewModel());
         }
 
-        [Timeout(Timeouts.Second.Ten)]
-        [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method ViewModelBase.Navigate.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void NavigationStaticTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -62,9 +64,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method ViewModelBase.Navigate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void NavigationTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -97,9 +100,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][navigation] navigate next page")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Navigate next page.")]
+        [Timeout(Timeouts.Second.Five)]
         public void LeaveTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -157,9 +161,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Ten)]
-        [Description("[ui][navigation] check method GoBack")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method GoBack.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void GoBackTestCase()
         {
             NavigationViewModel navigationViewModel = null;
@@ -197,9 +202,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeouts.Second.Ten)]
-        [Description("[ui][navigation] check method GoForward")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method GoForward.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void GoForwardTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -242,9 +248,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeouts.Second.Ten)]
-        [Description("[ui][navigation] check method Refresh")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method Refresh.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void RefreshTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -277,9 +284,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][navigation] check method WaitNavigation")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method WaitNavigation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void WaitNavigationAsyncTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -293,9 +301,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                 .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeouts.Second.Ten)]
-        [Description("[ui][navigation] check method WaitNavigation")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method WaitNavigation")]
+        [Timeout(Timeouts.Second.Ten)]
         public void WaitLeaveViewModelAsyncTestCase()
         {
             NavigationViewModel navigationViewModel = null;
@@ -333,9 +342,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
 
         #region Initialize
 
-        [Timeout(Timeouts.Second.Five)]
-        [Description("[ui][navigation][view-model] check method Initialize")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation), TestCategory(TC.ViewModel)]
+        [Description("Check method Initialize.")]
+        [Timeout(Timeouts.Second.Five)]
         public void ViewModel_InitializeTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
