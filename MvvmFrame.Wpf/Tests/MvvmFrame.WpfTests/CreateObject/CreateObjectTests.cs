@@ -46,7 +46,7 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
         [Timeout(Timeouts.Second.Five)]
         [Description("Get view-model.")]
-        public void ViewModel_GetViewModelTestCase()
+        public void CreateObjectTests_GetViewModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
 
@@ -66,7 +66,7 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
         [Description("Get view-model some type.")]
         [Timeout(Timeouts.Second.Five)]
-        public void ViewModel_GetViewModelSomeTypeTestCase()
+        public void CreateObjectTests_GetViewModelSomeTypeTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
 
