@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.Tests.UiServices.Env;
@@ -23,7 +24,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Checking the transfer of services when use GetViewModel.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_GetViewModelTestCase()
@@ -39,7 +40,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddTransient.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_ContainsTestCase()
@@ -56,7 +57,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddTransient tow services.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddTransientTowServicesTestCase()
@@ -76,7 +77,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddTransient. Add service already added previously.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddTransientNegativeTestCase()
@@ -94,7 +95,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method GetUiService. Return service does not exist.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_GetUiServiceNegativeTestCase()
@@ -110,7 +111,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddSingleton.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddSingletonTestCase()
@@ -129,7 +130,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddSingleton tow services.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddSingletonTowServicesTestCase()
@@ -147,7 +148,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddSingleton. Add service already added previously.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddSingletonNegativeTestCase()
@@ -165,7 +166,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddTransient. Add service already added previously with AddSingleton.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddSingletonAndAddTransientNegativeTestCase()
@@ -183,7 +184,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Check method AddSingleton. Add service already added previously with AddTransient.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_AddTransientAndAddSingletonNegativeTestCase()
@@ -201,7 +202,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Remove service.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_RemoveServiceTestCase()
@@ -219,7 +220,7 @@ namespace MvvmFrame.Wpf.Tests.UiServices
         }
 
         [TestMethod]
-        [TestCategory(TC.Negative), TestCategory(TC.Objects.ViewModel), TestCategory(TC.Objects.UiService)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel), TestCategory(TC.UiService)]
         [Description("Remove non-added service.")]
         [Timeout(Timeouts.Second.Two)]
         public void UiServicesTests_RemoveNonAddedServiceTestCase()
