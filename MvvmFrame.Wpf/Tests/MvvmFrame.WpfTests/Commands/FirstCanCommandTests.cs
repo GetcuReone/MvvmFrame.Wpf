@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestsCommon;
 using System.Collections.Generic;
@@ -8,9 +9,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class FirstCanCommandTests
     {
-        [Timeout(Timeuots.Millisecond.Twenty)]
         [TestMethod]
-        [Description("[command] check 'can' for FirstCanCommand")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command)]
+        [Description("[command] check 'can' for FirstCanCommand.")]
+        [Timeout(Timeouts.Millisecond.Hundred)]
         public void FirstCanCommand_CheckCanTestCase()
         {
             List<object> list = new List<object>();
@@ -26,9 +28,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
             Assert.AreEqual(1, list.Count, "collection must have 1 element");
         }
 
-        [Timeout(Timeuots.Millisecond.Twenty)]
         [TestMethod]
-        [Description("[command] check 'can' for FirstCanCommand with param")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command)]
+        [Description("Check 'can' for FirstCanCommand with param.")]
+        [Timeout(Timeouts.Millisecond.Hundred)]
         public void FirstCanCommand_P_CheckCanTestCase()
         {
             List<object> list = new List<object>();

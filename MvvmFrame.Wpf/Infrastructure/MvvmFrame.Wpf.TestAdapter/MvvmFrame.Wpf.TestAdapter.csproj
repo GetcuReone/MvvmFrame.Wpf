@@ -25,6 +25,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MvvmFrame.Wpf\MvvmFrame.Wpf.csproj" />
-    <ProjectReference Include="..\JwtTestAdapter\JwtTestAdapter.csproj" />
   </ItemGroup>
 </Project>

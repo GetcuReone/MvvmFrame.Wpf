@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Interfaces;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Interfaces;
 using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,7 +21,7 @@ namespace MvvmFrame.Wpf.TestsCommon
             NavigateResult<ViewModelBase> nResult = ViewModelBase.Navigate<TPage>(viewModel);
             Assert.IsTrue(nResult.IsNavigate, "navigate method not worked");
 
-            await Task.Delay(Timeuots.Second.One);
+            await Task.Delay(Timeouts.Second.One);
 
             TPage page = CheckTypeAndGetPage<TPage>();
             await page.WaitLoadAsync();

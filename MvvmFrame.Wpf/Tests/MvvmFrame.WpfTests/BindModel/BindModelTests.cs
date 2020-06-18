@@ -1,9 +1,10 @@
-﻿using GetcuReone.MvvmFrame.Wpf;
+﻿using System.Windows.Controls;
+using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.Tests.BindModel.Env;
 using MvvmFrame.Wpf.TestsCommon;
-using System.Windows.Controls;
 
 namespace MvvmFrame.Wpf.Tests.BindModel
 {
@@ -18,8 +19,9 @@ namespace MvvmFrame.Wpf.Tests.BindModel
         }
 
         [TestMethod]
-        [Description("[view-model] Check method bind model for view-model")]
-        [Timeout(Timeuots.Second.One)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Check method bind model for view-model.")]
+        [Timeout(Timeouts.Second.One)]
         public void ViewModel_BindModelTestCase()
         {
             ThreadHelper.RunActinInSTAThread(() =>
@@ -33,12 +35,13 @@ namespace MvvmFrame.Wpf.Tests.BindModel
                 Assert.AreEqual(ViewModel, model.GetFactory(), "view-model must be a model factory");
                 Assert.AreEqual(ViewModel.ModelOptions, model.ModelOptions, "model options must be mutch");
                 Assert.AreEqual(ViewModel.UiServices, model.UiServices, "UiServices must be mutch");
-            }, Timeuots.Second.One);
+            }, Timeouts.Second.One);
         }
 
         [TestMethod]
-        [Description("[model] Check method bind model for model")]
-        [Timeout(Timeuots.Second.One)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Model)]
+        [Description("Check method bind model for model.")]
+        [Timeout(Timeouts.Second.One)]
         public void Model_BindModelTestCase()
         {
             ThreadHelper.RunActinInSTAThread(() =>
@@ -53,7 +56,7 @@ namespace MvvmFrame.Wpf.Tests.BindModel
                 Assert.AreEqual(ViewModel, secondModel.GetFactory(), "view-model must be a model factory");
                 Assert.AreEqual(ViewModel.ModelOptions, secondModel.ModelOptions, "model options must be mutch");
                 Assert.AreEqual(ViewModel.UiServices, secondModel.UiServices, "UiServices must be mutch");
-            }, Timeuots.Second.One);
+            }, Timeouts.Second.One);
         }
     }
 }

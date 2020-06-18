@@ -4,15 +4,18 @@ using MvvmFrame.Wpf.TestsCommon;
 using System;
 using System.Threading.Tasks;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
+using GetcuReone.GetcuTestAdapter;
 
 namespace MvvmFrame.Wpf.Tests.Commands
 {
     [TestClass]
     public class AsyncCommandTests : UiTestBase<CommandViewModel>
     {
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run async command.")]
+        [Timeout(Timeouts.Second.Ten)]
+        [Ignore]
         public void AsyncCommand_RunCommandTestCase()
         {
             object commandComlited = null;
@@ -23,7 +26,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     commandComlited = false;
                     viewModel.AsyncCommand = new AsyncCommand(async _ =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
+                        await Task.Delay(Timeouts.Millisecond.Hundred);
                         commandComlited = true;
                     });
                     return viewModel;
@@ -32,15 +35,17 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommand.OnClick();
-                    await Task.Delay(Timeuots.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(commandComlited), "Command not runed"))
-                .RunWindow(Timeuots.Second.Ten);
+                .RunWindow(Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run async command with finish operation.")]
+        [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_RunFinishOperationTestCase()
         {
             object finishComlited = false;
@@ -50,7 +55,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 {
                     viewModel.AsyncCommand = new AsyncCommand(async e =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
+                        await Task.Delay(Timeouts.Millisecond.Hundred);
                         e.AddFinalOperation(() => finishComlited = true);
                     });
                     return viewModel;
@@ -59,15 +64,17 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommand.OnClick();
-                    await Task.Delay(Timeuots.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(finishComlited), "Finis operation not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Twenty)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run async command with compansate.")]
+        [Timeout(Timeouts.Second.Twenty)]
+        [Ignore]
         public void AsyncCommand_RunCompensationOperationTestCase()
         {
             object compensationComlited = false;
@@ -79,7 +86,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 {
                     viewModel.AsyncCommand = new AsyncCommand(async e =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
+                        await Task.Delay(Timeouts.Millisecond.Hundred);
                         e.AddFinalOperation(() => finishOperationCoplited = true);
                         e.AddCompensation(() =>
                         {
@@ -99,7 +106,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommand.OnClick();
-                    await Task.Delay(Timeuots.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
                 .Then("Check run command", () =>
                 {
@@ -107,12 +114,14 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     Assert.IsFalse(Convert.ToBoolean(finishCommand), "finishCommand is false");
                     Assert.IsTrue(Convert.ToBoolean(finishOperationCoplited), "Finis operation not runed");
                 })
-                .RunWindow(Timeuots.Second.Twenty);
+                .RunWindow(Timeouts.Second.Twenty);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run async command with param.")]
+        [Timeout(Timeouts.Second.Ten)]
+        [Ignore]
         public void AsyncCommand_P_RunCommandTestCase()
         {
             object commandComlited = false;
@@ -122,7 +131,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 {
                     viewModel.AsyncCommandWithParam = new AsyncCommand<CommandViewModel>(async e =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
+                        await Task.Delay(Timeouts.Millisecond.Hundred);
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
                         commandComlited = true;
                     });
@@ -132,15 +141,17 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommandParam.OnClick();
-                    await Task.Delay(Timeuots.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
                 .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(commandComlited), "Command not runed"))
-                .RunWindow(Timeuots.Second.Ten);
+                .RunWindow(Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run async command with param and finsh operation.")]
+        [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_P_RunFinishOperationTestCase()
         {
             object finishComlited = false;
@@ -150,7 +161,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 {
                     viewModel.AsyncCommandWithParam = new AsyncCommand<CommandViewModel>(async e =>
                     {
-                        await Task.Delay(Timeuots.Millisecond.Hundred);
+                        await Task.Delay(Timeouts.Millisecond.Hundred);
                         Assert.AreEqual(viewModel, e.CommandParam, "CommandParam must be view-model");
                         e.AddFinalOperation(() => finishComlited = true);
                     });
@@ -160,15 +171,17 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommandParam.OnClick();
-                    await Task.Delay(Timeuots.Second.One);
+                    await Task.Delay(Timeouts.Second.One);
                 })
                 .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(finishComlited), "Finis operation not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][async][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async), TestCategory(TC.UI)]
+        [Description("Run command with param and compensate.")]
+        [Timeout(Timeouts.Second.Five)]
+        [Ignore]
         public void AsyncCommand_P_RunCompensationOperationTestCase()
         {
             object compensationComlited = false;
@@ -200,7 +213,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommandParam.OnClick();
-                    await Task.Delay(Timeuots.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
                 .Then("Check run command", () =>
                 {
@@ -208,7 +221,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     Assert.IsFalse(Convert.ToBoolean(finishCommand), "finishCommand is false");
                     Assert.IsTrue(Convert.ToBoolean(finishOperationCoplited), "Finis operation not runed");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
-    /// Async Command
+    /// Async Command.
     /// </summary>
     /// <remarks>
     /// Thanks https://johnthiriet.com/mvvm-going-async-with-async-command/#
@@ -19,13 +19,11 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         private readonly IErrorHandler errorHandler;
         private AsyncCommandArgs currentArgs;
 
-        /// <summary>
-        /// Occurs when changes occur that affect whether or not the command should execute.
-        /// </summary>
+        /// <inheritdoc/>
         public event EventHandler CanExecuteChanged;
 
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="execute"></param>
         /// <param name="canExecute"></param>
@@ -38,22 +36,24 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         }
 
         /// <summary>
-        /// Defines the method that determines whether the command can execute in its current state
+        /// Handler <see cref="CanExecuteChanged"/>.
         /// </summary>
-        /// <returns></returns>
+        protected virtual void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new System.EventArgs());
+        }
+
+        /// <inheritdoc/>
         public virtual bool CanExecute(object parameter) => canExecute?.Invoke() ?? true;
 
-        /// <summary>
-        /// Execute
-        /// </summary>
-        /// <param name="parameter"></param>
+        /// <inheritdoc/>
         public void Execute(object parameter)
         {
             ExecuteAsync().FireAndForgetSafeAsync(errorHandler);
         }
 
         /// <summary>
-        /// Async execute
+        /// Async execute.
         /// </summary>
         /// <returns></returns>
         public virtual async ValueTask ExecuteAsync()
@@ -85,13 +85,13 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         }
 
         /// <summary>
-        /// A raise can execute a modified
+        /// A raise can execute a modified.
         /// </summary>
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, System.EventArgs.Empty);
     }
 
     /// <summary>
-    /// Async Command
+    /// Async Command.
     /// </summary>
     /// <typeparam name="TParametr"></typeparam>
     public class AsyncCommand<TParametr>: IAsyncCommand<TParametr>
@@ -101,9 +101,7 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         private readonly IErrorHandler errorHandler;
         private AsyncCommandArgs<TParametr> currentArgs;
 
-        /// <summary>
-        /// Occurs when changes occur that affect whether or not the command should execute.
-        /// </summary>
+        /// <inheritdoc/>
         public event EventHandler CanExecuteChanged;
 
         /// <summary>
@@ -120,22 +118,24 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         }
 
         /// <summary>
-        /// Defines the method that determines whether the command can execute in its current state
+        /// Handler <see cref="CanExecuteChanged"/>.
         /// </summary>
-        /// <returns></returns>
+        protected virtual void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new System.EventArgs());
+        }
+
+        /// <inheritdoc/>
         public virtual bool CanExecute(object parameter) => canExecute?.Invoke((TParametr)parameter) ?? true;
 
-        /// <summary>
-        /// Execute
-        /// </summary>
-        /// <param name="parameter"></param>
+        /// <inheritdoc/>
         public void Execute(object parameter)
         {
             ExecuteAsync((TParametr)parameter).FireAndForgetSafeAsync(errorHandler);
         }
 
         /// <summary>
-        /// Async execute
+        /// Async execute.
         /// </summary>
         /// <returns></returns>
         public virtual async ValueTask ExecuteAsync(TParametr parametr)
@@ -167,7 +167,7 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
         }
 
         /// <summary>
-        /// A raise can execute a modified
+        /// A raise can execute a modified.
         /// </summary>
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, System.EventArgs.Empty);
     }
