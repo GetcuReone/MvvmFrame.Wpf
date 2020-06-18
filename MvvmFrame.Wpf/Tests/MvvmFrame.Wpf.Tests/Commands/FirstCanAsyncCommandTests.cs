@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestsCommon;
 
@@ -7,9 +8,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class FirstCanAsyncCommandTests
     {
-        [Timeout(Timeouts.Millisecond.Twenty)]
         [TestMethod]
-        [Description("[command] check 'can' for FirstCanAsyncCommand")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async)]
+        [Description("Check 'can' for FirstCanAsyncCommand.")]
+        [Timeout(Timeouts.Millisecond.Hundred)]
         public void FirstCanAsyncCommand_CheckCanTestCase()
         {
             AsyncCommand asyncCommand = new FirstCanAsyncCommand(
@@ -20,9 +22,11 @@ namespace MvvmFrame.Wpf.Tests.Commands
             Assert.IsFalse(asyncCommand.CanExecute(null), "second can must be false");
         }
 
-        [Timeout(Timeouts.Millisecond.Twenty)]
+        
         [TestMethod]
-        [Description("[command] check 'can' for FirstCanCommand with param")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.Async)]
+        [Description("Check 'can' for FirstCanCommand with param.")]
+        [Timeout(Timeouts.Millisecond.Hundred)]
         public void FirstCanAsyncCommand_P_CheckCanTestCase()
         {
             object obj = new object();
