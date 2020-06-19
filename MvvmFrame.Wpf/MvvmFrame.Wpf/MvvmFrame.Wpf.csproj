@@ -13,25 +13,26 @@
     <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>Issue https://github.com/GetcuReone/MvvmFrame.Wpf/issues/2</PackageReleaseNotes>
+    <PackageReleaseNotes>
+        Changes:
+        - added method OnCanExecuteChanged.
+    </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
     <Copyright>Copyright © 2019 $(Authors)</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
+
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\GetcuReone.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <AssemblyVersion>$(majorVersion).0.0.0</AssemblyVersion>
     <FileVersion>$(majorVersion).0.0.0</FileVersion>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
-
+    
   <ItemGroup>
     <PackageReference Include="ComboPatterns" Version="3.0.2" />
     <PackageReference Include="MvvmFrame.root" Version="6.0.0" />
@@ -46,6 +47,10 @@
 
   <ItemGroup>
     <None Include="..\..\LICENSE-2.0.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

@@ -3,11 +3,11 @@
 namespace GetcuReone.MvvmFrame.Wpf.Commands
 {
     /// <summary>
-    /// on first access, the command will allow execution
+    /// On first access, the command will allow execution.
     /// </summary>
     public class FirstCanCommand : Command
     {
-        private bool isFirst = true;
+        private bool _isFirst = true;
 
         /// <summary>
         /// Constructor
@@ -20,16 +20,12 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
 
         }
 
-        /// <summary>
-        /// Defines the method that determines whether the command can execute in its current state
-        /// </summary>
-        /// <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public override bool CanExecute(object parameter)
         {
-            if (isFirst)
+            if (_isFirst)
             {
-                isFirst = false;
+                _isFirst = false;
                 return true;
             }
             return base.CanExecute(parameter);
@@ -37,12 +33,12 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
     }
 
     /// <summary>
-    /// on first access, the command will allow execution
+    /// On first access, the command will allow execution.
     /// </summary>
     /// <typeparam name="TParameter"></typeparam>
     public class FirstCanCommand<TParameter> : Command<TParameter>
     {
-        private bool isFirst = true;
+        private bool _isFirst = true;
 
         /// <summary>
         /// Constructor
@@ -55,16 +51,12 @@ namespace GetcuReone.MvvmFrame.Wpf.Commands
 
         }
 
-        /// <summary>
-        /// Defines the method that determines whether the command can execute in its current state
-        /// </summary>
-        /// <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public override bool CanExecute(object parameter)
         {
-            if (isFirst)
+            if (_isFirst)
             {
-                isFirst = false;
+                _isFirst = false;
                 return true;
             }
             return base.CanExecute(parameter);

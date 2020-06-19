@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter;
 using MvvmFrame.Wpf.Tests.CreateObject.Env;
@@ -13,19 +14,21 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region CreateViewModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] create view-model")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel)]
+        [Description("Create view-model.")]
+        [Timeout(Timeouts.Second.Five)]
         public void ViewModel_CreateViewModelTestCase()
         {
             GivenEmpty()
                 .When("Create view-model", frame => ViewModelBase.CreateViewModel<CreateObjectViewModel>(frame))
                 .Then("Checking view-model", viewModel => viewModel.NotNull().CheckCreateObject(2))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Description("[negative][view-model] create view-model view-model without frame")]
-        [Timeout(Timeuots.Second.Two)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(GetcuReoneTC.Negative), TestCategory(TC.ViewModel)]
+        [Description("Create view-model view-model without frame.")]
+        [Timeout(Timeouts.Second.Two)]
         public void ViewModel_CreateViewModelWithoutFrameTestCase()
         {
             var expectedException = new ArgumentNullException("frame", "frame should not be null");
@@ -40,9 +43,10 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region GetViewModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] get view-model")]
-        public void ViewModel_GetViewModelTestCase()
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Timeout(Timeouts.Second.Five)]
+        [Description("Get view-model.")]
+        public void CreateObjectTests_GetViewModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
 
@@ -55,13 +59,14 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
                     Assert.IsNotNull(secondViewModel, "second view-model can not be null");
                     TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] get view-model some type")]
-        public void ViewModel_GetViewModelSomeTypeTestCase()
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get view-model some type.")]
+        [Timeout(Timeouts.Second.Five)]
+        public void CreateObjectTests_GetViewModelSomeTypeTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
 
@@ -78,7 +83,7 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
                     Assert.AreNotEqual(firstViewModel, secondViewModel, "must be different objects");
                     TestHelper.CheckBindViewModel(firstViewModel, secondViewModel);
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion
@@ -86,8 +91,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region GetModel
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[view-model] get model")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model from view-model.")]
+        [Timeout(Timeouts.Second.Five)]
         public void ViewModel_GetModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -101,12 +107,13 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
 
                     Assert.IsNotNull(model, "model can not be null");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[model] get model")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Model_GetModelTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -127,12 +134,13 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
                     Assert.IsNotNull(secondModel, "first model can not be null");
                     Assert.AreEqual(1, firstModel.GetModelCallCounter, $"method '{nameof(ModelBase.GetModel)}' should be called 1 times");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         [TestMethod]
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[model] get model some type")]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Get model some type.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Model_GetModelSameTypeTestCase()
         {
             CreateObjectViewModel firstViewModel = null;
@@ -151,7 +159,7 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
 
                     Assert.AreNotEqual(firstModel, secondModel, "must be different objects");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion
@@ -159,8 +167,9 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
         #region BindModel
 
         [TestMethod]
-        [Description("[view-model] check method BindModel")]
-        [Timeout(Timeuots.Second.Five)]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.ViewModel)]
+        [Description("Check method BindModel")]
+        [Timeout(Timeouts.Second.Five)]
         public void ViewModel_BindModelTestCase()
         {
             CreateObjectViewModel viewModel = null;
@@ -176,7 +185,7 @@ namespace MvvmFrame.Wpf.Tests.CreateObject
                     viewModel.NotNull().CheckCreateObject(2);
                     Assert.AreEqual(viewModel.ModelOptions, result.ModelOptions, "options must match");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Interfaces;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Interfaces;
 using GetcuReone.MvvmFrame.Wpf;
 using GetcuReone.MvvmFrame.Wpf.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,7 +19,7 @@ namespace MvvmFrame.Wpf.Tests.Navigation
             where TPage : Page, IPage
             where TViewModel : ViewModelBase
         {
-            await Task.Delay(Timeuots.Second.One);
+            await Task.Delay(Timeouts.Second.One);
             var page = CheckTypeAndGetPage<TPage>();
             await page.WaitLoadAsync();
             Assert.AreEqual(viewModel, page.DataContext, "view-model must be DataContext");
@@ -32,9 +33,10 @@ namespace MvvmFrame.Wpf.Tests.Navigation
             return WaitLoadPageAndCheckViewModelAsync<TPage, TViewModel>((TViewModel)navigateResult.HasSuccessAndGetViewModel());
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method ViewModelBase.Navigate.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void NavigationStaticTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -59,12 +61,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
                     Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][navigation] check method ViewModelBase.Navigate")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method ViewModelBase.Navigate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void NavigationTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -94,12 +97,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
                     Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Five);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][navigation] navigate next page")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Navigate next page.")]
+        [Timeout(Timeouts.Second.Five)]
         public void LeaveTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -154,12 +158,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[0], "1st must be called OnGoPageAsync");
                     Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Five);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][navigation] check method GoBack")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method GoBack.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void GoBackTestCase()
         {
             NavigationViewModel navigationViewModel = null;
@@ -194,12 +199,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnGoPageAsync", viewModel.MethodCallLog[3], "1st must be called OnGoPageAsync");
                     Assert.AreEqual("OnLoadPageAsync", viewModel.MethodCallLog[4], "2st must be called OnLoadPageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][navigation] check method GoForward")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method GoForward.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void GoForwardTestCase()
         {
             NavigationViewModel firstViewModel = null;
@@ -239,12 +245,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnLoadPageAsync", firstViewModel.MethodCallLog[4], "2st must be called OnLoadPageAsync");
                     Assert.AreEqual("OnLeavePageAsync", firstViewModel.MethodCallLog[5], "3st must be called OnLeavePageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][navigation] check method Refresh")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method Refresh.")]
+        [Timeout(Timeouts.Second.Ten)]
         public void RefreshTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -274,12 +281,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual(1, viewModel.NavigationModes.Count, "There must be 2 navigation");
                     Assert.AreEqual("Refresh", viewModel.NavigationModes[0], "2st  must be page refresh navigation");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][navigation] check method WaitNavigation")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method WaitNavigation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void WaitNavigationAsyncTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -290,12 +298,13 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.IsTrue(waitResult, "did not wait for navigation");
                     CheckTypeAndGetPage<NavigationPage>();
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Five);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Ten)]
-        [Description("[ui][navigation] check method WaitNavigation")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation)]
+        [Description("Check method WaitNavigation")]
+        [Timeout(Timeouts.Second.Ten)]
         public void WaitLeaveViewModelAsyncTestCase()
         {
             NavigationViewModel navigationViewModel = null;
@@ -328,14 +337,15 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     Assert.AreEqual("OnLoadPageAsync", navigationViewModel.MethodCallLog[1], "2st must be called OnLoadPageAsync");
                     Assert.AreEqual("OnLeavePageAsync", navigationViewModel.MethodCallLog[2], "3st must be called OnLeavePageAsync");
                 })
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Ten);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Ten);
         }
 
         #region Initialize
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][navigation][view-model] check method Initialize")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.UI), TestCategory(TC.Navigation), TestCategory(TC.ViewModel)]
+        [Description("Check method Initialize.")]
+        [Timeout(Timeouts.Second.Five)]
         public void ViewModel_InitializeTestCase()
         {
             Given("Init view-model", frame => ViewModelBase.CreateViewModel<NavigationViewModel>(frame))
@@ -350,7 +360,7 @@ namespace MvvmFrame.Wpf.Tests.Navigation
                     return await WaitLoadPageAndCheckViewModelAsync<NavigationPage, NavigationViewModel>(nResult);
                 })
                 .Then("Check init method after navigate", viewModel => Assert.AreEqual(1, viewModel.InitializeCallCounter, "method must be called"))
-                .Run<TestWindow>(window => window.Frame, Timeuots.Second.Five);
+                .Run<TestWindow>(window => window.Frame, Timeouts.Second.Five);
         }
 
         #endregion

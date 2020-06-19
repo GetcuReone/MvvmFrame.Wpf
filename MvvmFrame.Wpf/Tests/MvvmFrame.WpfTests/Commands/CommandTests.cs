@@ -1,4 +1,5 @@
-﻿using GetcuReone.MvvmFrame.Wpf.Commands;
+﻿using GetcuReone.GetcuTestAdapter;
+using GetcuReone.MvvmFrame.Wpf.Commands;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvvmFrame.Wpf.TestAdapter.Helpers;
 using MvvmFrame.Wpf.TestsCommon;
@@ -8,9 +9,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
     [TestClass]
     public class CommandTests : UiTestBase<CommandViewModel>
     {
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -27,12 +29,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
                 .When("Click button", page => page.btnCommand.OnClick())
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with finish operation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -49,12 +52,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
                 .When("Click button", page => page.btnCommand.OnClick())
                 .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with compansate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
@@ -85,12 +89,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     Assert.IsFalse(finishCommand, "finishCommand is false");
                     Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -108,12 +113,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
                 .When("Click button", page => page.btnCommandParam.OnClick())
                 .Then("Check run command", () => Assert.IsTrue(commandComlited, "Command not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param and finish operation.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -131,12 +137,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .AndAsync("Navigate", viewModel => NavigateAndWaitLoadPageAsync<CommandPage, CommandViewModel>(viewModel))
                 .When("Click button", page => page.btnCommandParam.OnClick())
                 .Then("Check run command", () => Assert.IsTrue(finishComlited, "Finis operation not runed"))
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
 
-        [Timeout(Timeuots.Second.Five)]
-        [Description("[ui][command] run command")]
         [TestMethod]
+        [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
+        [Description("Run command with param and compansate.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
@@ -168,7 +175,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     Assert.IsFalse(finishCommand, "finishCommand is false");
                     Assert.IsTrue(finishOperationCoplited, "Finis operation not runed");
                 })
-                .RunWindow(Timeuots.Second.Five);
+                .RunWindow(Timeouts.Second.Five);
         }
     }
 }
