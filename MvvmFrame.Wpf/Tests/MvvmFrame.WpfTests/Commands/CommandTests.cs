@@ -13,7 +13,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command.")]
         [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -37,7 +36,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with finish operation.")]
         [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -61,7 +59,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with compansate.")]
         [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
@@ -98,8 +95,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestMethod]
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with param.")]
-        [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_P_RunCommandTestCase()
         {
             bool commandComlited = false;
@@ -124,7 +119,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with param and finish operation.")]
         [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_P_RunFinishOperationTestCase()
         {
             bool finishComlited = false;
@@ -149,7 +143,6 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with param and compansate.")]
         [Timeout(Timeouts.Second.Five)]
-        [Ignore]
         public void Command_P_RunCompensationOperationTestCase()
         {
             bool compensationComlited = false;
