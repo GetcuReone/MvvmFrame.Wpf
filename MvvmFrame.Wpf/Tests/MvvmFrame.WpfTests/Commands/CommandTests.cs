@@ -95,6 +95,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [TestMethod]
         [TestCategory(GetcuReoneTC.Unit), TestCategory(TC.Command), TestCategory(TC.UI)]
         [Description("Run command with param.")]
+        [Timeout(Timeouts.Second.Five)]
         public void Command_P_RunCommandTestCase()
         {
             bool commandComlited = false;

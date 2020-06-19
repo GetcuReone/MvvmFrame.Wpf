@@ -47,7 +47,6 @@ namespace InfrastructureTests
         [TestCategory(GetcuReoneTC.Infra)]
         [Description("Check for all attribute Timeout tests.")]
         [Timeout(Timeouts.Minute.One)]
-        [Ignore("The reason for the test fall is revealed")]
         public void AllHaveTimeoutTestCase()
         {
             CheckAllTestsContainTimeoutsInFolder(_solutionFolder);
