@@ -46,7 +46,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [Timeout(Timeouts.Second.Five)]
         public void AsyncCommand_RunFinishOperationTestCase()
         {
-            object finishComlited = false;
+            object finishComlited = null;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -54,7 +54,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     viewModel.AsyncCommand = new AsyncCommand(async e =>
                     {
                         await Task.Delay(Timeouts.Millisecond.Hundred);
-                        e.AddFinalOperation(() => finishComlited = true);
+                        e.AddFinalOperation(() => finishComlited = new object());
                     });
                     return viewModel;
                 })
@@ -64,7 +64,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     page.btnAsyncCommand.OnClick();
                     await Task.Delay(Timeouts.Millisecond.Hundred);
                 })
-                .Then("Check run command", () => Assert.IsTrue(Convert.ToBoolean(finishComlited), "Finis operation not runed"))
+                .Then("Check run command", () => Assert.IsNotNull(finishComlited, "Finis operation not runed"))
                 .RunWindow(Timeouts.Second.Five);
         }
 
