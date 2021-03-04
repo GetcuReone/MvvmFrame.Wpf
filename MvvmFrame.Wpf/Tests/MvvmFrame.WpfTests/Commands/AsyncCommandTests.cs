@@ -62,7 +62,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommand.OnClick();
-                    await Task.Delay(Timeouts.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Second.One);
                 })
                 .Then("Check run command", () => Assert.IsNotNull(finishComlited, "Finis operation not runed"))
                 .RunWindow(Timeouts.Second.Five);
