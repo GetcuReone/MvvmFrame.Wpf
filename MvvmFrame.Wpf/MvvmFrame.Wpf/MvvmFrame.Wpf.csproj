@@ -37,7 +37,7 @@
 
     <ItemGroup>
         <PackageReference Include="ComboPatterns" Version="[3.3.0,)" />
-        <PackageReference Include="MvvmFrame.root" Version="[6.0.0,)" />
+        <PackageReference Include="MvvmFrame.root" Version="[6.0.2,)" />
         <PackageReference Include="PresentationFramework" Version="[4.6.0,)" />
         <PackageReference Include="System.Threading.Tasks.Extensions" Version="[4.5.3,)" />
     </ItemGroup>
