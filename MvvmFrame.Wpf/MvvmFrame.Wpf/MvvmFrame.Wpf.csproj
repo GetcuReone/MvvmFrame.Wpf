@@ -1,58 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
-    <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
+        <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
 
-    <Authors>Itua Juel-Gaben</Authors>
-    <PackageId>MvvmFrameWpf</PackageId>
-    <Product>MvvmFrameWpf</Product>
-    <Description>Pattern implementation MVVM with Frame for WPF</Description>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
-    <PackageReleaseNotes>
-        Changes:
-        - added method OnCanExecuteChanged.
-    </PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
-    <Copyright>Copyright © 2019 $(Authors)</Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
+        <Authors>Itua Juel-Gaben</Authors>
+        <PackageId>MvvmFrameWpf</PackageId>
+        <Product>MvvmFrameWpf</Product>
+        <Description>Pattern implementation MVVM with Frame for WPF</Description>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/GetcuReone/MvvmFrame.Wpf.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
+        <PackageReleaseNotes>
+            Changes:
+            - added method OnCanExecuteChanged
+            - fix assembly version
+            - fix bugs
+        </PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
+        <Copyright>Copyright © 2019 $(Authors)</Copyright>
+        <NeutralLanguage>en-US</NeutralLanguage>
 
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
-    <DelaySign>false</DelaySign>
-    <AssemblyVersion>$(majorVersion).0.0.0</AssemblyVersion>
-    <FileVersion>$(majorVersion).0.0.0</FileVersion>
-  </PropertyGroup>
-    
-  <ItemGroup>
-    <PackageReference Include="ComboPatterns" Version="3.0.2" />
-    <PackageReference Include="MvvmFrame.root" Version="6.0.0" />
-    <PackageReference Include="PresentationFramework" Version="4.6.0" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
-  </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
+        <DelaySign>false</DelaySign>
+        <AssemblyVersion>$(majorVersion).$(minorVersion).0.0</AssemblyVersion>
+        <FileVersion>$(majorVersion).$(minorVersion).0.0</FileVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="System.Xaml" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="ComboPatterns" Version="[3.3.0,)" />
+        <PackageReference Include="MvvmFrame.root" Version="[6.0.2,)" />
+        <PackageReference Include="PresentationFramework" Version="[4.6.0,)" />
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="[4.5.3,)" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\..\LICENSE-2.0.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <Reference Include="PresentationCore" />
+        <Reference Include="System.Xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE-2.0.txt">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 </Project>
