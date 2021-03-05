@@ -31,13 +31,13 @@
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
         <DelaySign>false</DelaySign>
-        <AssemblyVersion>$(majorVersion).$(minorVersion).0.0</AssemblyVersion>
-        <FileVersion>$(majorVersion).$(minorVersion).0.0</FileVersion>
+        <AssemblyVersion>$(majorVersion).0.0.0</AssemblyVersion>
+        <FileVersion>$(majorVersion).0.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="ComboPatterns" Version="[3.3.0,)" />
-        <PackageReference Include="MvvmFrame.root" Version="[6.0.2,)" />
+        <PackageReference Include="MvvmFrame.root" Version="[6.0.3,)" />
         <PackageReference Include="PresentationFramework" Version="[4.6.0,)" />
         <PackageReference Include="System.Threading.Tasks.Extensions" Version="[4.5.3,)" />
     </ItemGroup>
