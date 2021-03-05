@@ -74,9 +74,9 @@ namespace MvvmFrame.Wpf.Tests.Commands
         [Timeout(Timeouts.Second.Twenty)]
         public void AsyncCommand_RunCompensationOperationTestCase()
         {
-            object compensationComlited = false;
-            object finishCommand = false;
-            object finishOperationCoplited = false;
+            object compensationComlited = null;
+            object finishCommand = null;
+            object finishOperationCoplited = null;
 
             GivenInitViewModel()
                 .And("Init command", viewModel =>
@@ -84,10 +84,10 @@ namespace MvvmFrame.Wpf.Tests.Commands
                     viewModel.AsyncCommand = new AsyncCommand(async e =>
                     {
                         await Task.Delay(Timeouts.Millisecond.Hundred);
-                        e.AddFinalOperation(() => finishOperationCoplited = true);
+                        e.AddFinalOperation(() => finishOperationCoplited = new object());
                         e.AddCompensation(() =>
                         {
-                            compensationComlited = true;
+                            compensationComlited = new object();
                             return default;
                         });
                         e.Cancel();
@@ -95,7 +95,7 @@ namespace MvvmFrame.Wpf.Tests.Commands
                         if (e.IsCancel)
                             return;
 
-                        finishCommand = true;
+                        finishCommand = new object();
                     });
                     return viewModel;
                 })
@@ -103,13 +103,13 @@ namespace MvvmFrame.Wpf.Tests.Commands
                 .WhenAsync("Click button", async page =>
                 {
                     page.btnAsyncCommand.OnClick();
-                    await Task.Delay(Timeouts.Millisecond.Hundred);
+                    await Task.Delay(Timeouts.Second.One);
                 })
                 .Then("Check run command", () =>
                 {
-                    Assert.IsTrue(Convert.ToBoolean(compensationComlited), $"compensation operation not runed. Value: {compensationComlited}");
-                    Assert.IsFalse(Convert.ToBoolean(finishCommand), "finishCommand is false");
-                    Assert.IsTrue(Convert.ToBoolean(finishOperationCoplited), "Finis operation not runed");
+                    Assert.IsNotNull(compensationComlited, $"compensation operation not runed. Value: null");
+                    Assert.IsNull(finishCommand, "finishCommand is false");
+                    Assert.IsNotNull(finishOperationCoplited, "Finis operation not runed");
                 })
                 .RunWindow(Timeouts.Second.Twenty);
         }
