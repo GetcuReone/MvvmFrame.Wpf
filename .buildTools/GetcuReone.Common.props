@@ -18,10 +18,6 @@
         <FileVersion>$(majorVersion).$(minorVersion).$(patchVersion).0</FileVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
-        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    </PropertyGroup>
-
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
