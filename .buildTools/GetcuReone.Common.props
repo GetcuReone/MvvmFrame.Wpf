@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+
+    <PropertyGroup>
+        <Authors>Itua Juel-Gaben</Authors>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <RootNamespace>GetcuReone.$(MSBuildProjectName)</RootNamespace>
+        <AssemblyName>GetcuReone.$(MSBuildProjectName)</AssemblyName>
+        <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame</PackageProjectUrl>
+
+        <MajorVersion>$([MSBuild]::ValueOrDefault('$(majorVersion)', '7'))</MajorVersion>
+        <MinorVersion>$([MSBuild]::ValueOrDefault('$(minorVersion)', '0'))</MinorVersion>
+        <PatchVersion>$([MSBuild]::ValueOrDefault('$(patchVersion)', '0'))</PatchVersion>
+        <PackageVersion>$(majorVersion).$(minorVersion).$(patchVersion)</PackageVersion>
+        <SnkFilePath>$([MSBuild]::ValueOrDefault('$(snkFilePath)', '..\..\..\..\..\GetcuReone.snk'))</SnkFilePath>
+
+        <AssemblyVersion>7.0.0.0</AssemblyVersion>
+        <FileVersion>$(majorVersion).$(minorVersion).$(patchVersion).0</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
+        <DelaySign>false</DelaySign>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="[5.0.3,)">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+</Project>
