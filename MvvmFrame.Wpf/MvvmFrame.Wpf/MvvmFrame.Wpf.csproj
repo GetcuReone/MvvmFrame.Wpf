@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\.buildTools\GetcuReone.Lib.props" />
+
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
-        <DocumentationFile>MvvmFrame.Wpf.xml</DocumentationFile>
-        <RootNamespace>GetcuReone.MvvmFrame.Wpf</RootNamespace>
 
-        <Authors>Itua Juel-Gaben</Authors>
         <PackageId>MvvmFrameWpf</PackageId>
         <Product>MvvmFrameWpf</Product>
         <Description>Pattern implementation MVVM with Frame for WPF</Description>
@@ -15,29 +15,18 @@
         <PackageTags>wpf frame mvvm mvvmframe getcureone combopatterns</PackageTags>
         <PackageReleaseNotes>
             Changes:
-            - added method OnCanExecuteChanged
-            - fix assembly version
-            - fix bugs
+            - changed assembly name
         </PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageProjectUrl>https://github.com/GetcuReone/MvvmFrame.Wpf/wiki</PackageProjectUrl>
         <Copyright>Copyright © 2019 $(Authors)</Copyright>
-        <NeutralLanguage>en-US</NeutralLanguage>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>$(snkFilePath)</AssemblyOriginatorKeyFile>
-        <DelaySign>false</DelaySign>
-        <AssemblyVersion>$(majorVersion).0.0.0</AssemblyVersion>
-        <FileVersion>$(majorVersion).0.0.0</FileVersion>
-    </PropertyGroup>
-
     <ItemGroup>
-        <PackageReference Include="ComboPatterns" Version="[3.3.1,)" />
-        <PackageReference Include="MvvmFrame.root" Version="[6.0.3,)" />
+        <PackageReference Include="ComboPatterns" Version="[4.0.0,)" />
+        <PackageReference Include="MvvmFrame.root" Version="[7.0.0,)" />
         <PackageReference Include="PresentationFramework" Version="[4.6.0,)" />
         <PackageReference Include="System.Threading.Tasks.Extensions" Version="[4.5.3,)" />
     </ItemGroup>
